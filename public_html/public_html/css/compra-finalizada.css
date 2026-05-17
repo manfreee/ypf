@@ -1,0 +1,83 @@
+main{
+    height: 100vh;
+}
+.contenedor-compra-finalizada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 2rem;
+}
+
+.tarjeta-confirmacion {
+    background-color: var(--blanco);
+    border: 1px solid var(--negro-700);
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.tarjeta-confirmacion h2 {
+    color: var(--primario-50);
+    margin: 0;
+}
+
+.texto-confirmacion {
+    color: var(--negro-600);
+    line-height: 1.6;
+    max-width: 450px;
+}
+
+.contenedor-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 1rem auto;
+    align-items: center;
+}
+
+.contenedor-botones .btn {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.contenedor-botones .btn:hover {
+    transform: scale(1.02);
+}
+
+.contenedor-botones .btn-primario {
+    background-color: var(--primario);
+    border: none;
+}
+
+.contenedor-botones .btn-secundario {
+    background-color: transparent;
+    border: 1px solid var(--negro-700);
+}
+
+.contenedor-botones .btn-secundario p {
+    color: var(--negro);
+}
+
+@media (max-width: 600px) {
+    .tarjeta-confirmacion {
+        padding: 2rem 1.5rem;
+    }
+    
+}

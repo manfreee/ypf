@@ -1,0 +1,17 @@
+ body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #contador {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        canvas {
+            width: 100%;
+            max-width: 1600px;
+            height: 850px !important; /* altura reducida */
+            margin: 0 auto;
+        }
