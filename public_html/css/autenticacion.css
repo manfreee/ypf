@@ -1,74 +1,80 @@
-main {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(84.81% 75.76% at 76.04% 50.07%, #1484EC 12.98%, #0F47A5 56.25%), #FFF;
-}
+/*
+ * Proposito: estilos de formularios y pantallas de autenticacion.
+ * Archivos que edita: public/public/iniciar-sesion.php,
+ * public/public/registrarse.php, public/usuarios/configuracion.php y
+ * public/usuarios/perfil-usuario.php.
+ */
+main { /* Inicia los estilos del selector 'main'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    background: radial-gradient(84.81% 75.76% at 76.04% 50.07%, #1484EC 12.98%, #0F47A5 56.25%), #FFF; /* Define la propiedad CSS 'background' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-principal {
+.contenedor-principal { /* Inicia los estilos del selector '.contenedor-principal'. */
 
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100vh; /* Define la propiedad CSS 'height' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
 
-    gap: 1rem;
-}
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-letras {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: -1rem;
-    width: 80%;
-    margin: 0 auto;
-    z-index: 100;
-}
+.contenedor-letras { /* Inicia los estilos del selector '.contenedor-letras'. */
+    position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: -1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    width: 80%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    margin: 0 auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+    z-index: 100; /* Define la propiedad CSS 'z-index' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.fila {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+.fila { /* Inicia los estilos del selector '.fila'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.texto {
-    color: var(--blanco-100);
-    font-size: clamp(6rem, 8vw, 10rem);
-    font-family: 'Ethnocentric';
-    letter-spacing: 0.75rem;
-    user-select: none;
-}
+.texto { /* Inicia los estilos del selector '.texto'. */
+    color: var(--blanco-100); /* Define la propiedad CSS 'color' con el valor indicado. */
+    font-size: clamp(6rem, 8vw, 10rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+    font-family: 'Ethnocentric'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+    letter-spacing: 0.75rem; /* Define la propiedad CSS 'letter-spacing' con el valor indicado. */
+    user-select: none; /* Define la propiedad CSS 'user-select' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.linea {
-    width: clamp(100px, 20vw, 250px);
-    height: 8px;
-    border-radius: 10px;
-    background-color: var(--blanco-100);
-}
+.linea { /* Inicia los estilos del selector '.linea'. */
+    width: clamp(100px, 20vw, 250px); /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 8px; /* Define la propiedad CSS 'height' con el valor indicado. */
+    border-radius: 10px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    background-color: var(--blanco-100); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.circulo {
-    position: absolute;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    z-index: 1;
+.circulo { /* Inicia los estilos del selector '.circulo'. */
+    position: absolute; /* Define la propiedad CSS 'position' con el valor indicado. */
+    aspect-ratio: 1 / 1; /* Define la propiedad CSS 'aspect-ratio' con el valor indicado. */
+    border-radius: 50%; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    z-index: 1; /* Define la propiedad CSS 'z-index' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.circulo.uno {
-    width: 300px;
-    top: 10px;
-    left: 50px;
-    background: radial-gradient(43.45% 43.45% at 50.22% 50.22%, #1484EC 0%, #0F47A5 100%);
-}
+.circulo.uno { /* Inicia los estilos del selector '.circulo.uno'. */
+    width: 300px; /* Define la propiedad CSS 'width' con el valor indicado. */
+    top: 10px; /* Define la propiedad CSS 'top' con el valor indicado. */
+    left: 50px; /* Define la propiedad CSS 'left' con el valor indicado. */
+    background: radial-gradient(43.45% 43.45% at 50.22% 50.22%, #1484EC 0%, #0F47A5 100%); /* Define la propiedad CSS 'background' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.circulo.dos {
-    width: 290px;
-    bottom: 20px;
-    left: 250px;
-    background: radial-gradient(43.45% 43.45% at 50.22% 50.22%, #1484EC 0%, #0F47A5 100%);
-}
+.circulo.dos { /* Inicia los estilos del selector '.circulo.dos'. */
+    width: 290px; /* Define la propiedad CSS 'width' con el valor indicado. */
+    bottom: 20px; /* Define la propiedad CSS 'bottom' con el valor indicado. */
+    left: 250px; /* Define la propiedad CSS 'left' con el valor indicado. */
+    background: radial-gradient(43.45% 43.45% at 50.22% 50.22%, #1484EC 0%, #0F47A5 100%); /* Define la propiedad CSS 'background' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 
@@ -77,233 +83,233 @@ main {
             FORMULARIO
 ====================================*/
 
-.formulario {
-    position: relative;
+.formulario { /* Inicia los estilos del selector '.formulario'. */
+    position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
 
-    width: 100%;
-    max-width: 35rem;
-    height: auto;
-    max-height: 40rem;
-    padding: 24px;
-    background: var(--blanco-50);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    max-width: 35rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    max-height: 40rem; /* Define la propiedad CSS 'max-height' con el valor indicado. */
+    padding: 24px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    background: var(--blanco-50); /* Define la propiedad CSS 'background' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    margin: 0 auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
 
-    z-index: 1000;
+    z-index: 1000; /* Define la propiedad CSS 'z-index' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.titulo-form {
-    color: var(--azul);
-    margin: 1rem 0;
-    text-align: center;
-}
+.titulo-form { /* Inicia los estilos del selector '.titulo-form'. */
+    color: var(--azul); /* Define la propiedad CSS 'color' con el valor indicado. */
+    margin: 1rem 0; /* Define la propiedad CSS 'margin' con el valor indicado. */
+    text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-cuerpo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-}
+.form-cuerpo { /* Inicia los estilos del selector '.form-cuerpo'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .8rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-dividido {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: .8rem;
-}
+.contenedor-dividido { /* Inicia los estilos del selector '.contenedor-dividido'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: repeat(2, 1fr); /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: .8rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-input {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
+.contenedor-input { /* Inicia los estilos del selector '.contenedor-input'. */
+    position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-input {
-    width: 100%;
-    height: 48px;
-    padding: 0 40px;
-    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-    border-radius: 12px;
-    border: 1px solid var(--blanco-100);
-    background: var(--blanco-100);
-    transition: all 0.2s ease;
-}
-
-
-.input-icon {
-    position: absolute;
-    left: 10px;
-    pointer-events: none;
-}
-
-.password-visualizar {
-    position: absolute;
-    right: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    padding: 8px;
-    width: 2px;
-    aspect-ratio: 1 / 1;
-}
-
-.password-visualizar .input-icon {
-    color: var(--negro-600);
-    transition: all 0.2s ease;
-}
+.form-input { /* Inicia los estilos del selector '.form-input'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 48px; /* Define la propiedad CSS 'height' con el valor indicado. */
+    padding: 0 40px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+    border-radius: 12px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    border: 1px solid var(--blanco-100); /* Define la propiedad CSS 'border' con el valor indicado. */
+    background: var(--blanco-100); /* Define la propiedad CSS 'background' con el valor indicado. */
+    transition: all 0.2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.btn-enviar {
-    text-align: center;
-    min-width: 100%;
-    margin-top: 15px;
-    background: var(--azul);
-    color: var(--blanco-50);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.2s ease;
-    padding: 10px;
-}
+.input-icon { /* Inicia los estilos del selector '.input-icon'. */
+    position: absolute; /* Define la propiedad CSS 'position' con el valor indicado. */
+    left: 10px; /* Define la propiedad CSS 'left' con el valor indicado. */
+    pointer-events: none; /* Define la propiedad CSS 'pointer-events' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-footer {
-    margin-top: 16px;
-    text-align: center;
-}
+.password-visualizar { /* Inicia los estilos del selector '.password-visualizar'. */
+    position: absolute; /* Define la propiedad CSS 'position' con el valor indicado. */
+    right: 20px; /* Define la propiedad CSS 'right' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+    padding: 8px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    width: 2px; /* Define la propiedad CSS 'width' con el valor indicado. */
+    aspect-ratio: 1 / 1; /* Define la propiedad CSS 'aspect-ratio' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.iniciar-sesion-link {
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
+.password-visualizar .input-icon { /* Inicia los estilos del selector '.password-visualizar .input-icon'. */
+    color: var(--negro-600); /* Define la propiedad CSS 'color' con el valor indicado. */
+    transition: all 0.2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.iniciar-sesion-link span {
-    transition: all 0.2s ease;
-    color: var(--azul);
-}
+
+.btn-enviar { /* Inicia los estilos del selector '.btn-enviar'. */
+    text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+    min-width: 100%; /* Define la propiedad CSS 'min-width' con el valor indicado. */
+    margin-top: 15px; /* Define la propiedad CSS 'margin-top' con el valor indicado. */
+    background: var(--azul); /* Define la propiedad CSS 'background' con el valor indicado. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+    border: none; /* Define la propiedad CSS 'border' con el valor indicado. */
+    border-radius: 10px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+    transition: all 0.2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+    padding: 10px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.form-footer { /* Inicia los estilos del selector '.form-footer'. */
+    margin-top: 16px; /* Define la propiedad CSS 'margin-top' con el valor indicado. */
+    text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.iniciar-sesion-link { /* Inicia los estilos del selector '.iniciar-sesion-link'. */
+    text-decoration: none; /* Define la propiedad CSS 'text-decoration' con el valor indicado. */
+    transition: all 0.2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.iniciar-sesion-link span { /* Inicia los estilos del selector '.iniciar-sesion-link span'. */
+    transition: all 0.2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+    color: var(--azul); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* Hover & Focus States */
-.form-input:hover {
-    border-color: var(--azul);
-}
+.form-input:hover { /* Inicia los estilos del selector '.form-input:hover'. */
+    border-color: var(--azul); /* Define la propiedad CSS 'border-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-input:focus {
-    outline: none;
-    border-color: var(--azul);
-    background: var(--blanco-50);
-    box-shadow: 0 4px 10px rgba(185, 185, 185, 0.5);
-}
+.form-input:focus { /* Inicia los estilos del selector '.form-input:focus'. */
+    outline: none; /* Define la propiedad CSS 'outline' con el valor indicado. */
+    border-color: var(--azul); /* Define la propiedad CSS 'border-color' con el valor indicado. */
+    background: var(--blanco-50); /* Define la propiedad CSS 'background' con el valor indicado. */
+    box-shadow: 0 4px 10px rgba(185, 185, 185, 0.5); /* Define la propiedad CSS 'box-shadow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.password-visualizar:hover .input-icon {
-    color: var(--primario-100);
-    transform: scale(1.2);
-}
+.password-visualizar:hover .input-icon { /* Inicia los estilos del selector '.password-visualizar:hover .input-icon'. */
+    color: var(--primario-100); /* Define la propiedad CSS 'color' con el valor indicado. */
+    transform: scale(1.2); /* Define la propiedad CSS 'transform' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn-enviar:hover {
-    background: var(--azul);
-    transform: translateY(-1px);
-    box-shadow:
-        0 4px 12px rgba(1, 112, 102, 0.5),
-        0 2px 4px rgba(1, 112, 102, 0.5);
-}
+.btn-enviar:hover { /* Inicia los estilos del selector '.btn-enviar:hover'. */
+    background: var(--azul); /* Define la propiedad CSS 'background' con el valor indicado. */
+    transform: translateY(-1px); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    box-shadow: /* Define la propiedad CSS 'box-shadow' con el valor indicado. */
+        0 4px 12px rgba(1, 112, 102, 0.5), /* Continua la definicion de estilos CSS. */
+        0 2px 4px rgba(1, 112, 102, 0.5); /* Finaliza esta declaracion CSS. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 /* .iniciar-sesion-link:hover {
     transform: scale(1.2);
 } */
 
-.iniciar-sesion-link:hover span {
-    color: var(--azul-ultramar);
-}
+.iniciar-sesion-link:hover span { /* Inicia los estilos del selector '.iniciar-sesion-link:hover span'. */
+    color: var(--azul-ultramar); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* Active States */
-.btn-enviar:active {
-    transform: translateY(0);
-    box-shadow: none;
-}
+.btn-enviar:active { /* Inicia los estilos del selector '.btn-enviar:active'. */
+    transform: translateY(0); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    box-shadow: none; /* Define la propiedad CSS 'box-shadow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.password-visualizar:active {
-    transform: scale(0.9);
-}
+.password-visualizar:active { /* Inicia los estilos del selector '.password-visualizar:active'. */
+    transform: scale(0.9); /* Define la propiedad CSS 'transform' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* Validation States */
-.form-input:not(:placeholder-shown):valid {
-    border-color: var(--exito);
-}
+.form-input:not(:placeholder-shown):valid { /* Inicia los estilos del selector '.form-input:not(:placeholder-shown):valid'. */
+    border-color: var(--exito); /* Define la propiedad CSS 'border-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-input:not(:placeholder-shown):valid~.input-icon {
-    color: var(--exito);
-}
+.form-input:not(:placeholder-shown):valid~.input-icon { /* Inicia los estilos del selector '.form-input:not(:placeholder-shown):valid~.input-icon'. */
+    color: var(--exito); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-texto{
-    margin: 1rem 0;
-}
+.contenedor-texto{ /* Inicia los estilos del selector '.contenedor-texto'. */
+    margin: 1rem 0; /* Define la propiedad CSS 'margin' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* Animation */
-@keyframes shake {
+@keyframes shake { /* Inicia los estilos del selector '@keyframes shake'. */
 
-    0%,
-    100% {
-        transform: translateX(0);
-    }
+    0%, /* Continua la definicion de estilos CSS. */
+    100% { /* Inicia los estilos del selector '100%'. */
+        transform: translateX(0); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    25% {
-        transform: translateX(-4px);
-    }
+    25% { /* Inicia los estilos del selector '25%'. */
+        transform: translateX(-4px); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    75% {
-        transform: translateX(4px);
-    }
-}
+    75% { /* Inicia los estilos del selector '75%'. */
+        transform: translateX(4px); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-input:not(:placeholder-shown):invalid {
-    border-color: var(--error);
-    animation: shake 0.2s ease-in-out;
-}
+.form-input:not(:placeholder-shown):invalid { /* Inicia los estilos del selector '.form-input:not(:placeholder-shown):invalid'. */
+    border-color: var(--error); /* Define la propiedad CSS 'border-color' con el valor indicado. */
+    animation: shake 0.2s ease-in-out; /* Define la propiedad CSS 'animation' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-input:not(:placeholder-shown):invalid~.input-icon {
-    border-color: var(--error);
-}
-
-
-
-@media (max-width: 800px) {
-
-    .texto {
-        color: var(--blanco-100);
-        font-size: clamp(3rem, 10vw, 6rem);
-        font-family: 'Ethnocentric';
-        letter-spacing: 0.75rem;
-    }
-
-}
-
-@media (max-width: 560px) {
-    .contenedor-dividido {
-        grid-template-columns: 1fr;
-    }
-}
+.form-input:not(:placeholder-shown):invalid~.input-icon { /* Inicia los estilos del selector '.form-input:not(:placeholder-shown):invalid~.input-icon'. */
+    border-color: var(--error); /* Define la propiedad CSS 'border-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-@media (max-width: 480px) {
-    .contenedor-letras {
-        display: none;
-        opacity: 0;
-    }
 
-    .formulario {
-        max-width: 100%;
-        justify-content: start;
-        height: 100vh;
-        max-height: 100vh;
-    }
+@media (max-width: 800px) { /* Inicia los estilos del selector '@media (max-width: 800px)'. */
 
-    .contenedor-principal {
-        height: 100%;
-    }
+    .texto { /* Inicia los estilos del selector '.texto'. */
+        color: var(--blanco-100); /* Define la propiedad CSS 'color' con el valor indicado. */
+        font-size: clamp(3rem, 10vw, 6rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+        font-family: 'Ethnocentric'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+        letter-spacing: 0.75rem; /* Define la propiedad CSS 'letter-spacing' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
+
+@media (max-width: 560px) { /* Inicia los estilos del selector '@media (max-width: 560px)'. */
+    .contenedor-dividido { /* Inicia los estilos del selector '.contenedor-dividido'. */
+        grid-template-columns: 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+@media (max-width: 480px) { /* Inicia los estilos del selector '@media (max-width: 480px)'. */
+    .contenedor-letras { /* Inicia los estilos del selector '.contenedor-letras'. */
+        display: none; /* Define la propiedad CSS 'display' con el valor indicado. */
+        opacity: 0; /* Define la propiedad CSS 'opacity' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .formulario { /* Inicia los estilos del selector '.formulario'. */
+        max-width: 100%; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        justify-content: start; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+        height: 100vh; /* Define la propiedad CSS 'height' con el valor indicado. */
+        max-height: 100vh; /* Define la propiedad CSS 'max-height' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .contenedor-principal { /* Inicia los estilos del selector '.contenedor-principal'. */
+        height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+} /* Cierra el bloque de reglas CSS actual. */

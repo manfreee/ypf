@@ -1,426 +1,431 @@
+/*
+ * Proposito: tipografias, variables y reglas globales reutilizadas.
+ * Archivos que edita: public/public/componentes/header.php y
+ * public/public/componentes/header-usuario.php, junto con sus paginas.
+ */
 /*===================================
-            TIPOGRAFIAS
-====================================*/
+            TIPOGRAFIAS /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
 
-@font-face {
-    font-family: 'Ethnocentric';
-    src: url('recursos/tipografia/ethnocentric/Ethnocentric-Regular.otf') format('truetype');
-}
+@font-face { /* Inicia los estilos del selector '@font-face'. */
+    font-family: 'Ethnocentric'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+    src: url('recursos/tipografia/ethnocentric/Ethnocentric-Regular.otf') format('truetype'); /* Define la propiedad CSS 'src' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-@font-face {
-    font-family: 'Rockstart';
-    src: url('recursos/tipografia/rockstar_4/Rockstar-ExtraBold.otf')format('truetype');
-}
+@font-face { /* Inicia los estilos del selector '@font-face'. */
+    font-family: 'Rockstart'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+    src: url('recursos/tipografia/rockstar_4/Rockstar-ExtraBold.otf')format('truetype'); /* Define la propiedad CSS 'src' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-@font-face {
-    font-family: 'Nulshock';
-    src: url('recursos/tipografia/nulshock/NulshockBd.otf') format('truetype');
-}
+@font-face { /* Inicia los estilos del selector '@font-face'. */
+    font-family: 'Nulshock'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+    src: url('recursos/tipografia/nulshock/NulshockBd.otf') format('truetype'); /* Define la propiedad CSS 'src' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-@font-face {
-    font-family: 'Swiss';
-    src: url('recursos/tipografia/swiss-721/Swiss721BT-Roman.otf') format('truetype');
-}
+@font-face { /* Inicia los estilos del selector '@font-face'. */
+    font-family: 'Swiss'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+    src: url('recursos/tipografia/swiss-721/Swiss721BT-Roman.otf') format('truetype'); /* Define la propiedad CSS 'src' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-@font-face {
-    font-family: 'Swiss-Light';
-    src: url('recursos/tipografia/swiss-721/Swiss721BT-Light.otf') format('truetype');
-}
-
-
-@font-face {
-    font-family: 'Swiss-Negirta';
-    src: url('recursos/tipografia/swiss-721/Swiss721BT-Heavy.otf') format('truetype');
-}
-
-/*===================================
-            ESTILO DE LETRAS
-====================================*/
+@font-face { /* Inicia los estilos del selector '@font-face'. */
+    font-family: 'Swiss-Light'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+    src: url('recursos/tipografia/swiss-721/Swiss721BT-Light.otf') format('truetype'); /* Define la propiedad CSS 'src' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.tachado {
-    text-decoration: line-through;
-}
-
-.subrayado {
-    text-decoration: underline;
-    text-decoration-color: var(--blanco-100);
-    text-decoration-thickness: 8px;
-}
-
-
-.light {
-    font-weight: 300;
-}
-
-.medium {
-    font-weight: 500;
-}
-
-.super-negrita {
-    font-weight: 900;
-}
-
-.media-negrita {
-    font-weight: 700;
-}
-
-.negrita {
-    font-weight: 600;
-}
-
-.negrita-swiss {
-    font-family: 'Swiss-Negirta';
-}
-
-.light-swiss {
-    font-family: 'Swiss-Light';
-}
-
-.nulshock {
-    font-family: 'Nulshock';
-}
-
-.ethnocentric {
-    font-family: 'Ethnocentric';
-}
-
-.rockstart {
-    font-family: 'Rockstart';
-}
-
-
-
-
-
-
-
-
+@font-face { /* Inicia los estilos del selector '@font-face'. */
+    font-family: 'Swiss-Negirta'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+    src: url('recursos/tipografia/swiss-721/Swiss721BT-Heavy.otf') format('truetype'); /* Define la propiedad CSS 'src' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /*===================================
-            COLORES
-====================================*/
-
-.color-primario {
-    color: var(--azul);
-}
-
-.color-primario-2 {
-    color: var(--azul-claro);
-}
-
-.color-secundario {
-    color: var(--verde);
-}
-
-.color-blanco {
-    color: var(--blanco-50);
-}
-
-.color-gris {
-    color: var(--negro-400);
-}
+            ESTILO DE LETRAS /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
 
-.color-error {
-    color: var(--error);
-}
+.tachado { /* Inicia los estilos del selector '.tachado'. */
+    text-decoration: line-through; /* Define la propiedad CSS 'text-decoration' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-:root {
-    --azul: #0f47a5;
-    --azul-claro: #1484EC;
-    --azul-ultramar: #1C3E7B;
-    --amarillo: #F9BD1B;
-    --verde: #3A8D25;
-    --verde-claro: #B3C861;
+.subrayado { /* Inicia los estilos del selector '.subrayado'. */
+    text-decoration: underline; /* Define la propiedad CSS 'text-decoration' con el valor indicado. */
+    text-decoration-color: var(--blanco-100); /* Define la propiedad CSS 'text-decoration-color' con el valor indicado. */
+    text-decoration-thickness: 8px; /* Define la propiedad CSS 'text-decoration-thickness' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-    --fondo: #FDFDFD;
+
+.light { /* Inicia los estilos del selector '.light'. */
+    font-weight: 300; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.medium { /* Inicia los estilos del selector '.medium'. */
+    font-weight: 500; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.super-negrita { /* Inicia los estilos del selector '.super-negrita'. */
+    font-weight: 900; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.media-negrita { /* Inicia los estilos del selector '.media-negrita'. */
+    font-weight: 700; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.negrita { /* Inicia los estilos del selector '.negrita'. */
+    font-weight: 600; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.negrita-swiss { /* Inicia los estilos del selector '.negrita-swiss'. */
+    font-family: 'Swiss-Negirta'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.light-swiss { /* Inicia los estilos del selector '.light-swiss'. */
+    font-family: 'Swiss-Light'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.nulshock { /* Inicia los estilos del selector '.nulshock'. */
+    font-family: 'Nulshock'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.ethnocentric { /* Inicia los estilos del selector '.ethnocentric'. */
+    font-family: 'Ethnocentric'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.rockstart { /* Inicia los estilos del selector '.rockstart'. */
+    font-family: 'Rockstart'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+
+
+
+
+
+
+
+/*===================================
+            COLORES /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
+
+.color-primario { /* Inicia los estilos del selector '.color-primario'. */
+    color: var(--azul); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.color-primario-2 { /* Inicia los estilos del selector '.color-primario-2'. */
+    color: var(--azul-claro); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.color-secundario { /* Inicia los estilos del selector '.color-secundario'. */
+    color: var(--verde); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.color-blanco { /* Inicia los estilos del selector '.color-blanco'. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.color-gris { /* Inicia los estilos del selector '.color-gris'. */
+    color: var(--negro-400); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+.color-error { /* Inicia los estilos del selector '.color-error'. */
+    color: var(--error); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+:root { /* Inicia los estilos del selector ':root'. */
+    --azul: #0f47a5; /* Define la propiedad CSS '--azul' con el valor indicado. */
+    --azul-claro: #1484EC; /* Define la propiedad CSS '--azul-claro' con el valor indicado. */
+    --azul-ultramar: #1C3E7B; /* Define la propiedad CSS '--azul-ultramar' con el valor indicado. */
+    --amarillo: #F9BD1B; /* Define la propiedad CSS '--amarillo' con el valor indicado. */
+    --verde: #3A8D25; /* Define la propiedad CSS '--verde' con el valor indicado. */
+    --verde-claro: #B3C861; /* Define la propiedad CSS '--verde-claro' con el valor indicado. */
+
+    --fondo: #FDFDFD; /* Define la propiedad CSS '--fondo' con el valor indicado. */
     /* === Negros === */
-    --negro-50: #dddddd;
-    --negro-100: #bbbbbb;
-    --negro-200: #9a9a9a;
-    --negro-300: #787878;
-    --negro-400: #565656;
-    --negro-500: #343434;
-    --negro-600: #2a2a2a;
-    --negro-700: #1f1f1f;
-    --negro-800: #151515;
-    --negro-900: #0c0c0c;
+    --negro-50: #dddddd; /* Define la propiedad CSS '--negro-50' con el valor indicado. */
+    --negro-100: #bbbbbb; /* Define la propiedad CSS '--negro-100' con el valor indicado. */
+    --negro-200: #9a9a9a; /* Define la propiedad CSS '--negro-200' con el valor indicado. */
+    --negro-300: #787878; /* Define la propiedad CSS '--negro-300' con el valor indicado. */
+    --negro-400: #565656; /* Define la propiedad CSS '--negro-400' con el valor indicado. */
+    --negro-500: #343434; /* Define la propiedad CSS '--negro-500' con el valor indicado. */
+    --negro-600: #2a2a2a; /* Define la propiedad CSS '--negro-600' con el valor indicado. */
+    --negro-700: #1f1f1f; /* Define la propiedad CSS '--negro-700' con el valor indicado. */
+    --negro-800: #151515; /* Define la propiedad CSS '--negro-800' con el valor indicado. */
+    --negro-900: #0c0c0c; /* Define la propiedad CSS '--negro-900' con el valor indicado. */
 
     /* === Blancos === */
-    --blanco-50: #ffffff;
-    --blanco-100: #f4f4f4;
-    --blanco-200: #e9e9e9;
-    --blanco-300: #dedede;
-    --blanco-400: #d3d3d3;
-    --blanco-500: #c8c8c8;
-    --blanco-600: #afafaf;
-    --blanco-700: #969696;
-    --blanco-800: #7d7d7d;
-    --blanco-900: #646464;
+    --blanco-50: #ffffff; /* Define la propiedad CSS '--blanco-50' con el valor indicado. */
+    --blanco-100: #f4f4f4; /* Define la propiedad CSS '--blanco-100' con el valor indicado. */
+    --blanco-200: #e9e9e9; /* Define la propiedad CSS '--blanco-200' con el valor indicado. */
+    --blanco-300: #dedede; /* Define la propiedad CSS '--blanco-300' con el valor indicado. */
+    --blanco-400: #d3d3d3; /* Define la propiedad CSS '--blanco-400' con el valor indicado. */
+    --blanco-500: #c8c8c8; /* Define la propiedad CSS '--blanco-500' con el valor indicado. */
+    --blanco-600: #afafaf; /* Define la propiedad CSS '--blanco-600' con el valor indicado. */
+    --blanco-700: #969696; /* Define la propiedad CSS '--blanco-700' con el valor indicado. */
+    --blanco-800: #7d7d7d; /* Define la propiedad CSS '--blanco-800' con el valor indicado. */
+    --blanco-900: #646464; /* Define la propiedad CSS '--blanco-900' con el valor indicado. */
 
     /* === Éxito === */
-    --exito: #a2d250;
+    --exito: #a2d250; /* Define la propiedad CSS '--exito' con el valor indicado. */
 
     /* === Advertencia === */
-    --advertencia: #f6f369;
+    --advertencia: #f6f369; /* Define la propiedad CSS '--advertencia' con el valor indicado. */
 
     /* === Error === */
-    --error: #911D1D;
+    --error: #911D1D; /* Define la propiedad CSS '--error' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 /*===================================
-            ETIQUETAS
-====================================*/
+            ETIQUETAS /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Swiss';
-    font-weight: 500;
-    color: var(--negro-700);
-}
+    box-sizing: border-box; /* Define la propiedad CSS 'box-sizing' con el valor indicado. */
+    margin: 0; /* Define la propiedad CSS 'margin' con el valor indicado. */
+    padding: 0; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    font-family: 'Swiss'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+    font-weight: 500; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+    color: var(--negro-700); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-html {
-    height: 100%;
-}
+html { /* Inicia los estilos del selector 'html'. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-body {
-    height: 100%;
-    background-color: var(--fondo-50);
-}
+body { /* Inicia los estilos del selector 'body'. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    background-color: var(--fondo-50); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-section {
-    margin: clamp(2rem, 10vw, 4rem) 0;
-    padding: 5rem clamp(5px, 10vw, 50px);
-    border-radius: 1.25rem;
-}
+section { /* Inicia los estilos del selector 'section'. */
+    margin: clamp(2rem, 10vw, 4rem) 0; /* Define la propiedad CSS 'margin' con el valor indicado. */
+    padding: 5rem clamp(5px, 10vw, 50px); /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-radius: 1.25rem; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-button {
-    all: unset;
-}
+button { /* Inicia los estilos del selector 'button'. */
+    all: unset; /* Define la propiedad CSS 'all' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-a {
-    text-decoration: none;
-}
+a { /* Inicia los estilos del selector 'a'. */
+    text-decoration: none; /* Define la propiedad CSS 'text-decoration' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-b {
-    font-weight: bold;
-}
+b { /* Inicia los estilos del selector 'b'. */
+    font-weight: bold; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* ===================================
-           MEDIA ETIQUETAS
-====================================*/
+           MEDIA ETIQUETAS /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
 
 
 /* Moviles pequeños */
-@media (max-width: 767px) {
-    section {
-        padding: 5rem clamp(2px, 2vw, 16px);
-    }
-}
+@media (max-width: 767px) { /* Inicia los estilos del selector '@media (max-width: 767px)'. */
+    section { /* Inicia los estilos del selector 'section'. */
+        padding: 5rem clamp(2px, 2vw, 16px); /* Define la propiedad CSS 'padding' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-    section {
-        padding: 5rem clamp(5px, 5vw, 32px);
-    }
-}
+@media (min-width: 768px) and (max-width: 1024px) { /* Inicia los estilos del selector '@media (min-width: 768px) and (max-width: 1024px)'. */
+    section { /* Inicia los estilos del selector 'section'. */
+        padding: 5rem clamp(5px, 5vw, 32px); /* Define la propiedad CSS 'padding' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* Desktops */
-@media (min-width: 1281px) {}
+@media (min-width: 1281px) {} /* Continua la definicion de estilos CSS. */
 
 
 
 /*===================================
-            CLASES
-====================================*/
+            CLASES /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
 /*===================================
-            ELEMENTOS
-====================================*/
+            ELEMENTOS /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.overflow-capa {
-    width: 100%;
-    height: 100dvh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #1c1c1c8b;
-    z-index: 90;
-}
+.overflow-capa { /* Inicia los estilos del selector '.overflow-capa'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100dvh; /* Define la propiedad CSS 'height' con el valor indicado. */
+    position: fixed; /* Define la propiedad CSS 'position' con el valor indicado. */
+    top: 0; /* Define la propiedad CSS 'top' con el valor indicado. */
+    left: 0; /* Define la propiedad CSS 'left' con el valor indicado. */
+    background-color: #1c1c1c8b; /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    z-index: 90; /* Define la propiedad CSS 'z-index' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.cont {
-    padding-left: clamp(.2rem, 2vw, 5rem);
-    padding-right: clamp(.2rem, 2vw, 5rem);
-}
+.cont { /* Inicia los estilos del selector '.cont'. */
+    padding-left: clamp(.2rem, 2vw, 5rem); /* Define la propiedad CSS 'padding-left' con el valor indicado. */
+    padding-right: clamp(.2rem, 2vw, 5rem); /* Define la propiedad CSS 'padding-right' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.espacio-vertical {
-    margin: clamp(1rem, 3vw, 2.6rem) 0;
-}
+.espacio-vertical { /* Inicia los estilos del selector '.espacio-vertical'. */
+    margin: clamp(1rem, 3vw, 2.6rem) 0; /* Define la propiedad CSS 'margin' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn {
-    width: auto;
-    max-width: 13rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-wrap: nowrap;
+.btn { /* Inicia los estilos del selector '.btn'. */
+    width: auto; /* Define la propiedad CSS 'width' con el valor indicado. */
+    max-width: 13rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+    flex-wrap: nowrap; /* Define la propiedad CSS 'flex-wrap' con el valor indicado. */
 
-    padding: 8px 15px;
-    border-radius: 20px;
-    gap: clamp(0.5rem, 1vw, 0.75rem);
+    padding: 8px 15px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-radius: 20px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    gap: clamp(0.5rem, 1vw, 0.75rem); /* Define la propiedad CSS 'gap' con el valor indicado. */
 
-    transition: background-color 0.3s ease-out, transform 0.3s ease-out;
-    cursor: pointer;
-    background-color: var(--blanco-50);
-    color: var(--azul);
-}
+    transition: background-color 0.3s ease-out, transform 0.3s ease-out; /* Define la propiedad CSS 'transition' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+    background-color: var(--blanco-50); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    color: var(--azul); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn.primario {
-    background-color: var(--azul);
-    color: var(--blanco-50);
-}
+.btn.primario { /* Inicia los estilos del selector '.btn.primario'. */
+    background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn.secundario {
-    background-color: var(--verde);
-    color: var(--blanco-50);
-}
-
-
-
-.texto-centrado {
-    text-align: center;
-}
-
-
-.shadow {
-    box-shadow: 0 4px 15px rgba(50, 50, 50, 0.329);
-}
-
-.borde-redondeado {
-    border-radius: 20px;
-}
+.btn.secundario { /* Inicia los estilos del selector '.btn.secundario'. */
+    background-color: var(--verde); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 
-
-/*===================================
-        CLASES DE UTILIDAD
-====================================*/
-
-
-.oculto {
-    display: none ;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.mostrar-flex {
-    display: flex ;
-    opacity: 1;
-    pointer-events: all;
-}
-
-.mostrar-block {
-    display: block;
-    opacity: 1;
-    pointer-events: all;
-}
+.texto-centrado { /* Inicia los estilos del selector '.texto-centrado'. */
+    text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.texto-truncado {
-    max-width: 100%;
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+.shadow { /* Inicia los estilos del selector '.shadow'. */
+    box-shadow: 0 4px 15px rgba(50, 50, 50, 0.329); /* Define la propiedad CSS 'box-shadow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.doble-linea {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    white-space: wrap;
-}
+.borde-redondeado { /* Inicia los estilos del selector '.borde-redondeado'. */
+    border-radius: 20px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
 
 
 /*===================================
-        LETRAS Y ICONOS TAMAÑOS
-====================================*/
-.grande,
-.icon-grande {
-    font-size: clamp(3rem, 8vw, 4.5rem);
+        CLASES DE UTILIDAD /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
+
+
+.oculto { /* Inicia los estilos del selector '.oculto'. */
+    display: none ; /* Define la propiedad CSS 'display' con el valor indicado. */
+    opacity: 0; /* Define la propiedad CSS 'opacity' con el valor indicado. */
+    pointer-events: none; /* Define la propiedad CSS 'pointer-events' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.mostrar-flex { /* Inicia los estilos del selector '.mostrar-flex'. */
+    display: flex ; /* Define la propiedad CSS 'display' con el valor indicado. */
+    opacity: 1; /* Define la propiedad CSS 'opacity' con el valor indicado. */
+    pointer-events: all; /* Define la propiedad CSS 'pointer-events' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.mostrar-block { /* Inicia los estilos del selector '.mostrar-block'. */
+    display: block; /* Define la propiedad CSS 'display' con el valor indicado. */
+    opacity: 1; /* Define la propiedad CSS 'opacity' con el valor indicado. */
+    pointer-events: all; /* Define la propiedad CSS 'pointer-events' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+.texto-truncado { /* Inicia los estilos del selector '.texto-truncado'. */
+    max-width: 100%; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    display: block; /* Define la propiedad CSS 'display' con el valor indicado. */
+    white-space: nowrap; /* Define la propiedad CSS 'white-space' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+    text-overflow: ellipsis; /* Define la propiedad CSS 'text-overflow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.doble-linea { /* Inicia los estilos del selector '.doble-linea'. */
+    display: -webkit-box; /* Define la propiedad CSS 'display' con el valor indicado. */
+    -webkit-line-clamp: 2; /* Define la propiedad CSS '-webkit-line-clamp' con el valor indicado. */
+    line-clamp: 2; /* Define la propiedad CSS 'line-clamp' con el valor indicado. */
+    -webkit-box-orient: vertical; /* Define la propiedad CSS '-webkit-box-orient' con el valor indicado. */
+    white-space: wrap; /* Define la propiedad CSS 'white-space' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+/*===================================
+        LETRAS Y ICONOS TAMAÑOS /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
+.grande, /* Continua la definicion de estilos CSS. */
+.icon-grande { /* Inicia los estilos del selector '.icon-grande'. */
+    font-size: clamp(3rem, 8vw, 4.5rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 48px - 64px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-h1,
-.icon-h1 {
-    font-size: clamp(1.6rem, 7vw, 3rem);
+h1, /* Continua la definicion de estilos CSS. */
+.icon-h1 { /* Inicia los estilos del selector '.icon-h1'. */
+    font-size: clamp(1.6rem, 7vw, 3rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 40px - 48px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-h2,
-.icon-h2 {
-    font-size: clamp(1.4rem, 5vw, 2.5rem);
+h2, /* Continua la definicion de estilos CSS. */
+.icon-h2 { /* Inicia los estilos del selector '.icon-h2'. */
+    font-size: clamp(1.4rem, 5vw, 2.5rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 32px - 40px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-h3,
-.icon-h3 {
-    font-size: clamp(1.2rem, 3vw, 2rem);
+h3, /* Continua la definicion de estilos CSS. */
+.icon-h3 { /* Inicia los estilos del selector '.icon-h3'. */
+    font-size: clamp(1.2rem, 3vw, 2rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 28px - 32px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-h4,
-.icon-h4 {
-    font-size: clamp(1.2rem, 3.5vw, 1.75rem);
+h4, /* Continua la definicion de estilos CSS. */
+.icon-h4 { /* Inicia los estilos del selector '.icon-h4'. */
+    font-size: clamp(1.2rem, 3.5vw, 1.75rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 24px - 28px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-h5,
-.icon-h5 {
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
+h5, /* Continua la definicion de estilos CSS. */
+.icon-h5 { /* Inicia los estilos del selector '.icon-h5'. */
+    font-size: clamp(1.1rem, 3vw, 1.5rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 20px - 24px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-h6,
-.icon-h6 {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+h6, /* Continua la definicion de estilos CSS. */
+.icon-h6 { /* Inicia los estilos del selector '.icon-h6'. */
+    font-size: clamp(1rem, 2.5vw, 1.25rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 18px - 20px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-p,
-li,
-span,
-.icon-p {
-    font-size: clamp(0.8rem, 2vw, 1.125rem);
+p, /* Continua la definicion de estilos CSS. */
+li, /* Continua la definicion de estilos CSS. */
+span, /* Continua la definicion de estilos CSS. */
+.icon-p { /* Inicia los estilos del selector '.icon-p'. */
+    font-size: clamp(0.8rem, 2vw, 1.125rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 16px - 18px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.pequenio,
-.icon-pequenio {
-    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+.pequenio, /* Continua la definicion de estilos CSS. */
+.icon-pequenio { /* Inicia los estilos del selector '.icon-pequenio'. */
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 12px - 14px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.muy-pequenio,
-.icon-muy-pequenio {
-    font-size: clamp(0.625rem, 1vw, 0.75rem);
+.muy-pequenio, /* Continua la definicion de estilos CSS. */
+.icon-muy-pequenio { /* Inicia los estilos del selector '.icon-muy-pequenio'. */
+    font-size: clamp(0.625rem, 1vw, 0.75rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 10px - 12px */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-span,
-.icon-span {
-    font-size: clamp(0.8rem, 2vw, 1.125rem);
+span, /* Continua la definicion de estilos CSS. */
+.icon-span { /* Inicia los estilos del selector '.icon-span'. */
+    font-size: clamp(0.8rem, 2vw, 1.125rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
     /* 16px - 18px */
-}
+} /* Cierra el bloque de reglas CSS actual. */

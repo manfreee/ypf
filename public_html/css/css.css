@@ -1,17 +1,21 @@
- body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-        #contador {
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        canvas {
-            width: 100%;
-            max-width: 1600px;
-            height: 850px !important; /* altura reducida */
-            margin: 0 auto;
-        }
+/*
+ * Proposito: estilos para el contador y el canvas de un grafico.
+ * Archivo que edita: no tiene referencias activas encontradas en el proyecto.
+ */
+ body { /* Inicia los estilos del selector 'body'. */
+            font-family: Arial, sans-serif; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+            text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+            margin: 20px; /* Define la propiedad CSS 'margin' con el valor indicado. */
+        } /* Cierra el bloque de reglas CSS actual. */
+        #contador { /* Inicia los estilos del selector '#contador'. */
+            font-size: 16px; /* Define la propiedad CSS 'font-size' con el valor indicado. */
+            font-weight: bold; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+            color: #333; /* Define la propiedad CSS 'color' con el valor indicado. */
+            margin-bottom: 10px; /* Define la propiedad CSS 'margin-bottom' con el valor indicado. */
+        } /* Cierra el bloque de reglas CSS actual. */
+        canvas { /* Inicia los estilos del selector 'canvas'. */
+            width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+            max-width: 1600px; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+            height: 850px !important; /* altura reducida */ /* Define la propiedad CSS 'height' con el valor indicado. */
+            margin: 0 auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+        } /* Cierra el bloque de reglas CSS actual. */

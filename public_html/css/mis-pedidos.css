@@ -1,89 +1,93 @@
-main {
-    padding: 1rem 2rem;
-    height: auto;
-    min-height: 100vh;
-    margin-bottom: 10rem;
-}
+/*
+ * Proposito: listado, encabezados y detalle visual de los pedidos.
+ * Archivo que edita: public/usuarios/configuracion/mis-pedidos.php.
+ */
+main { /* Inicia los estilos del selector 'main'. */
+    padding: 1rem 2rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    min-height: 100vh; /* Define la propiedad CSS 'min-height' con el valor indicado. */
+    margin-bottom: 10rem; /* Define la propiedad CSS 'margin-bottom' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-pedidos {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-}
+.contenedor-pedidos { /* Inicia los estilos del selector '.contenedor-pedidos'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: 24px; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-pedidos .pedido-especifico {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+.contenedor-pedidos .pedido-especifico { /* Inicia los estilos del selector '.contenedor-pedidos .pedido-especifico'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 10px; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-pedidos .pedido-especifico .header-pedido {
-    width: 100%;
-    background-color: var(--primario-50);
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.contenedor-pedidos .pedido-especifico .header-pedido { /* Inicia los estilos del selector '.contenedor-pedidos .pedido-especifico .header-pedido'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    background-color: var(--primario-50); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 5px; /* Define la propiedad CSS 'gap' con el valor indicado. */
     /* padding: 10px 0; */
-    border-radius: 10px;
-}
+    border-radius: 10px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.contenedor-pedidos .pedido-especifico .header-pedido h5 {
-    padding: 10px;
-    border-bottom: .5px solid var(--blanco-50);
-}
+.contenedor-pedidos .pedido-especifico .header-pedido h5 { /* Inicia los estilos del selector '.contenedor-pedidos .pedido-especifico .header-pedido h5'. */
+    padding: 10px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-bottom: .5px solid var(--blanco-50); /* Define la propiedad CSS 'border-bottom' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.pedido-especifico .header-pedido .contenedor-informacion {
-    display: grid;
-    padding: 10px;
-    grid-template-columns: repeat(3, 1fr);
-}
+.pedido-especifico .header-pedido .contenedor-informacion { /* Inicia los estilos del selector '.pedido-especifico .header-pedido .contenedor-informacion'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    padding: 10px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    grid-template-columns: repeat(3, 1fr); /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.pedido-especifico .detalle-pedido {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border: .5px solid var(--negro-700);
-    padding: 10px 5px;
-    border-radius: 5px;
+.pedido-especifico .detalle-pedido { /* Inicia los estilos del selector '.pedido-especifico .detalle-pedido'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    border: .5px solid var(--negro-700); /* Define la propiedad CSS 'border' con el valor indicado. */
+    padding: 10px 5px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-radius: 5px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.pedido-especifico .detalle-pedido .producto-detalle {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
+.pedido-especifico .detalle-pedido .producto-detalle { /* Inicia los estilos del selector '.pedido-especifico .detalle-pedido .producto-detalle'. */
+    list-style: none; /* Define la propiedad CSS 'list-style' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 8px; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.pedido-especifico .detalle-pedido h6 {
-    padding-bottom: 5px;
-    border-bottom: .5px solid var(--negro-700);
-}
+.pedido-especifico .detalle-pedido h6 { /* Inicia los estilos del selector '.pedido-especifico .detalle-pedido h6'. */
+    padding-bottom: 5px; /* Define la propiedad CSS 'padding-bottom' con el valor indicado. */
+    border-bottom: .5px solid var(--negro-700); /* Define la propiedad CSS 'border-bottom' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.pedido-especifico .detalle-pedido .tipo,
-.pedido-especifico .detalle-pedido .producto-detalle li {
-    display: grid;
-    grid-template-columns: 1fr .3fr .8fr .6fr;
-    align-items: center;
-    padding: 10px;
+.pedido-especifico .detalle-pedido .tipo, /* Continua la definicion de estilos CSS. */
+.pedido-especifico .detalle-pedido .producto-detalle li { /* Inicia los estilos del selector '.pedido-especifico .detalle-pedido .producto-detalle li'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: 1fr .3fr .8fr .6fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    padding: 10px; /* Define la propiedad CSS 'padding' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-@media (max-width: 750px) {
-    main {
-        padding: 1rem .5rem;
-    }
+@media (max-width: 750px) { /* Inicia los estilos del selector '@media (max-width: 750px)'. */
+    main { /* Inicia los estilos del selector 'main'. */
+        padding: 1rem .5rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .pedido-especifico .header-pedido .contenedor-informacion .informacion-item p {
-        font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-    }
+    .pedido-especifico .header-pedido .contenedor-informacion .informacion-item p { /* Inicia los estilos del selector '.pedido-especifico .header-pedido .contenedor-informacion .informacion-item p'. */
+        font-size: clamp(0.75rem, 1.5vw, 0.875rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .tipo p,
-    .producto-detalle p {
-        font-size: clamp(0.625rem, 1vw, 0.75rem);
-    }
-}
+    .tipo p, /* Continua la definicion de estilos CSS. */
+    .producto-detalle p { /* Inicia los estilos del selector '.producto-detalle p'. */
+        font-size: clamp(0.625rem, 1vw, 0.75rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */

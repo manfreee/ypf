@@ -1,426 +1,431 @@
-main{
-    background: var(--blanco-50) !important;
-}
+/*
+ * Proposito: layout y controles de la configuracion de la cuenta y modulos.
+ * Archivos que edita: public/usuarios/configuracion.php y
+ * public/usuarios/perfil-usuario.php.
+ */
+main{ /* Inicia los estilos del selector 'main'. */
+    background: var(--blanco-50) !important; /* Define la propiedad CSS 'background' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn-eliminar
-{
-    width: auto;
-    margin-left: auto;
-}
+.btn-eliminar /* Continua la definicion de estilos CSS. */
+{ /* Abre el bloque de reglas CSS actual. */
+    width: auto; /* Define la propiedad CSS 'width' con el valor indicado. */
+    margin-left: auto; /* Define la propiedad CSS 'margin-left' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 /* seccion configuracion eleccion */
-.configuracion {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+.configuracion { /* Inicia los estilos del selector '.configuracion'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
 
-    padding: 1rem;
-}
+    padding: 1rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.configuracion .seccion-configuracion-eleccion,
-.configuracion .seccion-configuracion-especifica {
-    width: 100%;
-    height: clamp(40rem, 20vw, 60rem);
-    background-color: var(--blanco-50);
-}
+.configuracion .seccion-configuracion-eleccion, /* Continua la definicion de estilos CSS. */
+.configuracion .seccion-configuracion-especifica { /* Inicia los estilos del selector '.configuracion .seccion-configuracion-especifica'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: clamp(40rem, 20vw, 60rem); /* Define la propiedad CSS 'height' con el valor indicado. */
+    background-color: var(--blanco-50); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.configuracion .seccion-configuracion-eleccion.usuario {
-    width: 40%;
-}
+.configuracion .seccion-configuracion-eleccion.usuario { /* Inicia los estilos del selector '.configuracion .seccion-configuracion-eleccion.usuario'. */
+    width: 40%; /* Define la propiedad CSS 'width' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.configuracion .seccion-configuracion-eleccion {
-    display: flex;
-    flex-direction: column;
-    padding: 1.25rem;
-    gap: .8rem;
-}
+.configuracion .seccion-configuracion-eleccion { /* Inicia los estilos del selector '.configuracion .seccion-configuracion-eleccion'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    padding: 1.25rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    gap: .8rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-eleccion .eleccion-configuracion {
-    padding: .6rem;
-    border-radius: 10px;
-    cursor: pointer;
+.seccion-configuracion-eleccion .eleccion-configuracion { /* Inicia los estilos del selector '.seccion-configuracion-eleccion .eleccion-configuracion'. */
+    padding: .6rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-radius: 10px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
 
-    transition: .2s ease;
-}
+    transition: .2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-eleccion .eleccion-configuracion:hover {
-    background-color: var(--blanco-200);
-}
+.seccion-configuracion-eleccion .eleccion-configuracion:hover { /* Inicia los estilos del selector '.seccion-configuracion-eleccion .eleccion-configuracion:hover'. */
+    background-color: var(--blanco-200); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-eleccion .eleccion-configuracion a {
-    transition: .2s ease;
-}
+.seccion-configuracion-eleccion .eleccion-configuracion a { /* Inicia los estilos del selector '.seccion-configuracion-eleccion .eleccion-configuracion a'. */
+    transition: .2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-eleccion .eleccion-configuracion:hover a {
-    font-weight: 400;
-}
+.seccion-configuracion-eleccion .eleccion-configuracion:hover a { /* Inicia los estilos del selector '.seccion-configuracion-eleccion .eleccion-configuracion:hover a'. */
+    font-weight: 400; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-eleccion .eleccion-configuracion.seleccionado {
-    background-color: var(--azul);
-}
+.seccion-configuracion-eleccion .eleccion-configuracion.seleccionado { /* Inicia los estilos del selector '.seccion-configuracion-eleccion .eleccion-configuracion.seleccionado'. */
+    background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-eleccion .eleccion-configuracion.seleccionado a {
-    color: var(--blanco-50);
-    font-weight: 400;
-}
+.seccion-configuracion-eleccion .eleccion-configuracion.seleccionado a { /* Inicia los estilos del selector '.seccion-configuracion-eleccion .eleccion-configuracion.seleccionado a'. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+    font-weight: 400; /* Define la propiedad CSS 'font-weight' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* seccion configuracion especifica */
-.configuracion .seccion-configuracion-especifica {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.25rem;
-}
+.configuracion .seccion-configuracion-especifica { /* Inicia los estilos del selector '.configuracion .seccion-configuracion-especifica'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    padding: 1.25rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-especifica .btn-editar-configuracion {
-    margin-left: auto;
-    padding: .4rem;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+.seccion-configuracion-especifica .btn-editar-configuracion { /* Inicia los estilos del selector '.seccion-configuracion-especifica .btn-editar-configuracion'. */
+    margin-left: auto; /* Define la propiedad CSS 'margin-left' con el valor indicado. */
+    padding: .4rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-radius: 5px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
 
 
-    background-color: var(--azul);
-}
+    background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-especifica .inputs-configuracion {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: .6rem;
-}
+.seccion-configuracion-especifica .inputs-configuracion { /* Inicia los estilos del selector '.seccion-configuracion-especifica .inputs-configuracion'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .6rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 
 
 /*===================================
-            FORMULARIO
-====================================*/
+            FORMULARIO /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.form-cuerpo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-}
+.form-cuerpo { /* Inicia los estilos del selector '.form-cuerpo'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .8rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.form-input {
-    width: 100%;
-    height: 48px;
-    padding: 0 20px;
-    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-    border-radius: 12px;
-    border: 1px solid var(--blanco-100);
-    background: var(--blanco-100);
-    transition: all 0.2s ease;
+.form-input { /* Inicia los estilos del selector '.form-input'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 48px; /* Define la propiedad CSS 'height' con el valor indicado. */
+    padding: 0 20px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+    border-radius: 12px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    border: 1px solid var(--blanco-100); /* Define la propiedad CSS 'border' con el valor indicado. */
+    background: var(--blanco-100); /* Define la propiedad CSS 'background' con el valor indicado. */
+    transition: all 0.2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-input option {
+.form-input option { /* Inicia los estilos del selector '.form-input option'. */
 
-    all: unset;
-    padding: 0 20px;
-    border-radius: 12px;
-}
+    all: unset; /* Define la propiedad CSS 'all' con el valor indicado. */
+    padding: 0 20px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-radius: 12px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 /* Hover & Focus States */
-.form-input:hover {
-    border-color: var(--azul);
-}
+.form-input:hover { /* Inicia los estilos del selector '.form-input:hover'. */
+    border-color: var(--azul); /* Define la propiedad CSS 'border-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-input:focus {
-    outline: none;
-    border-color: var(--azul);
-    background: var(--blanco-50);
-    box-shadow: 0 4px 10px rgba(185, 185, 185, 0.5);
-}
+.form-input:focus { /* Inicia los estilos del selector '.form-input:focus'. */
+    outline: none; /* Define la propiedad CSS 'outline' con el valor indicado. */
+    border-color: var(--azul); /* Define la propiedad CSS 'border-color' con el valor indicado. */
+    background: var(--blanco-50); /* Define la propiedad CSS 'background' con el valor indicado. */
+    box-shadow: 0 4px 10px rgba(185, 185, 185, 0.5); /* Define la propiedad CSS 'box-shadow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 /* Validation States */
-.form-input:not(:placeholder-shown):valid {
-    border-color: var(--exito);
-}
+.form-input:not(:placeholder-shown):valid { /* Inicia los estilos del selector '.form-input:not(:placeholder-shown):valid'. */
+    border-color: var(--exito); /* Define la propiedad CSS 'border-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-input:not(:placeholder-shown):valid~.input-icon {
-    color: var(--exito);
-}
+.form-input:not(:placeholder-shown):valid~.input-icon { /* Inicia los estilos del selector '.form-input:not(:placeholder-shown):valid~.input-icon'. */
+    color: var(--exito); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* Animation */
-@keyframes shake {
+@keyframes shake { /* Inicia los estilos del selector '@keyframes shake'. */
 
-    0%,
-    100% {
-        transform: translateX(0);
-    }
+    0%, /* Continua la definicion de estilos CSS. */
+    100% { /* Inicia los estilos del selector '100%'. */
+        transform: translateX(0); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    25% {
-        transform: translateX(-4px);
-    }
+    25% { /* Inicia los estilos del selector '25%'. */
+        transform: translateX(-4px); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    75% {
-        transform: translateX(4px);
-    }
-}
+    75% { /* Inicia los estilos del selector '75%'. */
+        transform: translateX(4px); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-input:not(:placeholder-shown):invalid {
-    border-color: var(--error);
-    animation: shake 0.2s ease-in-out;
-}
-
-
+.form-input:not(:placeholder-shown):invalid { /* Inicia los estilos del selector '.form-input:not(:placeholder-shown):invalid'. */
+    border-color: var(--error); /* Define la propiedad CSS 'border-color' con el valor indicado. */
+    animation: shake 0.2s ease-in-out; /* Define la propiedad CSS 'animation' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 
 
-.seccion-configuracion-modificar {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: 800px;
-    max-height: 90%;
-    height: 80%;
-    background-color: var(--blanco-50);
-    z-index: 10000;
-    padding: 1rem;
-    flex-direction: column;
-    gap: .5rem;
-    z-index: 100;
-}
 
-.seccion-configuracion-modificar .form-cuerpo-modificar {
-    width: 100%;
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
-.seccion-configuracion-modificar .form-cuerpo-modificar .contenedor-inputs {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-}
+.seccion-configuracion-modificar { /* Inicia los estilos del selector '.seccion-configuracion-modificar'. */
+    position: absolute; /* Define la propiedad CSS 'position' con el valor indicado. */
+    top: 50%; /* Define la propiedad CSS 'top' con el valor indicado. */
+    left: 50%; /* Define la propiedad CSS 'left' con el valor indicado. */
+    transform: translate(-50%, -50%); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    max-width: 800px; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    max-height: 90%; /* Define la propiedad CSS 'max-height' con el valor indicado. */
+    height: 80%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    background-color: var(--blanco-50); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    z-index: 10000; /* Define la propiedad CSS 'z-index' con el valor indicado. */
+    padding: 1rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    z-index: 100; /* Define la propiedad CSS 'z-index' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-modificar .form-cuerpo-modificar .contenedor-botones {
-    display: flex;
-    flex-direction: row;
-    gap: .8rem;
-}
+.seccion-configuracion-modificar .form-cuerpo-modificar { /* Inicia los estilos del selector '.seccion-configuracion-modificar .form-cuerpo-modificar'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 95%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.seccion-configuracion-modificar .form-cuerpo-modificar .contenedor-botones .btn {
-    padding: clamp(0.2rem, .8vw, 0.8rem) clamp(.8rem, 2vw, 1rem);
-    border-radius: .8rem;
-}
+.seccion-configuracion-modificar .form-cuerpo-modificar .contenedor-inputs { /* Inicia los estilos del selector '.seccion-configuracion-modificar .form-cuerpo-modificar .contenedor-inputs'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .8rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-@media (max-width: 1000px) {
-    .configuracion {
+.seccion-configuracion-modificar .form-cuerpo-modificar .contenedor-botones { /* Inicia los estilos del selector '.seccion-configuracion-modificar .form-cuerpo-modificar .contenedor-botones'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .8rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.seccion-configuracion-modificar .form-cuerpo-modificar .contenedor-botones .btn { /* Inicia los estilos del selector '.seccion-configuracion-modificar .form-cuerpo-modificar .contenedor-botones .btn'. */
+    padding: clamp(0.2rem, .8vw, 0.8rem) clamp(.8rem, 2vw, 1rem); /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-radius: .8rem; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+@media (max-width: 1000px) { /* Inicia los estilos del selector '@media (max-width: 1000px)'. */
+    .configuracion { /* Inicia los estilos del selector '.configuracion'. */
         /* background-color: orange; */
-        flex-direction: column;
-    }
+        flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .configuracion .seccion-configuracion-eleccion {
-        min-width: 100%;
-        height: auto;
-        flex-direction: row;
-        padding: 0;
-        border-bottom: 1px solid var(--azul);
-        box-shadow: none;
-        border-radius: 0;
+    .configuracion .seccion-configuracion-eleccion { /* Inicia los estilos del selector '.configuracion .seccion-configuracion-eleccion'. */
+        min-width: 100%; /* Define la propiedad CSS 'min-width' con el valor indicado. */
+        height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+        flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        padding: 0; /* Define la propiedad CSS 'padding' con el valor indicado. */
+        border-bottom: 1px solid var(--azul); /* Define la propiedad CSS 'border-bottom' con el valor indicado. */
+        box-shadow: none; /* Define la propiedad CSS 'box-shadow' con el valor indicado. */
+        border-radius: 0; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
 
-    }
+    } /* Cierra el bloque de reglas CSS actual. */
 
 
-    .eleccion-configuracion {
-        width: auto;
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-        padding-bottom: 5px;
-    }
+    .eleccion-configuracion { /* Inicia los estilos del selector '.eleccion-configuracion'. */
+        width: auto; /* Define la propiedad CSS 'width' con el valor indicado. */
+        position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+        display: inline-block; /* Define la propiedad CSS 'display' con el valor indicado. */
+        cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+        padding-bottom: 5px; /* Define la propiedad CSS 'padding-bottom' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .eleccion-configuracion {
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-        padding-bottom: 5px;
-    }
+    .eleccion-configuracion { /* Inicia los estilos del selector '.eleccion-configuracion'. */
+        position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+        display: inline-block; /* Define la propiedad CSS 'display' con el valor indicado. */
+        cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+        padding-bottom: 5px; /* Define la propiedad CSS 'padding-bottom' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
     /* Línea inferior (inicialmente oculta) */
-    .eleccion-configuracion::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        width: 0%;
-        background-color: var(--azul);
-        transition: width .2s ease-in-out, height .2s ease;
-        transform-origin: left center;
-    }
+    .eleccion-configuracion::after { /* Inicia los estilos del selector '.eleccion-configuracion::after'. */
+        content: ""; /* Define la propiedad CSS 'content' con el valor indicado. */
+        position: absolute; /* Define la propiedad CSS 'position' con el valor indicado. */
+        bottom: 0; /* Define la propiedad CSS 'bottom' con el valor indicado. */
+        left: 0; /* Define la propiedad CSS 'left' con el valor indicado. */
+        height: 2px; /* Define la propiedad CSS 'height' con el valor indicado. */
+        width: 0%; /* Define la propiedad CSS 'width' con el valor indicado. */
+        background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+        transition: width .2s ease-in-out, height .2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+        transform-origin: left center; /* Define la propiedad CSS 'transform-origin' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
     /* Animación al pasar el mouse: se “extiende” hacia la derecha */
-    .eleccion-configuracion:hover::after {
-        width: 100%;
-    }
+    .eleccion-configuracion:hover::after { /* Inicia los estilos del selector '.eleccion-configuracion:hover::after'. */
+        width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
     /* Estado seleccionado: línea fija y más gruesa */
-    .eleccion-configuracion.seleccionado::after {
-        width: 100%;
-        height: 3px;
-        background-color: var(--azul);
-    }
+    .eleccion-configuracion.seleccionado::after { /* Inicia los estilos del selector '.eleccion-configuracion.seleccionado::after'. */
+        width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+        height: 3px; /* Define la propiedad CSS 'height' con el valor indicado. */
+        background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
 
-    .seccion-configuracion-eleccion .eleccion-configuracion:hover,
-    .seccion-configuracion-eleccion .eleccion-configuracion.seleccionado {
-        background-color: transparent;
-    }
+    .seccion-configuracion-eleccion .eleccion-configuracion:hover, /* Continua la definicion de estilos CSS. */
+    .seccion-configuracion-eleccion .eleccion-configuracion.seleccionado { /* Inicia los estilos del selector '.seccion-configuracion-eleccion .eleccion-configuracion.seleccionado'. */
+        background-color: transparent; /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
 
-    .seccion-configuracion-eleccion .eleccion-configuracion.seleccionado a {
-        color: var(--negro-700);
-    }
-}
+    .seccion-configuracion-eleccion .eleccion-configuracion.seleccionado a { /* Inicia los estilos del selector '.seccion-configuracion-eleccion .eleccion-configuracion.seleccionado a'. */
+        color: var(--negro-700); /* Define la propiedad CSS 'color' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-@media (max-width: 800px) {
-    .configuracion.panel-modulo .seccion-configuracion-eleccion {
-        overflow-x: auto; /* permite hacer scroll horizontal */
-        white-space: nowrap; /* mantiene los elementos en línea */
-        scroll-behavior: smooth; /* scroll suave */
-        -webkit-overflow-scrolling: touch; /* scroll fluido en móviles */
-        gap: 1.5rem;
-    }
+@media (max-width: 800px) { /* Inicia los estilos del selector '@media (max-width: 800px)'. */
+    .configuracion.panel-modulo .seccion-configuracion-eleccion { /* Inicia los estilos del selector '.configuracion.panel-modulo .seccion-configuracion-eleccion'. */
+        overflow-x: auto; /* permite hacer scroll horizontal */ /* Define la propiedad CSS 'overflow-x' con el valor indicado. */
+        white-space: nowrap; /* mantiene los elementos en línea */ /* Define la propiedad CSS 'white-space' con el valor indicado. */
+        scroll-behavior: smooth; /* scroll suave */ /* Define la propiedad CSS 'scroll-behavior' con el valor indicado. */
+        -webkit-overflow-scrolling: touch; /* scroll fluido en móviles */ /* Define la propiedad CSS '-webkit-overflow-scrolling' con el valor indicado. */
+        gap: 1.5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
     /* Ocultar barra de scroll (en todos los navegadores) */
-     .configuracion.panel-modulo .seccion-configuracion-eleccion::-webkit-scrollbar {
-        display: none;
-    }
-    .configuracion.panel-modulo .seccion-configuracion-eleccion {
-        -ms-overflow-style: none;  /* IE y Edge */
-        scrollbar-width: none;     /* Firefox */
-    }
-}
+     .configuracion.panel-modulo .seccion-configuracion-eleccion::-webkit-scrollbar { /* Inicia los estilos del selector '.configuracion.panel-modulo .seccion-configuracion-eleccion::-webkit-scrollbar'. */
+        display: none; /* Define la propiedad CSS 'display' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+    .configuracion.panel-modulo .seccion-configuracion-eleccion { /* Inicia los estilos del selector '.configuracion.panel-modulo .seccion-configuracion-eleccion'. */
+        -ms-overflow-style: none;  /* IE y Edge */ /* Define la propiedad CSS '-ms-overflow-style' con el valor indicado. */
+        scrollbar-width: none;     /* Firefox */ /* Define la propiedad CSS 'scrollbar-width' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /*===================================
-        CONFIGURACION-USUARIO
-====================================*/
+        CONFIGURACION-USUARIO /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.contenedor-modulos {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-}
+.contenedor-modulos { /* Inicia los estilos del selector '.contenedor-modulos'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: 1.2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-modulos .modulo {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 0;
-    border-top: .5px solid var(--negro-700);
-    border-bottom: .5px solid var(--negro-700);
-    cursor: pointer;
+.contenedor-modulos .modulo { /* Inicia los estilos del selector '.contenedor-modulos .modulo'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    padding: 1rem 0; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-top: .5px solid var(--negro-700); /* Define la propiedad CSS 'border-top' con el valor indicado. */
+    border-bottom: .5px solid var(--negro-700); /* Define la propiedad CSS 'border-bottom' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-modulos .modulo .cont-superior {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    user-select: none;
-}
+.contenedor-modulos .modulo .cont-superior { /* Inicia los estilos del selector '.contenedor-modulos .modulo .cont-superior'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    user-select: none; /* Define la propiedad CSS 'user-select' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-modulos .modulo .cont-datos-sensores {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-}
+.contenedor-modulos .modulo .cont-datos-sensores { /* Inicia los estilos del selector '.contenedor-modulos .modulo .cont-datos-sensores'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.modulo .cont-datos-sensores>* {
-    display: flex;
-    flex-direction: row;
-    gap: .5rem;
-    align-items: center;
-    padding: 2px 5px;
-    user-select: none;
-}
+.modulo .cont-datos-sensores>* { /* Inicia los estilos del selector '.modulo .cont-datos-sensores>*'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    padding: 2px 5px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    user-select: none; /* Define la propiedad CSS 'user-select' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* .btn-estado .btn-switch {
-    display: none;
-}
+    display: none; /* Define la propiedad CSS 'display' con el valor indicado. */
+/* Cierra el bloque de reglas CSS actual. */
 
-.lbl-switch {
-    display: inline-block;
-    width: clamp(3rem, 1vw, 5rem);
-    height: clamp(1.2rem, 2vw, 2rem);
-    background-color: var(--error);
-    position: relative;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    overflow: hidden;
-}
+.lbl-switch { /* Inicia los estilos del selector '.lbl-switch'. */
+    display: inline-block; /* Define la propiedad CSS 'display' con el valor indicado. */
+    width: clamp(3rem, 1vw, 5rem); /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: clamp(1.2rem, 2vw, 2rem); /* Define la propiedad CSS 'height' con el valor indicado. */
+    background-color: var(--error); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+    border-radius: 1rem; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+    transition: background-color 0.2s; /* Define la propiedad CSS 'transition' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn-estado .lbl-switch .icon {
-    position: absolute;
-    left: 0.1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: left 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.btn-estado .lbl-switch .icon { /* Inicia los estilos del selector '.btn-estado .lbl-switch .icon'. */
+    position: absolute; /* Define la propiedad CSS 'position' con el valor indicado. */
+    left: 0.1rem; /* Define la propiedad CSS 'left' con el valor indicado. */
+    top: 50%; /* Define la propiedad CSS 'top' con el valor indicado. */
+    transform: translateY(-50%); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    transition: left 0.2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn-switch:checked+.lbl-switch {
-    background-color: var(--azul);
-}
+.btn-switch:checked+.lbl-switch { /* Inicia los estilos del selector '.btn-switch:checked+.lbl-switch'. */
+    background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn-switch:checked+.lbl-switch .icon {
-    left: calc(100% - 1.5rem);
+.btn-switch:checked+.lbl-switch .icon { /* Inicia los estilos del selector '.btn-switch:checked+.lbl-switch .icon'. */
+    left: calc(100% - 1.5rem); /* Define la propiedad CSS 'left' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
 */
 
 /*===================================
-    FORMULARIO VALIDAR-CODIGO
-====================================*/
+    FORMULARIO VALIDAR-CODIGO /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.flotante {
-    min-width: 600px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 50;
-    flex-direction: column;
-    background-color: var(--blanco-50);
-    padding: 2rem;
-    align-items: center;
-    justify-content: center;
-}
+.flotante { /* Inicia los estilos del selector '.flotante'. */
+    min-width: 600px; /* Define la propiedad CSS 'min-width' con el valor indicado. */
+    position: fixed; /* Define la propiedad CSS 'position' con el valor indicado. */
+    top: 50%; /* Define la propiedad CSS 'top' con el valor indicado. */
+    left: 50%; /* Define la propiedad CSS 'left' con el valor indicado. */
+    transform: translate(-50%, -50%); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    z-index: 50; /* Define la propiedad CSS 'z-index' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    background-color: var(--blanco-50); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    padding: 2rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.flotante .form-agregar-modulo {
-    display: flex;
-    flex-direction: column;
-    gap: .2rem;
-}
+.flotante .form-agregar-modulo { /* Inicia los estilos del selector '.flotante .form-agregar-modulo'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.flotante .form-agregar-modulo .btn-enviar {
-    width: auto;
-}
+.flotante .form-agregar-modulo .btn-enviar { /* Inicia los estilos del selector '.flotante .form-agregar-modulo .btn-enviar'. */
+    width: auto; /* Define la propiedad CSS 'width' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */

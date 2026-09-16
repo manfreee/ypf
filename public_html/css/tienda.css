@@ -1,268 +1,273 @@
 /*===================================
-            MODULO COMPRAR
-====================================*/
+            MODULO COMPRAR /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.modulo-comprar {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: 1fr .9fr;
-}
+/*
+ * Proposito: catalogo, imagenes y modulo de compra de productos.
+ * Archivo que edita: public/public/tienda.php.
+ */
 
-.imagenes-modulo {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-}
+.modulo-comprar { /* Inicia los estilos del selector '.modulo-comprar'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    gap: 1.5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    grid-template-columns: 1fr .9fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.imagenes-modulo .imagen {
-    width: 100%;
+.imagenes-modulo { /* Inicia los estilos del selector '.imagenes-modulo'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1.6rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.imagenes-modulo .imagen { /* Inicia los estilos del selector '.imagenes-modulo .imagen'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
     /* aspect-ratio: 1 / .9;
-    border-radius: 280px; */
+    border-radius: 280px; */ /* Define la propiedad CSS 'border-radius' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.imagenes-modulo picture.imagen img {
-    width: 100%;
-    aspect-ratio: 1 / .9;
-    display: block;
-    object-fit: cover;
-}
+.imagenes-modulo picture.imagen img { /* Inicia los estilos del selector '.imagenes-modulo picture.imagen img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    aspect-ratio: 1 / .9; /* Define la propiedad CSS 'aspect-ratio' con el valor indicado. */
+    display: block; /* Define la propiedad CSS 'display' con el valor indicado. */
+    object-fit: cover; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.imagenes-modulo .contenedor-imagenes {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(clamp(5rem, 10vw, 20rem), 1fr));
-    gap: 10px;
-}
+.imagenes-modulo .contenedor-imagenes { /* Inicia los estilos del selector '.imagenes-modulo .contenedor-imagenes'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: repeat(auto-fill, minmax(clamp(5rem, 10vw, 20rem), 1fr)); /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: 10px; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.imagenes-modulo .contenedor-imagenes .sub-imagen {
-    background-color: var(--blanco-300);
-    width: 100%;
-    aspect-ratio: 1 / 1;
-}
+.imagenes-modulo .contenedor-imagenes .sub-imagen { /* Inicia los estilos del selector '.imagenes-modulo .contenedor-imagenes .sub-imagen'. */
+    background-color: var(--blanco-300); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    aspect-ratio: 1 / 1; /* Define la propiedad CSS 'aspect-ratio' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-imagenes .sub-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.2s ease, border 0.2s ease;
-}
+.contenedor-imagenes .sub-imagen img { /* Inicia los estilos del selector '.contenedor-imagenes .sub-imagen img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    object-fit: cover; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+    transition: transform 0.2s ease, border 0.2s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-imagenes .sub-imagen img:hover {
-    transform: scale(1.05);
-}
+.contenedor-imagenes .sub-imagen img:hover { /* Inicia los estilos del selector '.contenedor-imagenes .sub-imagen img:hover'. */
+    transform: scale(1.05); /* Define la propiedad CSS 'transform' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.informacion-modulo {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+.informacion-modulo { /* Inicia los estilos del selector '.informacion-modulo'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1.2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
     /* background-color: var(--blanco-500); */
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.informacion-modulo .informacion-principal {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+.informacion-modulo .informacion-principal { /* Inicia los estilos del selector '.informacion-modulo .informacion-principal'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.informacion-principal .texto-modulo {
-    line-height: 1rem;
-    letter-spacing: 0.02rem;
+.informacion-principal .texto-modulo { /* Inicia los estilos del selector '.informacion-principal .texto-modulo'. */
+    line-height: 1rem; /* Define la propiedad CSS 'line-height' con el valor indicado. */
+    letter-spacing: 0.02rem; /* Define la propiedad CSS 'letter-spacing' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.informacion-modulo .informacion-principal .nombre-precio {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
+.informacion-modulo .informacion-principal .nombre-precio { /* Inicia los estilos del selector '.informacion-modulo .informacion-principal .nombre-precio'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 0.5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.informacion-modulo .form-carrito {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: .6rem;
-}
+.informacion-modulo .form-carrito { /* Inicia los estilos del selector '.informacion-modulo .form-carrito'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .6rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.informacion-modulo .form-carrito .informacion-servicio {
-    display: flex;
-    flex-direction: column;
-    gap: .2rem;
-    border-top: .5px solid var(--negro-700);
-    border-bottom: .5px solid var(--negro-700);
-    padding: 10px 0;
-}
+.informacion-modulo .form-carrito .informacion-servicio { /* Inicia los estilos del selector '.informacion-modulo .form-carrito .informacion-servicio'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    border-top: .5px solid var(--negro-700); /* Define la propiedad CSS 'border-top' con el valor indicado. */
+    border-bottom: .5px solid var(--negro-700); /* Define la propiedad CSS 'border-bottom' con el valor indicado. */
+    padding: 10px 0; /* Define la propiedad CSS 'padding' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.form-carrito .informacion-servicio .cont-servicio {
-    display: flex;
-    flex-direction: row;
-    gap: .5rem;
-    align-items: center;
-}
+.form-carrito .informacion-servicio .cont-servicio { /* Inicia los estilos del selector '.form-carrito .informacion-servicio .cont-servicio'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.informacion-modulo .elegir-cantidad {
-    display: flex;
-    flex-direction: row;
-    gap: .5rem;
-    align-items: center;
-}
+.informacion-modulo .elegir-cantidad { /* Inicia los estilos del selector '.informacion-modulo .elegir-cantidad'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.elegir-cantidad .btn-cantidad {
-    width: 3rem;
-    aspect-ratio: 1 / 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: .5px solid var(--negro-700);
-    cursor: pointer;
-    border-radius: .3rem;
-    user-select: none;
-}
+.elegir-cantidad .btn-cantidad { /* Inicia los estilos del selector '.elegir-cantidad .btn-cantidad'. */
+    width: 3rem; /* Define la propiedad CSS 'width' con el valor indicado. */
+    aspect-ratio: 1 / 1; /* Define la propiedad CSS 'aspect-ratio' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+    border: .5px solid var(--negro-700); /* Define la propiedad CSS 'border' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+    border-radius: .3rem; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    user-select: none; /* Define la propiedad CSS 'user-select' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.elegir-cantidad .btn-cantidad.sumar,
-.elegir-cantidad .btn-cantidad.restar
-{
-    background-color: var(--azul);
-    color: var(--blanco-50);
-}
-
-
-.informacion-modulo .btn-comprar {
-    width: 100%;
-    min-width: 90%;
-    border-radius: 10px;
-}
-
-.informacion-modulo .btn-comprar:hover {
-    transform: scale(1.02);
-}
+.elegir-cantidad .btn-cantidad.sumar, /* Continua la definicion de estilos CSS. */
+.elegir-cantidad .btn-cantidad.restar /* Continua la definicion de estilos CSS. */
+{ /* Abre el bloque de reglas CSS actual. */
+    background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-@media (max-width: 800px) {
-    .modulo-comprar {
-        gap: 1rem;
-        grid-template-columns: .8fr 1fr;
-    }
-}
+.informacion-modulo .btn-comprar { /* Inicia los estilos del selector '.informacion-modulo .btn-comprar'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    min-width: 90%; /* Define la propiedad CSS 'min-width' con el valor indicado. */
+    border-radius: 10px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-@media (max-width: 640px) {
-    .modulo-comprar {
-        grid-template-columns: 1fr;
-    }
+.informacion-modulo .btn-comprar:hover { /* Inicia los estilos del selector '.informacion-modulo .btn-comprar:hover'. */
+    transform: scale(1.02); /* Define la propiedad CSS 'transform' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-    .imagenes-modulo {
-        display: grid;
-        grid-template-columns: 1fr .2fr;
-        gap: .5rem;
-    }
 
-    .imagenes-modulo picture.imagen img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-    }
+@media (max-width: 800px) { /* Inicia los estilos del selector '@media (max-width: 800px)'. */
+    .modulo-comprar { /* Inicia los estilos del selector '.modulo-comprar'. */
+        gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+        grid-template-columns: .8fr 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-}
+@media (max-width: 640px) { /* Inicia los estilos del selector '@media (max-width: 640px)'. */
+    .modulo-comprar { /* Inicia los estilos del selector '.modulo-comprar'. */
+        grid-template-columns: 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-@media (max-width: 450px) {
+    .imagenes-modulo { /* Inicia los estilos del selector '.imagenes-modulo'. */
+        display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+        grid-template-columns: 1fr .2fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+        gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .imagenes-modulo {
-        display: flex;
-    }
-}
+    .imagenes-modulo picture.imagen img { /* Inicia los estilos del selector '.imagenes-modulo picture.imagen img'. */
+        width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+        height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+        display: block; /* Define la propiedad CSS 'display' con el valor indicado. */
+        object-fit: cover; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-/*===================================
-            MODULO COMPRAR
-====================================*/
+} /* Cierra el bloque de reglas CSS actual. */
 
-.caracteristicas-modulo {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
+@media (max-width: 450px) { /* Inicia los estilos del selector '@media (max-width: 450px)'. */
 
-.caracteristicas-modulo .contenedor-caracteristicas {
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.caracteristicas-modulo .contenedor-caracteristicas .caracteristica {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-}
-
-.caracteristicas-modulo .imagen {
-    width: 100%;
-}
-
-.caracteristicas-modulo picture.imagen img {
-    width: 100%;
-    aspect-ratio: 1 / .9;
-    display: block;
-    object-fit: cover;
-}
-
-@media (max-width: 900px) {
-    .caracteristicas-modulo {
-        grid-template-columns: 1fr .8fr;
-    }
-}
-
-@media (max-width: 645px) {
-    .caracteristicas-modulo {
-        grid-template-columns: 1fr;
-    }
-}
-
+    .imagenes-modulo { /* Inicia los estilos del selector '.imagenes-modulo'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /*===================================
-            SERVICIO
-====================================*/
+            MODULO COMPRAR /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.servicio {
-    width: 100%;
-    max-width: 50rem;
-    padding: 40px clamp(1rem, 5vw, 5rem);
-    background-color: var(--azul);
-    color: var(--blanco-50);
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    border-radius: 0 30px 30px 0;
-}
+.caracteristicas-modulo { /* Inicia los estilos del selector '.caracteristicas-modulo'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: repeat(2, 1fr); /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: 10px; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.servicio .servicio-informacion {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-}
+.caracteristicas-modulo .contenedor-caracteristicas { /* Inicia los estilos del selector '.caracteristicas-modulo .contenedor-caracteristicas'. */
+    margin-top: 3rem; /* Define la propiedad CSS 'margin-top' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.servicio .servicio-informacion .texto-servicio {
-    line-height: 1.2rem;
-    letter-spacing: 0.03rem;
-}
+.caracteristicas-modulo .contenedor-caracteristicas .caracteristica { /* Inicia los estilos del selector '.caracteristicas-modulo .contenedor-caracteristicas .caracteristica'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.servicio .servicio-punteo {
-    width: 100%;
-    max-width: 30rem;
-    display: flex;
-    flex-direction: column;
-    gap: .6rem;
-}
+.caracteristicas-modulo .imagen { /* Inicia los estilos del selector '.caracteristicas-modulo .imagen'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.servicio .servicio-punteo ul li {
-    color: var(--blanco-50);
-}
+.caracteristicas-modulo picture.imagen img { /* Inicia los estilos del selector '.caracteristicas-modulo picture.imagen img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    aspect-ratio: 1 / .9; /* Define la propiedad CSS 'aspect-ratio' con el valor indicado. */
+    display: block; /* Define la propiedad CSS 'display' con el valor indicado. */
+    object-fit: cover; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-@media (max-width:800px) {
-    .servicio {
-        border-radius: 10px;
-    }
-}
+@media (max-width: 900px) { /* Inicia los estilos del selector '@media (max-width: 900px)'. */
+    .caracteristicas-modulo { /* Inicia los estilos del selector '.caracteristicas-modulo'. */
+        grid-template-columns: 1fr .8fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+@media (max-width: 645px) { /* Inicia los estilos del selector '@media (max-width: 645px)'. */
+    .caracteristicas-modulo { /* Inicia los estilos del selector '.caracteristicas-modulo'. */
+        grid-template-columns: 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+/*===================================
+            SERVICIO /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
+
+.servicio { /* Inicia los estilos del selector '.servicio'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    max-width: 50rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    padding: 40px clamp(1rem, 5vw, 5rem); /* Define la propiedad CSS 'padding' con el valor indicado. */
+    background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    border-radius: 0 30px 30px 0; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.servicio .servicio-informacion { /* Inicia los estilos del selector '.servicio .servicio-informacion'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .8rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.servicio .servicio-informacion .texto-servicio { /* Inicia los estilos del selector '.servicio .servicio-informacion .texto-servicio'. */
+    line-height: 1.2rem; /* Define la propiedad CSS 'line-height' con el valor indicado. */
+    letter-spacing: 0.03rem; /* Define la propiedad CSS 'letter-spacing' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.servicio .servicio-punteo { /* Inicia los estilos del selector '.servicio .servicio-punteo'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    max-width: 30rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .6rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.servicio .servicio-punteo ul li { /* Inicia los estilos del selector '.servicio .servicio-punteo ul li'. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+@media (max-width:800px) { /* Inicia los estilos del selector '@media (max-width:800px)'. */
+    .servicio { /* Inicia los estilos del selector '.servicio'. */
+        border-radius: 10px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
