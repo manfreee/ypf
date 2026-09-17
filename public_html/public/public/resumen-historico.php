@@ -1,4 +1,8 @@
 <?php
+/*Muestra el historial de mediciones del módulo solar del usuario.
+  Verifica la sesión, obtiene el módulo asociado, permite filtrar los datos
+  por fecha y consulta la tabla `datos`. Luego presenta las
+  mediciones en una tabla con resumen de registros, búsqueda y ordenamiento.*/
 require_once __DIR__ . '/../conexion.php';
 
 // Verificar si el usuario está autenticado
@@ -7,7 +11,6 @@ if (!isset($_SESSION['usuario'])) {
     header('Location: /public/public/iniciar-sesion.php');
     exit();
 }
-
 // Obtener el ID del módulo del usuario
 $id_usuario = $_SESSION['usuario']['id_usuario'];
 $query = "SELECT id_modulo FROM modulos WHERE id_usuario = ?";

@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" href="/css/funcionamiento.css">
 
+<!-- Presentación principal. -->
 <header class="header-funcionamiento">
     <div class="cont-img">
         <img src="/css/recursos/img/panel-1.v4.png">
@@ -15,6 +16,7 @@
     </div>
 </header>
 
+<!-- Beneficios generales  -->
 <section class="contenedor-informacion-general">
     <div class="contenedor-izquierda">
         <div class="borde-redondeado cont-img">
@@ -51,6 +53,7 @@
     </div>
 </section>
 
+<!-- Características principales del módulo solar y de su funcionamiento. -->
 <section class="section-descripcion-modulo">
     <div class="contenedor-izquierda">
         <div class="tarjeta">
@@ -95,13 +98,14 @@
 
 </section>
 
-
+<!-- Funciones disponibles desde la plataforma web. -->
 <section class="sitio-web">
     <div class="subtitulo">
         <p class="texto grande nulshock media-negrita color-secundario">Monitoreo por sitio web</p>
         <p>Desde nuestra plataforma online podés consultar toda la información de tus módulos, configurar sensores y revisar el historial energético de cada instalación. Todo en un entorno claro, seguro y fácil de usar.</p>
     </div>
     <div class="contenedor-informacion">
+        <!-- Cards que describen una acción o la información disponible para el usuario. -->
         <div class="contenedor-izquierda">
             <div class="tarjeta">
                 <iconify-icon icon="solar:cloud-download-bold" class="icon color-blanco icon-h3"></iconify-icon>
@@ -131,4 +135,6 @@
         </div>
     </div>
 </section>
+
+<!-- Inlcuir el footer-->
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/footer.php'; ?>

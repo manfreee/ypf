@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+// Los usuarios que ya tienen una sesión activa no necesitan iniciar sesión otra vez.
 if (isset($_SESSION['id_usuario'])) {
 
     if ($_SESSION['id_rol'] == 1) {
@@ -11,10 +11,7 @@ if (isset($_SESSION['id_usuario'])) {
     }
     exit();
 }
-
-
 require_once($_SERVER['DOCUMENT_ROOT'] . '/conexion.php');
-
 $mensaje_error = "";
 $mensaje_exito = "";
 
@@ -34,7 +31,6 @@ if (isset($_POST['iniciar-sesion'])) {
         // Selecciona todos los campos necesarios
         $query = "SELECT id_usuario, nombre, apellido, email, contrasena, id_rol FROM usuarios WHERE email = '$email'";
         $resultado = mysqli_query($conexion, $query);
-
         if (mysqli_num_rows($resultado) == 1) {
             $usuario = mysqli_fetch_assoc($resultado);
 
@@ -51,9 +47,8 @@ if (isset($_POST['iniciar-sesion'])) {
             else if ($contrasena === $contrasena_bd) {
                 $password_correcta = true;
             }
-
             if ($password_correcta) {
-
+                // Conserva en la sesión la identidad y el rol del usuario autenticado.
                 $_SESSION['id_usuario'] = $usuario['id_usuario'];
                 $_SESSION['nombre'] = $usuario['nombre'];
                 $_SESSION['apellido'] = $usuario['apellido'];
@@ -66,21 +61,17 @@ if (isset($_POST['iniciar-sesion'])) {
                     header("Location: /index.php");
                 }
                 exit();
-
             } else {
                 $mensaje_error = "Error: El correo electrónico o la contraseña son incorrectos.";
             }
-
         } else {
             $mensaje_error = "Error: El correo electrónico o la contraseña son incorrectos.";
         }
-
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,6 +83,7 @@ if (isset($_POST['iniciar-sesion'])) {
 
 <body>
     <main>
+        <!-- Fondo decorativo y formulario principal de inicio de sesión. -->
         <div class="contenedor-principal">
             <div class="circulo uno"></div>
             <div class="circulo dos"></div>
@@ -158,8 +150,7 @@ if (isset($_POST['iniciar-sesion'])) {
             </form>
         </div>
     </main>
+    <!-- Permite alternar la visibilidad del campo de contraseña. -->
     <script src="/js/visualizarContrasenia.js"></script>
-
 </body>
-
 </html>
