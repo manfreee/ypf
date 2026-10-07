@@ -1,9 +1,13 @@
 <?php
+/*Obtiene el producto desde la base de datos, muestra su información,
+  permite seleccionar la cantidad y el servicio opcional, y envía la
+  selección al carrito mediante una solicitud POST.*/
 session_start();
 include_once($_SERVER['DOCUMENT_ROOT'] . '/conexion.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php');
 
 
+// La tienda muestra el producto principal del catálogo
 $id_producto = 1;
 
 // Consulta del producto
@@ -17,7 +21,7 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 $producto = $resultado->fetch_assoc();
 
-
+// La ruta pública de la imagen se construye a partir del nombre almacenado
 $imagen = "/css/recursos/img/productos/" . $producto['imagen'];
 $stmt->close()
     ?>
@@ -71,6 +75,7 @@ $stmt->close()
         </div>
         <form class="form-carrito" action="/public/usuarios/carrito.php" method="POST">
 
+            <!-- Los valores permiten al carrito identificar y calcular el producto seleccionado. -->
             <input type="hidden" name="id_producto" value="<?= $producto['id_producto'] ?>">
             <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($producto['nombre']); ?>">
             <input type="hidden" name="precio" value="<?php echo $producto['precio']; ?>">
@@ -89,6 +94,7 @@ $stmt->close()
                 </label>
             </div>
 
+            <!-- La cantidad se limita al stock disponible. -->
             <div class="elegir-cantidad">
                 <p class="btn-cantidad sumar" id="restar">-</p>
                 <input class="btn-cantidad" type="tel" id="cantidad-producto" name="cantidad" value="1" min="1"
@@ -161,6 +167,7 @@ $stmt->close()
 <script src="/js/agregar-cantidad.js"></script>
 
 <script>
+    // Permite cambiar la imagen principal al seleccionar una miniatura.
     document.addEventListener("DOMContentLoaded", () => {
         const imagenPrincipal = document.querySelector(".imagenes-modulo .imagen img");
         const subImagenes = document.querySelectorAll(".contenedor-imagenes .sub-imagen img");

@@ -1,144 +1,148 @@
-.navegador {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    background-color: var(--azul);
-    height: clamp(3rem, 8vw, 4rem);
-}
+/*
+ * Proposito: barra de navegacion publica y sus enlaces.
+ * Archivo que edita: public/public/componentes/navegador.php.
+ */
+.navegador { /* Inicia los estilos del selector '.navegador'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    height: clamp(3rem, 8vw, 4rem); /* Define la propiedad CSS 'height' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.navegador .menu-nav {
-    flex: 1;
-    display: flex;
-    gap: 1.2rem;
-    justify-content: flex-end;
+.navegador .menu-nav { /* Inicia los estilos del selector '.navegador .menu-nav'. */
+    flex: 1; /* Define la propiedad CSS 'flex' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    gap: 1.2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    justify-content: flex-end; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.navegador .menu-nav .sub-menu {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1.2rem;
-    width: 100%;
-}
-
-
-.navegador .menu-nav .sub-menu a {
-    position: relative;
-    transition: color 0.3s ease;
-}
+.navegador .menu-nav .sub-menu { /* Inicia los estilos del selector '.navegador .menu-nav .sub-menu'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-wrap: nowrap; /* Define la propiedad CSS 'flex-wrap' con el valor indicado. */
+    justify-content: flex-end; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    gap: 1.2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.navegador .menu-nav .sub-menu a:not(.btn-primario)::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-
-    width: 0%;
-    height: 2px;
-    background-color: var(--blanco-50);
-    transition: width 0.4s ease;
-}
-
-.navegador .menu-nav .sub-menu a:not(.btn-primario):hover::after {
-    width: 100%;
-}
+.navegador .menu-nav .sub-menu a { /* Inicia los estilos del selector '.navegador .menu-nav .sub-menu a'. */
+    position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+    transition: color 0.3s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.cont-btns{
-    width: auto;
-    max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-    margin-left: 1.2rem;
-}
+.navegador .menu-nav .sub-menu a:not(.btn-primario)::after { /* Inicia los estilos del selector '.navegador .menu-nav .sub-menu a:not(.btn-primario)::after'. */
+    content: ""; /* Define la propiedad CSS 'content' con el valor indicado. */
+    position: absolute; /* Define la propiedad CSS 'position' con el valor indicado. */
+    left: 0; /* Define la propiedad CSS 'left' con el valor indicado. */
+    bottom: -3px; /* Define la propiedad CSS 'bottom' con el valor indicado. */
+
+    width: 0%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 2px; /* Define la propiedad CSS 'height' con el valor indicado. */
+    background-color: var(--blanco-50); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    transition: width 0.4s ease; /* Define la propiedad CSS 'transition' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.navegador .menu-nav .sub-menu a:not(.btn-primario):hover::after { /* Inicia los estilos del selector '.navegador .menu-nav .sub-menu a:not(.btn-primario):hover::after'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+.cont-btns{ /* Inicia los estilos del selector '.cont-btns'. */
+    width: auto; /* Define la propiedad CSS 'width' con el valor indicado. */
+    max-width: 100%; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 16px; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    margin-left: 1.2rem; /* Define la propiedad CSS 'margin-left' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* ===================================
-           MEDIA NAVEGADOR
-====================================*/
+           MEDIA NAVEGADOR /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-@media (max-width:900px) {
+@media (max-width:900px) { /* Inicia los estilos del selector '@media (max-width:900px)'. */
 
-    .navegador .icon {
-        display: block;
-        opacity: 1 ;
-        pointer-events: all;
+    .navegador .icon { /* Inicia los estilos del selector '.navegador .icon'. */
+        display: block; /* Define la propiedad CSS 'display' con el valor indicado. */
+        opacity: 1 ; /* Define la propiedad CSS 'opacity' con el valor indicado. */
+        pointer-events: all; /* Define la propiedad CSS 'pointer-events' con el valor indicado. */
 
-        cursor: pointer;
-        color: var(--blanco-100);
-    }
+        cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+        color: var(--blanco-100); /* Define la propiedad CSS 'color' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
 
-    .navegador .cont-menu-responsive {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-    }
+    .navegador .cont-menu-responsive { /* Inicia los estilos del selector '.navegador .cont-menu-responsive'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+        gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .navegador .menu-nav {
-        width: 100%;
-        max-width: 400px;
-        height: 100vh;
-        flex-direction: column;
-        justify-content: space-between;
+    .navegador .menu-nav { /* Inicia los estilos del selector '.navegador .menu-nav'. */
+        width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+        max-width: 400px; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        height: 100vh; /* Define la propiedad CSS 'height' con el valor indicado. */
+        flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
 
-        position: fixed;
-        top: 0;
-        left: 0;
+        position: fixed; /* Define la propiedad CSS 'position' con el valor indicado. */
+        top: 0; /* Define la propiedad CSS 'top' con el valor indicado. */
+        left: 0; /* Define la propiedad CSS 'left' con el valor indicado. */
 
-        padding: 1rem clamp(.5rem, 6vw, 1rem) clamp(.5rem, 6vw, 1rem);
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        background-color: var(--azul);
+        padding: 1rem clamp(.5rem, 6vw, 1rem) clamp(.5rem, 6vw, 1rem); /* Define la propiedad CSS 'padding' con el valor indicado. */
+        border-top-right-radius: 5px; /* Define la propiedad CSS 'border-top-right-radius' con el valor indicado. */
+        border-bottom-right-radius: 5px; /* Define la propiedad CSS 'border-bottom-right-radius' con el valor indicado. */
+        background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
 
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 99999;
-    }
+        transform: translateX(-100%); /* Define la propiedad CSS 'transform' con el valor indicado. */
+        transition: transform 0.3s ease-in-out; /* Define la propiedad CSS 'transition' con el valor indicado. */
+        z-index: 99999; /* Define la propiedad CSS 'z-index' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .navegador .menu-nav .cont-btns {
-        display: flex;
-        flex-direction: row;
-        gap: .6rem;
-    }
+    .navegador .menu-nav .cont-btns { /* Inicia los estilos del selector '.navegador .menu-nav .cont-btns'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        gap: .6rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .navegador .menu-nav .cont-btns .btn {
-        display: flex;
-        opacity: 1;
-    }
+    .navegador .menu-nav .cont-btns .btn { /* Inicia los estilos del selector '.navegador .menu-nav .cont-btns .btn'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        opacity: 1; /* Define la propiedad CSS 'opacity' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .navegador .menu-nav .sub-menu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: start;
-        position: relative;
-    }
+    .navegador .menu-nav .sub-menu { /* Inicia los estilos del selector '.navegador .menu-nav .sub-menu'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+        justify-content: start; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+        position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .cerrar-menu {
-        align-self: end;
-        width: 25px;
-        aspect-ratio: 1 / 1;
-    }
+    .cerrar-menu { /* Inicia los estilos del selector '.cerrar-menu'. */
+        align-self: end; /* Define la propiedad CSS 'align-self' con el valor indicado. */
+        width: 25px; /* Define la propiedad CSS 'width' con el valor indicado. */
+        aspect-ratio: 1 / 1; /* Define la propiedad CSS 'aspect-ratio' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .menu-nav.activo {
-        transform: translateX(0);
-    }
-}
+    .menu-nav.activo { /* Inicia los estilos del selector '.menu-nav.activo'. */
+        transform: translateX(0); /* Define la propiedad CSS 'transform' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-@media (max-width:300px) {
+@media (max-width:300px) { /* Inicia los estilos del selector '@media (max-width:300px)'. */
 
-    .navegador .cont-btns .btn {
-        color: var(--blanco-100);
-        background-color: transparent;
-        padding: 0;
-    }
+    .navegador .cont-btns .btn { /* Inicia los estilos del selector '.navegador .cont-btns .btn'. */
+        color: var(--blanco-100); /* Define la propiedad CSS 'color' con el valor indicado. */
+        background-color: transparent; /* Define la propiedad CSS 'background-color' con el valor indicado. */
+        padding: 0; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */

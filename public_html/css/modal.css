@@ -1,60 +1,64 @@
 /* Estilos para el modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
+/*
+ * Proposito: apariencia y estados del modal de configuracion.
+ * Archivo que edita: public/usuarios/configuracion/panel.php.
+ */
+.modal { /* Inicia los estilos del selector '.modal'. */
+    display: none; /* Define la propiedad CSS 'display' con el valor indicado. */
+    position: fixed; /* Define la propiedad CSS 'position' con el valor indicado. */
+    top: 0; /* Define la propiedad CSS 'top' con el valor indicado. */
+    left: 0; /* Define la propiedad CSS 'left' con el valor indicado. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    background-color: rgba(0, 0, 0, 0.5); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    z-index: 1000; /* Define la propiedad CSS 'z-index' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.modal.visible {
-    display: flex;
-}
+.modal.visible { /* Inicia los estilos del selector '.modal.visible'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.modal-contenido {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
+.modal-contenido { /* Inicia los estilos del selector '.modal-contenido'. */
+    background-color: white; /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    padding: 2rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    border-radius: 8px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    width: 90%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    max-width: 500px; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Define la propiedad CSS 'box-shadow' con el valor indicado. */
+    position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.modal-encabezado {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e2e8f0;
-}
+.modal-encabezado { /* Inicia los estilos del selector '.modal-encabezado'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    margin-bottom: 1.5rem; /* Define la propiedad CSS 'margin-bottom' con el valor indicado. */
+    padding-bottom: 1rem; /* Define la propiedad CSS 'padding-bottom' con el valor indicado. */
+    border-bottom: 1px solid #e2e8f0; /* Define la propiedad CSS 'border-bottom' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn-cerrar {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #64748b;
-    padding: 0.25rem 0.75rem;
-    line-height: 1;
-}
+.btn-cerrar { /* Inicia los estilos del selector '.btn-cerrar'. */
+    background: none; /* Define la propiedad CSS 'background' con el valor indicado. */
+    border: none; /* Define la propiedad CSS 'border' con el valor indicado. */
+    font-size: 1.5rem; /* Define la propiedad CSS 'font-size' con el valor indicado. */
+    cursor: pointer; /* Define la propiedad CSS 'cursor' con el valor indicado. */
+    color: #64748b; /* Define la propiedad CSS 'color' con el valor indicado. */
+    padding: 0.25rem 0.75rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    line-height: 1; /* Define la propiedad CSS 'line-height' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.btn-cerrar:hover {
-    color: #334155;
-}
+.btn-cerrar:hover { /* Inicia los estilos del selector '.btn-cerrar:hover'. */
+    color: #334155; /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* Asegurarse de que el modal esté por encima de otros elementos */
-.modal {
-    z-index: 10000;
-}
+.modal { /* Inicia los estilos del selector '.modal'. */
+    z-index: 10000; /* Define la propiedad CSS 'z-index' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /* Clase para ocultar elementos */
-.oculto {
-    display: none !important;
-}
+.oculto { /* Inicia los estilos del selector '.oculto'. */
+    display: none !important; /* Define la propiedad CSS 'display' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */

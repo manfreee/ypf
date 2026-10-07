@@ -1,382 +1,387 @@
 /*===================================
-        HEADER FUNCIONAMIENTO
-====================================*/
+        HEADER FUNCIONAMIENTO /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.header-funcionamiento {
-    background: radial-gradient(49.48% 42.81% at 68.13% 47.63%, #1484EC 46.63%, #0F47A5 100%);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    display: grid;
-    grid-template-columns: minmax(150px, 40%) 1fr;
-    gap: clamp(.8rem, 50vw, 3rem);
-    align-items: center;
-    padding: 3rem 32px 0;
+/*
+ * Proposito: presentacion visual de la pagina de funcionamiento.
+ * Archivo que edita: public/public/funcionamiento.php.
+ */
 
-}
+.header-funcionamiento { /* Inicia los estilos del selector '.header-funcionamiento'. */
+    background: radial-gradient(49.48% 42.81% at 68.13% 47.63%, #1484EC 46.63%, #0F47A5 100%); /* Define la propiedad CSS 'background' con el valor indicado. */
+    border-bottom-left-radius: 20px; /* Define la propiedad CSS 'border-bottom-left-radius' con el valor indicado. */
+    border-bottom-right-radius: 20px; /* Define la propiedad CSS 'border-bottom-right-radius' con el valor indicado. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: minmax(150px, 40%) 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: clamp(.8rem, 50vw, 3rem); /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    padding: 3rem 32px 0; /* Define la propiedad CSS 'padding' con el valor indicado. */
 
-.header-funcionamiento .contenedor-textos {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 10px;
+} /* Cierra el bloque de reglas CSS actual. */
 
-}
+.header-funcionamiento .contenedor-textos { /* Inicia los estilos del selector '.header-funcionamiento .contenedor-textos'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    margin-bottom: 10px; /* Define la propiedad CSS 'margin-bottom' con el valor indicado. */
 
-.header-funcionamiento .contenedor-textos p.grande {
-    font-size: clamp(1rem, 50vw, 3.5rem);
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.header-funcionamiento .cont-img {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+.header-funcionamiento .contenedor-textos p.grande { /* Inicia los estilos del selector '.header-funcionamiento .contenedor-textos p.grande'. */
+    font-size: clamp(1rem, 50vw, 3.5rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.header-funcionamiento .cont-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    position: relative;
-    top: 50px;
-}
+.header-funcionamiento .cont-img { /* Inicia los estilos del selector '.header-funcionamiento .cont-img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-@media (max-width:980px) {
-    .header-funcionamiento {
-        display: flex;
-        flex-direction: column-reverse;
-        gap: 1rem;
-    }
+.header-funcionamiento .cont-img img { /* Inicia los estilos del selector '.header-funcionamiento .cont-img img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    object-fit: contain; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+    position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+    top: 50px; /* Define la propiedad CSS 'top' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-    .header-funcionamiento .cont-img {
-        width: clamp(400px, 40vw, 700px);
-        height: 100%;
-        overflow: hidden;
-    }
+@media (max-width:980px) { /* Inicia los estilos del selector '@media (max-width:980px)'. */
+    .header-funcionamiento { /* Inicia los estilos del selector '.header-funcionamiento'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: column-reverse; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .header-funcionamiento .cont-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        position: relative;
-        top: 6px;
-    }
+    .header-funcionamiento .cont-img { /* Inicia los estilos del selector '.header-funcionamiento .cont-img'. */
+        width: clamp(400px, 40vw, 700px); /* Define la propiedad CSS 'width' con el valor indicado. */
+        height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+        overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .header-funcionamiento .contenedor-textos {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin-bottom: 10px;
-        text-align: center;
+    .header-funcionamiento .cont-img img { /* Inicia los estilos del selector '.header-funcionamiento .cont-img img'. */
+        width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+        height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+        object-fit: contain; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+        position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+        top: 6px; /* Define la propiedad CSS 'top' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    }
+    .header-funcionamiento .contenedor-textos { /* Inicia los estilos del selector '.header-funcionamiento .contenedor-textos'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+        margin-bottom: 10px; /* Define la propiedad CSS 'margin-bottom' con el valor indicado. */
+        text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
 
-    .header-funcionamiento .contenedor-textos .contenedor-informacion p.pequenio {
-        display: none;
-        opacity: 0;
-    }
+    } /* Cierra el bloque de reglas CSS actual. */
 
-}
+    .header-funcionamiento .contenedor-textos .contenedor-informacion p.pequenio { /* Inicia los estilos del selector '.header-funcionamiento .contenedor-textos .contenedor-informacion p.pequenio'. */
+        display: none; /* Define la propiedad CSS 'display' con el valor indicado. */
+        opacity: 0; /* Define la propiedad CSS 'opacity' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-
-
-/*===================================
-        INFORMACION GENERAL
-====================================*/
-
-.contenedor-informacion-general {
-    display: grid;
-    grid-template-columns: .7fr 1fr;
-    gap: 2rem;
-}
-
-.contenedor-informacion-general .contenedor-izquierda {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 8rem;
-}
-
-.contenedor-informacion-general .contenedor-izquierda .cont-img,
-.contenedor-informacion-general .contenedor-derecha .cont-img {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.contenedor-informacion-general .contenedor-izquierda .cont-img img,
-.contenedor-informacion-general .contenedor-derecha .cont-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-
-.contenedor-informacion-general .contenedor-derecha {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-
-.contenedor-informacion-general .contenedor-derecha .contenedor-texto,
-.contenedor-informacion-general .contenedor-izquierda .contenedor-texto {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-
-
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 
 /*===================================
-    INFORMACION GENERAL RESPONSIVE
-====================================*/
+        INFORMACION GENERAL /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-@media (max-width: 960px) {
+.contenedor-informacion-general { /* Inicia los estilos del selector '.contenedor-informacion-general'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: .7fr 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: 2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.contenedor-informacion-general .contenedor-izquierda { /* Inicia los estilos del selector '.contenedor-informacion-general .contenedor-izquierda'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    margin-top: 8rem; /* Define la propiedad CSS 'margin-top' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.contenedor-informacion-general .contenedor-izquierda .cont-img, /* Continua la definicion de estilos CSS. */
+.contenedor-informacion-general .contenedor-derecha .cont-img { /* Inicia los estilos del selector '.contenedor-informacion-general .contenedor-derecha .cont-img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.contenedor-informacion-general .contenedor-izquierda .cont-img img, /* Continua la definicion de estilos CSS. */
+.contenedor-informacion-general .contenedor-derecha .cont-img img { /* Inicia los estilos del selector '.contenedor-informacion-general .contenedor-derecha .cont-img img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    object-fit: contain; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-    .contenedor-informacion-general {
-        display: flex;
-        flex-direction: column-reverse;
-        max-width: 40rem;
-        margin: 5rem auto;
-        gap: 2rem;
-        padding: 0 16px;
+.contenedor-informacion-general .contenedor-derecha { /* Inicia los estilos del selector '.contenedor-informacion-general .contenedor-derecha'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 3rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-    }
 
-    .contenedor-informacion-general .contenedor-derecha .cont-img {
-        display: none;
-        opacity: 0;
+.contenedor-informacion-general .contenedor-derecha .contenedor-texto, /* Continua la definicion de estilos CSS. */
+.contenedor-informacion-general .contenedor-izquierda .contenedor-texto { /* Inicia los estilos del selector '.contenedor-informacion-general .contenedor-izquierda .contenedor-texto'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-    }
 
-    .contenedor-informacion-general .contenedor-derecha {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-
-    }
-
-    .contenedor-informacion-general .contenedor-izquierda {
-        flex-direction: column-reverse;
-        height: auto;
-        margin-top: 0;
-        margin: auto;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .contenedor-informacion-general .contenedor-punteado li{
-        font-size: clamp(0.8rem, 2vw, 1.125rem);
-    }
-}
 
 
 
 
 /*===================================
-        DESCRIPCION MODULO
-====================================*/
+    INFORMACION GENERAL RESPONSIVE /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.section-descripcion-modulo {
-    display: grid;
-    grid-template-columns: .6fr .7fr .6fr;
-    gap: 2rem;
-    height: auto;
-}
+@media (max-width: 960px) { /* Inicia los estilos del selector '@media (max-width: 960px)'. */
 
 
-.section-descripcion-modulo .contenedor-principal {
-    border-radius: 62.5rem;
-    background: radial-gradient(50% 50% at 50% 50%, #1484EC 0%, #0F47A5 100%);
-    border: 1px solid var(--azul);
+    .contenedor-informacion-general { /* Inicia los estilos del selector '.contenedor-informacion-general'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: column-reverse; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        max-width: 40rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        margin: 5rem auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+        gap: 2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+        padding: 0 16px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .contenedor-informacion-general .contenedor-derecha .cont-img { /* Inicia los estilos del selector '.contenedor-informacion-general .contenedor-derecha .cont-img'. */
+        display: none; /* Define la propiedad CSS 'display' con el valor indicado. */
+        opacity: 0; /* Define la propiedad CSS 'opacity' con el valor indicado. */
+
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .contenedor-informacion-general .contenedor-derecha { /* Inicia los estilos del selector '.contenedor-informacion-general .contenedor-derecha'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+        align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+        text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .contenedor-informacion-general .contenedor-izquierda { /* Inicia los estilos del selector '.contenedor-informacion-general .contenedor-izquierda'. */
+        flex-direction: column-reverse; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+        margin-top: 0; /* Define la propiedad CSS 'margin-top' con el valor indicado. */
+        margin: auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+        justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+        align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+        text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .contenedor-informacion-general .contenedor-punteado li{ /* Inicia los estilos del selector '.contenedor-informacion-general .contenedor-punteado li'. */
+        font-size: clamp(0.8rem, 2vw, 1.125rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+
+
+/*===================================
+        DESCRIPCION MODULO /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
+
+.section-descripcion-modulo { /* Inicia los estilos del selector '.section-descripcion-modulo'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: .6fr .7fr .6fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: 2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+.section-descripcion-modulo .contenedor-principal { /* Inicia los estilos del selector '.section-descripcion-modulo .contenedor-principal'. */
+    border-radius: 62.5rem; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    background: radial-gradient(50% 50% at 50% 50%, #1484EC 0%, #0F47A5 100%); /* Define la propiedad CSS 'background' con el valor indicado. */
+    border: 1px solid var(--azul); /* Define la propiedad CSS 'border' con el valor indicado. */
     /* filter: blur(2.0999999046325684px); */
-    position: relative;
-    height: 100%;
+    position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.section-descripcion-modulo .contenedor-principal .cont-img {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
+.section-descripcion-modulo .contenedor-principal .cont-img { /* Inicia los estilos del selector '.section-descripcion-modulo .contenedor-principal .cont-img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
 
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.section-descripcion-modulo .contenedor-principal .cont-img img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+.section-descripcion-modulo .contenedor-principal .cont-img img { /* Inicia los estilos del selector '.section-descripcion-modulo .contenedor-principal .cont-img img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    object-fit: contain; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
 
     /* border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%; */
-    padding-top: 60px;
-}
+    border-bottom-right-radius: 50%; */ /* Define la propiedad CSS 'border-bottom-right-radius' con el valor indicado. */
+    padding-top: 60px; /* Define la propiedad CSS 'padding-top' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.section-descripcion-modulo .contenedor-izquierda,
-.section-descripcion-modulo .contenedor-derecha {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 50px 0;
-}
-
-
-/*===================================
-    DESCRIPCION MODULO -RESPONSIVE
-====================================*/
-
-@media (max-width: 960px) {
-    .section-descripcion-modulo {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        max-width: 50rem;
-        margin: auto;
-        padding: 0;
-    }
-
-    .section-descripcion-modulo .contenedor-izquierda,
-    .section-descripcion-modulo .contenedor-derecha {
-        flex-direction: row;
-        gap: 1rem;
-        flex-wrap: wrap;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        margin: auto;
-        width: 100%;
-        justify-content: space-evenly;
-    }
-
-    .section-descripcion-modulo .contenedor-izquierda .tarjeta,
-    .section-descripcion-modulo .contenedor-derecha .tarjeta {
-        max-width: 20rem;
-        height: auto;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-    }
-
-
-    .section-descripcion-modulo .contenedor-principal {
-        width: 100%;
-        max-width: clamp(200px, 50vw, 800px);
-        margin: auto;
-    }
-}
-
+.section-descripcion-modulo .contenedor-izquierda, /* Continua la definicion de estilos CSS. */
+.section-descripcion-modulo .contenedor-derecha { /* Inicia los estilos del selector '.section-descripcion-modulo .contenedor-derecha'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    padding: 50px 0; /* Define la propiedad CSS 'padding' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 /*===================================
-            SITIO WEB
-====================================*/
+    DESCRIPCION MODULO -RESPONSIVE /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.sitio-web {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 clamp(.5rem, 100vw, 7rem);
-}
+@media (max-width: 960px) { /* Inicia los estilos del selector '@media (max-width: 960px)'. */
+    .section-descripcion-modulo { /* Inicia los estilos del selector '.section-descripcion-modulo'. */
+        grid-template-columns: 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+        gap: 2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+        max-width: 50rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        margin: auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+        padding: 0; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-.sitio-web .subtitulo {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-}
+    .section-descripcion-modulo .contenedor-izquierda, /* Continua la definicion de estilos CSS. */
+    .section-descripcion-modulo .contenedor-derecha { /* Inicia los estilos del selector '.section-descripcion-modulo .contenedor-derecha'. */
+        flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+        flex-wrap: wrap; /* Define la propiedad CSS 'flex-wrap' con el valor indicado. */
+        padding: 0; /* Define la propiedad CSS 'padding' con el valor indicado. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+        margin: auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+        width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+        justify-content: space-evenly; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-.sitio-web .subtitulo p.grande {
-    font-size: clamp(3rem, 5vw, 3.5rem);
-}
+    .section-descripcion-modulo .contenedor-izquierda .tarjeta, /* Continua la definicion de estilos CSS. */
+    .section-descripcion-modulo .contenedor-derecha .tarjeta { /* Inicia los estilos del selector '.section-descripcion-modulo .contenedor-derecha .tarjeta'. */
+        max-width: 20rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+        overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+        align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
 
-.sitio-web .contenedor-informacion {
-    display: grid;
-    grid-template-columns: .8fr .2fr;
-    gap: 2rem;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.sitio-web .contenedor-informacion .cont-img {
-    width: clamp(300px, 30vw, 600px);
-    height: auto;
-    overflow: hidden;
-}
+    } /* Cierra el bloque de reglas CSS actual. */
 
 
-.sitio-web .contenedor-informacion .cont-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.sitio-web .contenedor-informacion .contenedor-izquierda {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 1rem;
-}
-
-.sitio-web .contenedor-informacion .contenedor-izquierda .tarjeta {
-    display: flex;
-    gap: 1rem;
-}
-
-.sitio-web .contenedor-informacion .contenedor-izquierda .tarjeta .icon {
-    width: auto;
-    aspect-ratio: 1 / 1;
-    background-color: var(--verde);
-    border-radius: 50%;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sitio-web .contenedor-informacion .contenedor-izquierda .tarjeta .tarjeta-texto {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-start;
-    text-align: start;
-}
-
-@media (max-width: 1200px) {
-    .sitio-web {
-        margin-top: 6rem;
-        padding: 0 clamp(2px 1rem, 16px);
-    }
-}
+    .section-descripcion-modulo .contenedor-principal { /* Inicia los estilos del selector '.section-descripcion-modulo .contenedor-principal'. */
+        width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+        max-width: clamp(200px, 50vw, 800px); /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        margin: auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-@media (max-width: 990px) {
-    .sitio-web {
-        padding: 0 8px;
-    }
 
-    .sitio-web .contenedor-informacion {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 1.5rem;
-    }
-}
+/*===================================
+            SITIO WEB /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
+
+.sitio-web { /* Inicia los estilos del selector '.sitio-web'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 2em; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+    padding: 0 clamp(.5rem, 100vw, 7rem); /* Define la propiedad CSS 'padding' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.sitio-web .subtitulo { /* Inicia los estilos del selector '.sitio-web .subtitulo'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.sitio-web .subtitulo p.grande { /* Inicia los estilos del selector '.sitio-web .subtitulo p.grande'. */
+    font-size: clamp(3rem, 5vw, 3.5rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.sitio-web .contenedor-informacion { /* Inicia los estilos del selector '.sitio-web .contenedor-informacion'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: .8fr .2fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: 2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.sitio-web .contenedor-informacion .cont-img { /* Inicia los estilos del selector '.sitio-web .contenedor-informacion .cont-img'. */
+    width: clamp(300px, 30vw, 600px); /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+.sitio-web .contenedor-informacion .cont-img img { /* Inicia los estilos del selector '.sitio-web .contenedor-informacion .cont-img img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    object-fit: cover; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.sitio-web .contenedor-informacion .contenedor-izquierda { /* Inicia los estilos del selector '.sitio-web .contenedor-informacion .contenedor-izquierda'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    justify-content: space-evenly; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.sitio-web .contenedor-informacion .contenedor-izquierda .tarjeta { /* Inicia los estilos del selector '.sitio-web .contenedor-informacion .contenedor-izquierda .tarjeta'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.sitio-web .contenedor-informacion .contenedor-izquierda .tarjeta .icon { /* Inicia los estilos del selector '.sitio-web .contenedor-informacion .contenedor-izquierda .tarjeta .icon'. */
+    width: auto; /* Define la propiedad CSS 'width' con el valor indicado. */
+    aspect-ratio: 1 / 1; /* Define la propiedad CSS 'aspect-ratio' con el valor indicado. */
+    background-color: var(--verde); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    border-radius: 50%; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    padding: 10px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.sitio-web .contenedor-informacion .contenedor-izquierda .tarjeta .tarjeta-texto { /* Inicia los estilos del selector '.sitio-web .contenedor-informacion .contenedor-izquierda .tarjeta .tarjeta-texto'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 4px; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: flex-start; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    text-align: start; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+@media (max-width: 1200px) { /* Inicia los estilos del selector '@media (max-width: 1200px)'. */
+    .sitio-web { /* Inicia los estilos del selector '.sitio-web'. */
+        margin-top: 6rem; /* Define la propiedad CSS 'margin-top' con el valor indicado. */
+        padding: 0 clamp(2px 1rem, 16px); /* Define la propiedad CSS 'padding' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+@media (max-width: 990px) { /* Inicia los estilos del selector '@media (max-width: 990px)'. */
+    .sitio-web { /* Inicia los estilos del selector '.sitio-web'. */
+        padding: 0 8px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .sitio-web .contenedor-informacion { /* Inicia los estilos del selector '.sitio-web .contenedor-informacion'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+        justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+        text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+        gap: 1.5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */

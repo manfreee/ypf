@@ -1,93 +1,97 @@
-.footer {
-    width: 100%;
-    height: auto;
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    background-color: var(--azul);
-    color: var(--blanco-50);
-    border-radius: 24px 24px 0 0;
-}
+/*
+ * Proposito: estructura, colores y responsive del pie de pagina compartido.
+ * Archivo que edita: public/public/componentes/footer.php.
+ */
+.footer { /* Inicia los estilos del selector '.footer'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    padding: 1.25rem; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    flex-wrap: wrap; /* Define la propiedad CSS 'flex-wrap' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    background-color: var(--azul); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+    border-radius: 24px 24px 0 0; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.footer .contenedor-informacion-footer {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-}
+.footer .contenedor-informacion-footer { /* Inicia los estilos del selector '.footer .contenedor-informacion-footer'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-informacion-footer .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 10rem;
-    height: auto;
-}
+.contenedor-informacion-footer .logo { /* Inicia los estilos del selector '.contenedor-informacion-footer .logo'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    max-width: 10rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-informacion-footer .logo img {
-    width: 100%;
-    object-fit: contain;
-}
+.contenedor-informacion-footer .logo img { /* Inicia los estilos del selector '.contenedor-informacion-footer .logo img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    object-fit: contain; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-informacion-footer .contenedor-media {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 5rem;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
+.contenedor-informacion-footer .contenedor-media { /* Inicia los estilos del selector '.contenedor-informacion-footer .contenedor-media'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    flex-wrap: wrap; /* Define la propiedad CSS 'flex-wrap' con el valor indicado. */
+    justify-content: space-evenly; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-media .contenedor-informacion {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-}
+.contenedor-media .contenedor-informacion { /* Inicia los estilos del selector '.contenedor-media .contenedor-informacion'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-informacion ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-}
+.contenedor-informacion ul { /* Inicia los estilos del selector '.contenedor-informacion ul'. */
+    list-style: none; /* Define la propiedad CSS 'list-style' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .3rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-informacion ul li a,
-.contenedor-informacion ul li span{
-    color: var(--blanco-50);
-}
+.contenedor-informacion ul li a, /* Continua la definicion de estilos CSS. */
+.contenedor-informacion ul li span{ /* Inicia los estilos del selector '.contenedor-informacion ul li span'. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-informacion ul.contacto li {
-    display: flex;
-    flex-direction: row;
-    gap: .3rem;
-    align-items: center;
-}
+.contenedor-informacion ul.contacto li { /* Inicia los estilos del selector '.contenedor-informacion ul.contacto li'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .3rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.contenedor-informacion ul.redes-sociales {
-    display: flex;
-    flex-direction: row;
-    gap: .5rem;
-    align-items: center;
-    justify-content: center;
+.contenedor-informacion ul.redes-sociales { /* Inicia los estilos del selector '.contenedor-informacion ul.redes-sociales'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: row; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
 
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 
-@media (max-width:960px) {
+@media (max-width:960px) { /* Inicia los estilos del selector '@media (max-width:960px)'. */
     
-    .footer{
-        text-align: center;
-    }
-    .contenedor-informacion-footer .contenedor-media {
-        flex-direction: column;
-        align-items: center;
-        gap: 50px;
-        text-align: center;
-    }
-}
+    .footer{ /* Inicia los estilos del selector '.footer'. */
+        text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+    .contenedor-informacion-footer .contenedor-media { /* Inicia los estilos del selector '.contenedor-informacion-footer .contenedor-media'. */
+        flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+        gap: 50px; /* Define la propiedad CSS 'gap' con el valor indicado. */
+        text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */

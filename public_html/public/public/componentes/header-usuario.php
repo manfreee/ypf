@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,4 +9,5 @@
 </head>
 
 <body>
+    <!-- incluye el header de las paginas del usuario -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/navegador-usuarios.php'; ?>

@@ -1,7 +1,6 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php'; ?>
 
 <link rel="stylesheet" href="/css/sobre-nosotros.css">
-
 <header class="header-sobre-nosotros">
     <div class="subtitulo">
         <div class="fila arriba">
@@ -14,6 +13,7 @@
     </div>
 </header>
 
+<!-- Resumen del equipo y explicación del proyecto educativo. -->
 <section class="section-uno">
     <div class="contenedor-personas">
         <h5 class="color-primario nulshock">Detras Hay Un Gran Equipo De Trabajo</h5>
@@ -50,6 +50,7 @@
     </div>
 </section>
 
+<!-- Información y especialidades de la Escuela Técnica N° 1. -->
 <section class="section-escuela azul">
     <h1 class="nulshock media-negrita">Técnica N°1 Ing. Mario A. El Puerto</h1>
     <div class="contenedor-informacion">
@@ -74,6 +75,7 @@
     </div>
 </section>
 
+<!-- Información y especialidades de la Escuela Técnica N° 2. -->
 <section class="section-escuela blanco">
     <h1 class="nulshock media-negrita">Técnica N°2 GRAL MARIANO NECOCHEA</h1>
     <div class="contenedor-informacion contrario">
@@ -99,6 +101,7 @@
     </div>
 </section>
 
+<!-- Información y especialidades de la Escuela Técnica N° 3. -->
 <section class="section-escuela azul">
     <h1 class="nulshock media-negrita">Técnica N°3 NIKOLA TESLA</h1>
     <div class="contenedor-informacion">
@@ -123,6 +126,7 @@
 </section>
 
 
+<!-- Descripción de la colaboración institucional con YPF y la UNAJ. -->
 <section class="section-ypf">
 
     <div class="contenedor-desarrollo">

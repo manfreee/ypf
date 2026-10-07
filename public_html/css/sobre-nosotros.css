@@ -1,401 +1,406 @@
 /*===================================
-        HEADER SOBRE NOSOTROS
-====================================*/
+        HEADER SOBRE NOSOTROS /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.header-sobre-nosotros {
-    background: radial-gradient(49.48% 42.81% at 68.13% 47.63%, #1484EC 46.63%, #0F47A5 100%);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding: clamp(5rem, 20vw, 10rem) 20px;
+/*
+ * Proposito: encabezado y contenido visual de la pagina institucional.
+ * Archivo que edita: public/public/sobre-nosotros.php.
+ */
 
-}
+.header-sobre-nosotros { /* Inicia los estilos del selector '.header-sobre-nosotros'. */
+    background: radial-gradient(49.48% 42.81% at 68.13% 47.63%, #1484EC 46.63%, #0F47A5 100%); /* Define la propiedad CSS 'background' con el valor indicado. */
+    border-bottom-left-radius: 20px; /* Define la propiedad CSS 'border-bottom-left-radius' con el valor indicado. */
+    border-bottom-right-radius: 20px; /* Define la propiedad CSS 'border-bottom-right-radius' con el valor indicado. */
+    padding: clamp(5rem, 20vw, 10rem) 20px; /* Define la propiedad CSS 'padding' con el valor indicado. */
 
-.header-sobre-nosotros .subtitulo {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: -1rem;
-    width: 100%;
-    margin: 0 auto;
-    z-index: 100;
-}
+} /* Cierra el bloque de reglas CSS actual. */
 
-.header-sobre-nosotros .fila {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+.header-sobre-nosotros .subtitulo { /* Inicia los estilos del selector '.header-sobre-nosotros .subtitulo'. */
+    position: relative; /* Define la propiedad CSS 'position' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: -1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    margin: 0 auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+    z-index: 100; /* Define la propiedad CSS 'z-index' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.header-sobre-nosotros .texto {
-    width: auto;
-    font-size: clamp(5rem, 8vw, 9rem);
-    font-family: 'Ethnocentric';
-    user-select: none;
-}
+.header-sobre-nosotros .fila { /* Inicia los estilos del selector '.header-sobre-nosotros .fila'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.header-sobre-nosotros .linea {
-    width: 100%;
-    height: clamp(3px, 10vw, 8px);
-    border-radius: 10px;
-    background-color: var(--blanco-50);
-}
+.header-sobre-nosotros .texto { /* Inicia los estilos del selector '.header-sobre-nosotros .texto'. */
+    width: auto; /* Define la propiedad CSS 'width' con el valor indicado. */
+    font-size: clamp(5rem, 8vw, 9rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+    font-family: 'Ethnocentric'; /* Define la propiedad CSS 'font-family' con el valor indicado. */
+    user-select: none; /* Define la propiedad CSS 'user-select' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-/*===================================
-    HEADER SOBRE NOSOTROS -RESPONSIVE
-====================================*/
-
-@media (max-width:650px) {
-
-    .header-sobre-nosotros .subtitulo {
-        gap: .6rem;
-    }
-
-    .header-sobre-nosotros .fila {
-        text-align: center;
-        display: flex;
-        justify-content: center;
-    }
-
-    .header-sobre-nosotros .fila.arriba {
-        display: flex;
-        flex-direction: column;
-        gap: .6rem;
-    }
-
-    .header-sobre-nosotros .texto {
-        font-size: clamp(32px, 10vw, 100px) !important;
-        align-items: center;
-    }
-}
-
+.header-sobre-nosotros .linea { /* Inicia los estilos del selector '.header-sobre-nosotros .linea'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: clamp(3px, 10vw, 8px); /* Define la propiedad CSS 'height' con el valor indicado. */
+    border-radius: 10px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+    background-color: var(--blanco-50); /* Define la propiedad CSS 'background-color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 /*===================================
-        SECTION-UNO 
-====================================*/
+    HEADER SOBRE NOSOTROS -RESPONSIVE /* Continua la definicion de estilos CSS. 
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.section-uno {
-    display: grid;
-    grid-template-columns: .9fr .8fr;
-    gap: clamp(10px, 50vw, 48px);
-}
+@media (max-width:650px) { /* Inicia los estilos del selector '@media (max-width:650px)'. */
 
-.section-uno .contenedor-personas {
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    gap: .6rem;
-    width: 100%;
-    max-width: 100%;
-}
+    .header-sobre-nosotros .subtitulo { /* Inicia los estilos del selector '.header-sobre-nosotros .subtitulo'. */
+        gap: .6rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
+    .header-sobre-nosotros .fila { /* Inicia los estilos del selector '.header-sobre-nosotros .fila'. */
+        text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-.section-uno .contenedor-personas .contenedor-tarjetas {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-    grid-auto-rows: 1fr;
-    gap: 20px;
-}
+    .header-sobre-nosotros .fila.arriba { /* Inicia los estilos del selector '.header-sobre-nosotros .fila.arriba'. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        gap: .6rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-.section-uno .contenedor-personas .contenedor-tarjetas .tarjeta {
-    background: radial-gradient(50% 50% at 50% 50%, #1484EC 0%, #0F47A5 100%);
-    aspect-ratio: 1 / .7;
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    text-align: center;
-}
-
-.section-uno .contenedor-personas .contenedor-tarjetas .tarjeta p.grande {
-    font-size: clamp(3rem, 6vw, 6rem);
-}
-
-
-.contenedor-informacion {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.contenedor-informacion .cont-img {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 20px;
-}
-
-.contenedor-informacion .cont-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-}
-
-/*===================================
-        SECTION-UNO  - REPONSIVE
-====================================*/
-
-@media (max-width:820px) {
-    .section-uno {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: .5rem;
-        justify-self: center;
-
-    }
-
-    .section-uno .contenedor-personas {
-        max-width: 45rem;
-        margin: auto;
-
-        text-align: center;
-    }
-
-
-    .section-uno .contenedor-personas .contenedor-tarjetas {
-        padding: 20px;
-    }
-
-    .section-uno .contenedor-personas .contenedor-tarjetas .tarjeta p.grande {
-        font-size: clamp(16px, 20vw, 64px);
-    }
-
-    .section-uno .contenedor-informacion {
-        flex-direction: column-reverse;
-        max-width: 40rem;
-    }
-
-    .section-uno .contenedor-informacion .cont-img {
-        max-width: 30rem;
-        margin: auto;
-    }
-}
-
-@media (max-width: 520px) {
-    .section-uno .contenedor-personas .contenedor-tarjetas {
-        max-width: 20rem;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        align-items: initial;
-        margin: auto;
-    }
-}
+    .header-sobre-nosotros .texto { /* Inicia los estilos del selector '.header-sobre-nosotros .texto'. */
+        font-size: clamp(32px, 10vw, 100px) !important; /* Define la propiedad CSS 'font-size' con el valor indicado. */
+        align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 /*===================================
-        SECTION ESCUELAS 
-====================================*/
+        SECTION-UNO  /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.section-escuela.azul {
-    background: radial-gradient(50% 50% at 50% 50%, #1484EC 0%, #0F47A5 100%)
-}
+.section-uno { /* Inicia los estilos del selector '.section-uno'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: .9fr .8fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: clamp(10px, 50vw, 48px); /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.section-escuela.blanco {
-    background: var(--blanco-100);
-}
-
-.section-escuela.azul .contenedor-informacion .contenedor-desarrollo h4,
-.section-escuela.azul .contenedor-informacion .contenedor-desarrollo p {
-    color: var(--blanco-50);
-}
-
-.section-escuela.blanco h1 {
-    color: var(--azul);
-}
-
-.section-escuela.azul h1 {
-    color: var(--blanco-50);
-}
-
-.section-escuela {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.section-escuela h1 {
-    max-width: 50rem;
-}
-
-.section-escuela .contenedor-informacion {
-    display: grid;
-    grid-template-columns: .45fr .55fr;
-    gap: clamp(7px, 10vw, 20px);
-    justify-content: space-between;
-}
-
-.section-escuela .contenedor-informacion.contrario {
-    display: grid;
-    grid-template-columns: .55fr .45fr;
-    gap: clamp(7px, 10vw, 20px);
-    justify-content: space-between;
-
-}
-
-.section-escuela .contenedor-informacion .cont-img {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+.section-uno .contenedor-personas { /* Inicia los estilos del selector '.section-uno .contenedor-personas'. */
+    width: auto; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .6rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    max-width: 100%; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-.section-escuela .contenedor-informacion .cont-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.section-uno .contenedor-personas .contenedor-tarjetas { /* Inicia los estilos del selector '.section-uno .contenedor-personas .contenedor-tarjetas'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    align-items: stretch; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    grid-auto-rows: 1fr; /* Define la propiedad CSS 'grid-auto-rows' con el valor indicado. */
+    gap: 20px; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-.section-escuela .contenedor-informacion .contenedor-desarrollo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+.section-uno .contenedor-personas .contenedor-tarjetas .tarjeta { /* Inicia los estilos del selector '.section-uno .contenedor-personas .contenedor-tarjetas .tarjeta'. */
+    background: radial-gradient(50% 50% at 50% 50%, #1484EC 0%, #0F47A5 100%); /* Define la propiedad CSS 'background' con el valor indicado. */
+    aspect-ratio: 1 / .7; /* Define la propiedad CSS 'aspect-ratio' con el valor indicado. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+    padding: 16px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-uno .contenedor-personas .contenedor-tarjetas .tarjeta p.grande { /* Inicia los estilos del selector '.section-uno .contenedor-personas .contenedor-tarjetas .tarjeta p.grande'. */
+    font-size: clamp(3rem, 6vw, 6rem); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+.contenedor-informacion { /* Inicia los estilos del selector '.contenedor-informacion'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.contenedor-informacion .cont-img { /* Inicia los estilos del selector '.contenedor-informacion .cont-img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+    border-radius: 20px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.contenedor-informacion .cont-img img { /* Inicia los estilos del selector '.contenedor-informacion .cont-img img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    object-fit: cover; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+    border-radius: 20px; /* Define la propiedad CSS 'border-radius' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+/*===================================
+        SECTION-UNO  - REPONSIVE /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
+
+@media (max-width:820px) { /* Inicia los estilos del selector '@media (max-width:820px)'. */
+    .section-uno { /* Inicia los estilos del selector '.section-uno'. */
+        display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+        grid-template-columns: 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+        gap: .5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+        justify-self: center; /* Define la propiedad CSS 'justify-self' con el valor indicado. */
+
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .section-uno .contenedor-personas { /* Inicia los estilos del selector '.section-uno .contenedor-personas'. */
+        max-width: 45rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        margin: auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+
+        text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+
+    .section-uno .contenedor-personas .contenedor-tarjetas { /* Inicia los estilos del selector '.section-uno .contenedor-personas .contenedor-tarjetas'. */
+        padding: 20px; /* Define la propiedad CSS 'padding' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .section-uno .contenedor-personas .contenedor-tarjetas .tarjeta p.grande { /* Inicia los estilos del selector '.section-uno .contenedor-personas .contenedor-tarjetas .tarjeta p.grande'. */
+        font-size: clamp(16px, 20vw, 64px); /* Define la propiedad CSS 'font-size' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .section-uno .contenedor-informacion { /* Inicia los estilos del selector '.section-uno .contenedor-informacion'. */
+        flex-direction: column-reverse; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+        max-width: 40rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .section-uno .contenedor-informacion .cont-img { /* Inicia los estilos del selector '.section-uno .contenedor-informacion .cont-img'. */
+        max-width: 30rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        margin: auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+@media (max-width: 520px) { /* Inicia los estilos del selector '@media (max-width: 520px)'. */
+    .section-uno .contenedor-personas .contenedor-tarjetas { /* Inicia los estilos del selector '.section-uno .contenedor-personas .contenedor-tarjetas'. */
+        max-width: 20rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+        align-items: initial; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+        margin: auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+/*===================================
+        SECTION ESCUELAS  /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
+
+.section-escuela.azul { /* Inicia los estilos del selector '.section-escuela.azul'. */
+    background: radial-gradient(50% 50% at 50% 50%, #1484EC 0%, #0F47A5 100%) /* Define la propiedad CSS 'background' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela.blanco { /* Inicia los estilos del selector '.section-escuela.blanco'. */
+    background: var(--blanco-100); /* Define la propiedad CSS 'background' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela.azul .contenedor-informacion .contenedor-desarrollo h4, /* Continua la definicion de estilos CSS. */
+.section-escuela.azul .contenedor-informacion .contenedor-desarrollo p { /* Inicia los estilos del selector '.section-escuela.azul .contenedor-informacion .contenedor-desarrollo p'. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela.blanco h1 { /* Inicia los estilos del selector '.section-escuela.blanco h1'. */
+    color: var(--azul); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela.azul h1 { /* Inicia los estilos del selector '.section-escuela.azul h1'. */
+    color: var(--blanco-50); /* Define la propiedad CSS 'color' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela { /* Inicia los estilos del selector '.section-escuela'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 3rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela h1 { /* Inicia los estilos del selector '.section-escuela h1'. */
+    max-width: 50rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela .contenedor-informacion { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: .45fr .55fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: clamp(7px, 10vw, 20px); /* Define la propiedad CSS 'gap' con el valor indicado. */
+    justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela .contenedor-informacion.contrario { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion.contrario'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: .55fr .45fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: clamp(7px, 10vw, 20px); /* Define la propiedad CSS 'gap' con el valor indicado. */
+    justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela .contenedor-informacion .cont-img { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion .cont-img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+.section-escuela .contenedor-informacion .cont-img img{ /* Inicia los estilos del selector '.section-escuela .contenedor-informacion .cont-img img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    object-fit: cover; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.section-escuela .contenedor-informacion .contenedor-desarrollo { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion .contenedor-desarrollo'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-direction: column; /* Define la propiedad CSS 'flex-direction' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 
 /*===================================
-    SECTION ESCUELAS - RESPONSIVE
-====================================*/
+    SECTION ESCUELAS - RESPONSIVE /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-@media (max-width: 960px) {
-    .section-escuela .contenedor-informacion,
-    .section-escuela .contenedor-informacion.contrario {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* imagen y texto lado a lado */
-        grid-template-areas:
-            "sub sub"
-            "img texto";
-        gap: 1.5rem;
-    }
+@media (max-width: 960px) { /* Inicia los estilos del selector '@media (max-width: 960px)'. */
+    .section-escuela .contenedor-informacion, /* Continua la definicion de estilos CSS. */
+    .section-escuela .contenedor-informacion.contrario { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion.contrario'. */
+        display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+        grid-template-columns: 1fr 1fr; /* imagen y texto lado a lado */ /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+        grid-template-areas: /* Define la propiedad CSS 'grid-template-areas' con el valor indicado. */
+            "sub sub" /* Continua la definicion de estilos CSS. */
+            "img texto"; /* Finaliza esta declaracion CSS. */
+        gap: 1.5rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
 
-    .section-escuela .contenedor-informacion .contenedor-desarrollo h4 {
-        grid-area: sub; 
-    }
+    .section-escuela .contenedor-informacion .contenedor-desarrollo h4 { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion .contenedor-desarrollo h4'. */
+        grid-area: sub;  /* Define la propiedad CSS 'grid-area' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .section-escuela .contenedor-informacion .cont-img {
-        grid-area: img;
-    }
+    .section-escuela .contenedor-informacion .cont-img { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion .cont-img'. */
+        grid-area: img; /* Define la propiedad CSS 'grid-area' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .section-escuela .contenedor-informacion .contenedor-desarrollo p {
-        grid-area: texto;
+    .section-escuela .contenedor-informacion .contenedor-desarrollo p { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion .contenedor-desarrollo p'. */
+        grid-area: texto; /* Define la propiedad CSS 'grid-area' con el valor indicado. */
         
-    }
+    } /* Cierra el bloque de reglas CSS actual. */
 
 
-    .section-escuela .contenedor-informacion .contenedor-desarrollo {
-        display: contents; 
-    }
-}
+    .section-escuela .contenedor-informacion .contenedor-desarrollo { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion .contenedor-desarrollo'. */
+        display: contents;  /* Define la propiedad CSS 'display' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
-@media (max-width: 600px) {
-    .section-escuela .contenedor-informacion,
-    .section-escuela .contenedor-informacion.contrario  {
-        grid-template-columns: 1fr; 
-        grid-template-areas:
-            "sub"
-            "img"
-            "texto";
-        gap: 1.2rem;
-        text-align: center;
-    }
+@media (max-width: 600px) { /* Inicia los estilos del selector '@media (max-width: 600px)'. */
+    .section-escuela .contenedor-informacion, /* Continua la definicion de estilos CSS. */
+    .section-escuela .contenedor-informacion.contrario  { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion.contrario'. */
+        grid-template-columns: 1fr;  /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+        grid-template-areas: /* Define la propiedad CSS 'grid-template-areas' con el valor indicado. */
+            "sub" /* Continua la definicion de estilos CSS. */
+            "img" /* Continua la definicion de estilos CSS. */
+            "texto"; /* Finaliza esta declaracion CSS. */
+        gap: 1.2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+        text-align: center; /* Define la propiedad CSS 'text-align' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .section-escuela .contenedor-informacion .contenedor-desarrollo {
-        display: contents;
-    }
+    .section-escuela .contenedor-informacion .contenedor-desarrollo { /* Inicia los estilos del selector '.section-escuela .contenedor-informacion .contenedor-desarrollo'. */
+        display: contents; /* Define la propiedad CSS 'display' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
 
-    .section-escuela .contenedor-informacion .cont-img{
-        max-width: 30rem;
-        margin: auto;
-    }
-}
-
-
-
-/*===================================
-            SECTION YPF 
-====================================*/
-
-.section-ypf {
-    display: grid;
-    grid-template-columns: .45fr auto;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.section-ypf .cont-img {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-
-}
-
-.section-ypf .cont-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+    .section-escuela .contenedor-informacion .cont-img{ /* Inicia los estilos del selector '.section-escuela .contenedor-informacion .cont-img'. */
+        max-width: 30rem; /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        margin: auto; /* Define la propiedad CSS 'margin' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 
 /*===================================
-    SECTION YPF - RESPONSIVE
-====================================*/
+            SECTION YPF  /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-@media (max-width: 960px) {
+.section-ypf { /* Inicia los estilos del selector '.section-ypf'. */
+    display: grid; /* Define la propiedad CSS 'display' con el valor indicado. */
+    grid-template-columns: .45fr auto; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+    gap: 1rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+    justify-content: space-between; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
-    .section-ypf {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto; 
-        text-align: center;           
-        justify-items: center;
-    }
+.section-ypf .cont-img { /* Inicia los estilos del selector '.section-ypf .cont-img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
 
-    .section-ypf .cont-img {
-        width: 100%;
-        display: flex;
-        justify-content: center; 
-    }
+} /* Cierra el bloque de reglas CSS actual. */
 
-    .section-ypf .cont-img img {
-        max-width: 30rem;  
-        width: 100%;
-        height: auto;
-    }
-}
-
+.section-ypf .cont-img img { /* Inicia los estilos del selector '.section-ypf .cont-img img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    object-fit: cover; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
 
 
 
-.logos-integrantes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 1.2rem;
-}
 
-.logos-integrantes .cont-img {
-    flex: 0 0 15rem; /* tamaño fijo, no se estira */
-    height: 150px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/*===================================
+    SECTION YPF - RESPONSIVE /* Continua la definicion de estilos CSS.
+====================================*/ /* Continua la definicion de estilos CSS. */
 
-.logos-integrantes .cont-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+@media (max-width: 960px) { /* Inicia los estilos del selector '@media (max-width: 960px)'. */
+
+    .section-ypf { /* Inicia los estilos del selector '.section-ypf'. */
+        grid-template-columns: 1fr; /* Define la propiedad CSS 'grid-template-columns' con el valor indicado. */
+        grid-template-rows: auto auto;  /* Define la propiedad CSS 'grid-template-rows' con el valor indicado. */
+        text-align: center;            /* Define la propiedad CSS 'text-align' con el valor indicado. */
+        justify-items: center; /* Define la propiedad CSS 'justify-items' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .section-ypf .cont-img { /* Inicia los estilos del selector '.section-ypf .cont-img'. */
+        width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+        display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+        justify-content: center;  /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+
+    .section-ypf .cont-img img { /* Inicia los estilos del selector '.section-ypf .cont-img img'. */
+        max-width: 30rem;   /* Define la propiedad CSS 'max-width' con el valor indicado. */
+        width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+        height: auto; /* Define la propiedad CSS 'height' con el valor indicado. */
+    } /* Cierra el bloque de reglas CSS actual. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+
+
+
+.logos-integrantes { /* Inicia los estilos del selector '.logos-integrantes'. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    flex-wrap: wrap; /* Define la propiedad CSS 'flex-wrap' con el valor indicado. */
+    justify-content: center;  /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    gap: 1.2rem; /* Define la propiedad CSS 'gap' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.logos-integrantes .cont-img { /* Inicia los estilos del selector '.logos-integrantes .cont-img'. */
+    flex: 0 0 15rem; /* tamaño fijo, no se estira */ /* Define la propiedad CSS 'flex' con el valor indicado. */
+    height: 150px; /* Define la propiedad CSS 'height' con el valor indicado. */
+    overflow: hidden; /* Define la propiedad CSS 'overflow' con el valor indicado. */
+    display: flex; /* Define la propiedad CSS 'display' con el valor indicado. */
+    justify-content: center; /* Define la propiedad CSS 'justify-content' con el valor indicado. */
+    align-items: center; /* Define la propiedad CSS 'align-items' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */
+
+.logos-integrantes .cont-img img { /* Inicia los estilos del selector '.logos-integrantes .cont-img img'. */
+    width: 100%; /* Define la propiedad CSS 'width' con el valor indicado. */
+    height: 100%; /* Define la propiedad CSS 'height' con el valor indicado. */
+    object-fit: cover; /* Define la propiedad CSS 'object-fit' con el valor indicado. */
+} /* Cierra el bloque de reglas CSS actual. */

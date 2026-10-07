@@ -1,14 +1,11 @@
 <?php
+// Gestiona la accion de agregar al carrito.
 $mensaje = '';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnAccion'])) {
-
     if (!isset($_SESSION['usuario_id'])) {
         header("Location: ../usuarios/iniciar-sesion.php");
     }
-
     if ($_POST['btnAccion'] === 'Agregar') {
-
         // Validar que el ID sea numérico
         if (is_numeric($_POST['id_producto'])) {
 
@@ -20,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnAccion'])) {
             if (!isset($_SESSION['carrito'])) {
                 $_SESSION['carrito'] = [];
             }
-
             // Guardar el producto en la sesion
             $_SESSION['carrito'][] = [
                 'id_producto' => $id_producto,
@@ -31,13 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnAccion'])) {
 
             header("Location: /public/usuarios/carrito.php");
             exit;
-
         } else {
             $mensaje = "ID de producto no válido";
         }
-
     }
-
     if ($_POST['btnAccion'] === 'Eliminar') {
         $id_producto = $_POST['id_producto'];
         $incluir_servicio = isset($_POST['incluir_servicio']) && $_POST['incluir_servicio'] == '1';
@@ -47,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnAccion'])) {
                 unset($_SESSION['carrito'][$key]);
             }
         }
-        // Reindexar el array para evitar huecos en los índices
+        // Reindexar el array para evitar huecos en los indices
         $_SESSION['carrito'] = array_values($_SESSION['carrito']);
 
         // Redirigir para evitar que se vuelva a enviar el POST al refrescar
@@ -55,13 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnAccion'])) {
         exit;
     }
 }
-
-
-
 function combinar_carrito(&$carrito)
 {
     $nuevo_carrito = [];
-
     foreach ($carrito as $item) {
         // Determinar un ID unico para el producto + servicio
         $id_unico = $item['id_producto'] . '-' . (!empty($item['incluir_servicio']) ? '1' : '0');
@@ -74,11 +63,7 @@ function combinar_carrito(&$carrito)
             $nuevo_carrito[$id_unico] = $item;
         }
     }
-
     // Reindexamos el array para que sea int otra vez
     $carrito = array_values($nuevo_carrito);
 }
-
-
-
 ?>

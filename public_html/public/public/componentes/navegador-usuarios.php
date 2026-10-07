@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Escapa los datos de sesión antes de imprimirlos en el HTML.
 $nombre_usuario   = htmlspecialchars($_SESSION['nombre'] ?? 'Usuario');
 $apellido_usuario = htmlspecialchars($_SESSION['apellido'] ?? '');
 $email_usuario    = htmlspecialchars($_SESSION['email'] ?? 'sin-email');
@@ -8,6 +9,7 @@ $email_usuario    = htmlspecialchars($_SESSION['email'] ?? 'sin-email');
 ?>
 <link rel="stylesheet" href="/css/navegador-usuario.css">
 <div class="contenedor-comun">
+    <!-- Barra superior con el botón del menú y el acceso al perfil. -->
     <header class="navegador-usuario">
         <nav class="navegador-superior">
             <iconify-icon icon="material-symbols:menu-rounded" class="icon icon-h6 abrir-menu color-blanco oculto"
@@ -16,6 +18,7 @@ $email_usuario    = htmlspecialchars($_SESSION['email'] ?? 'sin-email');
                 <iconify-icon icon="solar:user-bold" class="icon icon-h6 btn-drop-down color-blanco"
                     id="btn-drop-down"></iconify-icon>
                 <div class="shadow drop-down oculto">
+                    <!-- Información del usuario y opción para cerrar la sesión. -->
                     <div class="contenedor-informacion-user">
                         <div class="nombre-user">
                             <p class="pequenio texto-truncado"><b><?php echo $nombre_usuario ?></b></p>
@@ -43,7 +46,6 @@ $email_usuario    = htmlspecialchars($_SESSION['email'] ?? 'sin-email');
                 <span class="oculto pequenio light color-blanco">Energia</span>
             </a> -->
 
-
             <a href="/public/usuarios/configuracion.php" title="Configuración">
                 <iconify-icon icon="material-symbols:settings-rounded" class="icon icon-h6 color-primario"></iconify-icon>
                 <span class="oculto pequenio light color-blanco">Configuración</span>
@@ -54,7 +56,6 @@ $email_usuario    = htmlspecialchars($_SESSION['email'] ?? 'sin-email');
             </a>
         </asaide>
     </header>
-
     <script src="/js/desplegar.js"></script>
     <script src="/js/dropDown.js"></script>
 </body>

@@ -8,8 +8,8 @@
         <a href="/index.php" class="imagen-logo-link">
             <p><b class="nulshock color-blanco">NecoTracking</b></p>
         </a>
-
         <?php if ($sesion_activa): ?>
+            <!-- Estos accesos aparecen en la versión móvil cuando hay una sesión activa. -->
             <div class="contenedor-btns-responsive oculto">
                 <a href="/public/usuario/perfil-usuario.php">
                     <iconify-icon icon="solar:user-bold" class="icon icon-h6 color-blanco"></iconify-icon>
@@ -20,8 +20,8 @@
                 </a>
             </div>
         <?php endif; ?>
-
     </div>
+    <!-- Menú principal con enlaces a las secciones públicas. -->
     <nav class="menu-nav" id="desplegable">
         <div class="sub-menu">
             <iconify-icon icon="material-symbols:close-rounded" class="icon icon-h6 oculto cerrar-menu"
@@ -34,6 +34,7 @@
         </div>
         <div class="cont-btns">
             <?php if (!$sesion_activa): ?>
+                <!-- Los visitantes no autenticados pueden iniciar sesión o registrarse. -->
                 <a href="/public/public/iniciar-sesion.php"
                     class="negrita-swiss btn pequenio texto-truncado">Iniciar sesión</a>
                 <a href="/public/public/registrarse.php"
@@ -42,7 +43,7 @@
             <?php endif; ?>
         </div>
     </nav>
-
+    <!-- Accesos de perfil y carrito para usuarios autenticados en escritorio. -->
     <div class="cont-btns">
         <?php if ($sesion_activa): ?>
             <a href="/public/usuarios/perfil-usuario.php">
@@ -55,5 +56,5 @@
         <?php endif; ?>
     </div>
 </header>
-
+<!-- Controla la apertura y el cierre del menú responsive. -->
 <script src="/js/desplegar.js"></script>
