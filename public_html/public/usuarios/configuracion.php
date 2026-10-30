@@ -1,5 +1,5 @@
 <?php
-/*Este código define la estructura HTML base de la interfaz de configuración del usuario. Se encarga de incluir los estilos globales y componentes del encabezado, construir un menú lateral dinámico con pestañas (Cuenta, Panel y Módulos) identificado mediante atributos data-config-id, y dejar un contenedor vacío (.seccion-configuracion-especifica) donde el archivo JavaScript cargará dinámicamente el contenido de cada sección según la opción seleccionada.*/
+/*Este código define la estructura HTML base de la interfaz de configuración del usuario. Se encarga de incluir los estilos globales y componentes del encabezado, construir un menú lateral dinámico con pestañas (Cuenta, Panel, Módulos y Mis Pedidos) identificado mediante atributos data-config-id, y dejar un contenedor vacío (.seccion-configuracion-especifica) donde el archivo JavaScript cargará dinámicamente el contenido de cada sección según la opción seleccionada.*/
 
 // Incluye el encabezado específico de la interfaz de usuario autenticado
 include($_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header-usuario.php');
@@ -30,6 +30,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header-usuario.p
             <div class="eleccion-configuracion" data-config-id="modulos">
                 <a class="pequenio light">Módulos</a>
             </div>
+
+            <!-- Opción: Mis Pedidos -->
+            <div class="eleccion-configuracion" data-config-id="pedidos">
+                <a class="pequenio light">Mis Pedidos</a>
+            </div>
         </div>
 
         <!-- Contenedor dinámico donde se inyectará el contenido HTML mediante AJAX o JavaScript -->
@@ -38,7 +43,6 @@ include($_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header-usuario.p
         </div>
     </div>
 </main>
-</div>
 
 <!-- Scripts de JavaScript encargados de la interactividad, la carga dinámica y la modificación de datos -->
 <script src="/js/configuracion.js"></script>

@@ -1,6 +1,9 @@
-<?php /*include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php'; ?>*/
-include ('public/public/componentes/header.php'); ?>
-<link rel="stylesheet" href="css/index.css">
+<?php 
+// Incluir el encabezado global de la aplicación
+include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php'; 
+?>
+<link rel="stylesheet" href="/css/index.css">
+
 <header class="header">
     <div class="circulo"></div>
     <div class="texto-decorativo">
@@ -10,8 +13,7 @@ include ('public/public/componentes/header.php'); ?>
     </div>
     <div class="cont-img">
         <picture>
-            <!-- <source srcset="/css/recursos/img/panel-2.png" media="(max-width: 480px)"> -->
-            <img src="css/recursos/img/panel-1.v3.png" alt="Descripción">
+            <img src="/css/recursos/img/panel-1.v3.png" alt="Módulo solar Necotracking">
         </picture>
     </div>
 </header>
@@ -29,7 +31,7 @@ include ('public/public/componentes/header.php'); ?>
     </div>
     <div class="contenedor-informacion">
         <div class="cont-img">
-            <img src="css/recursos/img/panel-2.png">
+            <img src="/css/recursos/img/panel-2.png" alt="Panel solar en monitoreo">
         </div>
         <div class="informacion-especifica">
             <p class="color-primario nulshock">NecoTracking es un sistema inteligente que permite monitorear en tiempo
@@ -41,7 +43,7 @@ include ('public/public/componentes/header.php'); ?>
                 innecesarios.
                 Nuestro objetivo es acercar soluciones accesibles que acompañen la transición hacia un consumo
                 energético más responsable y sustentable.</p>
-            <a href="public/public/tienda.php" class="btn primario">
+            <a href="/public/public/tienda.php" class="btn primario">
                 <iconify-icon icon="famicons:bag" class="color-blanco icon-h6"></iconify-icon>
                 <span class="negrita-swiss color-blanco">Comprar</span>
             </a>
@@ -57,9 +59,8 @@ include ('public/public/componentes/header.php'); ?>
     <div class="contenedor-informacion">
 
         <div class="cont-img">
-            <img src="css/recursos/img/panel-3.png">
+            <img src="/css/recursos/img/panel-3.png" alt="Sensores de monitoreo de paneles">
         </div>
-
 
         <div class="informacion">
             <div class="contenedor-izquierda">
@@ -70,26 +71,20 @@ include ('public/public/componentes/header.php'); ?>
                     Cuando ocurre una anomalía como una caída de energía, sobrecalentamiento o desconexión el sistema
                     genera una alerta inmediata por correo electrónico.
                     Esto permite actuar rápido y evitar daños mayores en la instalación solar.</p>
-                <a href="public/public/funcionamiento.php" class="btn secundario">
+                <a href="/public/public/funcionamiento.php" class="btn secundario">
                     <span class="negrita-swiss color-blanco">Ver funcionamiento</span>
                 </a>
             </div>
             <div class="contenedor-derecha">
                 <div class="contenedor-superior">
                     <iconify-icon icon="simple-line-icons:energy" class="icon color-blanco icon-h5"></iconify-icon>
-
                     <iconify-icon icon="ph:sun" class="icon color-blanco icon-h5"></iconify-icon>
-
                     <iconify-icon icon="hugeicons:solar-power" class="icon color-blanco icon-h5"></iconify-icon>
-
                 </div>
                 <p class="contenedor-inferior color-blanco pequenio light-swiss">
                     En Necochea se desaprovecha gran parte del potencial solar. Nuestra tecnología ayuda a aprovecharlo
                     mejor, optimizando el rendimiento y evitando pérdidas en cada instalación.
                 </p>
-
-
-
             </div>
         </div>
     </div>
@@ -121,8 +116,9 @@ include ('public/public/componentes/header.php'); ?>
                 con su propia energía, promoviendo un futuro más sustentable y moderno para la ciudad.</p>
         </div>
         <div class="cont-img">
-            <img class="borde-redondeado" src="css/recursos/img/vista-aerea-de-necochea.webp">
+            <img class="borde-redondeado" src="/css/recursos/img/vista-aerea-de-necochea.webp" alt="Vista aérea de Necochea">
         </div>
     </div>
 </section>
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/footer.php'; ?>

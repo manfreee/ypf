@@ -1,26 +1,24 @@
 <?php
-/*Este script actúa como el controlador de eliminación de un módulo. Este archivo maneja solicitudes mediante peticiones GET y realiza redirecciones explícitas en el navegador (header('Location: ...')). Se encarga de verificar que el usuario esté autenticado, validar que el id_modulo sea un entero válido e impedir eliminaciones no autorizadas corroborando que el módulo le pertenezca. Para evitar datos huérfanos o errores de clave foránea, abre una transacción SQL (begin_transaction) para eliminar primero los registros dependientes (sensores) y luego el módulo en sí; si todo sale bien aplica los cambios (commit), de lo contrario deshace todo (rollback) y registra el fallo en logs.*/
-
-// Iniciar o recuperar la sesión del usuario
+// Iniciar la sesión
 session_start();
 
-// Incluir la conexión a la BD y las funciones auxiliares de verificación
+// Incluir archivos necesarios
 require_once $_SERVER['DOCUMENT_ROOT'] . '/conexion.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/public/usuarios/funciones/modulo-funciones.php';
 
-// Verificar si el usuario está autenticado; de lo contrario, redirigir al inicio
+// Verificar si el usuario está autenticado
 if (!isset($_SESSION['id_usuario'])) {
     header('Location: /index.php');
     exit();
 }
 
-// Verificar si el parámetro GET 'id_modulo' viene presente en la URL
+// Verificar si se proporcionó un ID de módulo
 if (!isset($_GET['id_modulo'])) {
     header('Location: /public/usuarios/configuracion/panel.php');
     exit();
 }
 
-// Obtener y validar que el ID del módulo sea un número entero
+// Obtener y validar el ID del módulo
 $id_modulo = filter_input(INPUT_GET, 'id_modulo', FILTER_VALIDATE_INT);
 
 if (!$id_modulo) {
@@ -28,7 +26,7 @@ if (!$id_modulo) {
     exit();
 }
 
-// Comprobar mediante la función de seguridad que el módulo pertenece al usuario en sesión
+// Verificar que el módulo pertenece al usuario
 $usuario_id = $_SESSION['id_usuario'];
 if (!verificarPropiedadModulo($conexion, $id_modulo, $usuario_id)) {
     header('Location: /public/usuarios/configuracion/panel.php?error=acceso_denegado');
@@ -36,25 +34,45 @@ if (!verificarPropiedadModulo($conexion, $id_modulo, $usuario_id)) {
 }
 
 try {
-    // Iniciar una transacción SQL para asegurar la atomicidad e integridad de la eliminación
+    // Iniciar transacción para asegurar la integridad de los datos
     $conexion->begin_transaction();
 
-    // 1. Eliminar primero los registros dependientes (sensores asociados al módulo)
-    $query_delete_sensores = "DELETE FROM sensores WHERE id_modulo = ?";
-    $stmt_sensores = $conexion->prepare($query_delete_sensores);
-    $stmt_sensores->bind_param("i", $id_modulo);
-    $stmt_sensores->execute();
-    $stmt_sensores->close();
+    // 1. Eliminar datos asociados al módulo en la tabla datos
+    $query_delete_datos = "DELETE FROM datos WHERE id_modulo = ?";
+    $stmt_datos = $conexion->prepare($query_delete_datos);
+    $stmt_datos->bind_param("i", $id_modulo);
+    $stmt_datos->execute();
+    $stmt_datos->close();
 
-    // 2. Eliminar el registro principal del módulo de la tabla 'modulos'
+    // 2. Eliminar promedios diarios asociados
+    $query_delete_promd = "DELETE FROM promedio_diario WHERE id_modulo = ?";
+    $stmt_promd = $conexion->prepare($query_delete_promd);
+    $stmt_promd->bind_param("i", $id_modulo);
+    $stmt_promd->execute();
+    $stmt_promd->close();
+
+    // 3. Eliminar promedios semanales asociados
+    $query_delete_proms = "DELETE FROM promedio_semanal WHERE id_modulo = ?";
+    $stmt_proms = $conexion->prepare($query_delete_proms);
+    $stmt_proms->bind_param("i", $id_modulo);
+    $stmt_proms->execute();
+    $stmt_proms->close();
+
+    // 4. Desvincular productos asociados (o eliminar si es el comportamiento deseado)
+    $query_update_productos = "DELETE FROM productos WHERE id_modulo = ?";
+    $stmt_productos = $conexion->prepare($query_update_productos);
+    $stmt_productos->bind_param("i", $id_modulo);
+    $stmt_productos->execute();
+    $stmt_productos->close();
+
+    // 5. Finalmente, eliminar el módulo
     $query_delete_modulo = "DELETE FROM modulos WHERE id_modulo = ? AND id_usuario = ?";
     $stmt_modulo = $conexion->prepare($query_delete_modulo);
     $stmt_modulo->bind_param("ii", $id_modulo, $usuario_id);
     $stmt_modulo->execute();
     
-    // Validar si la consulta afectó al menos a una fila
+    // Verificar si se eliminó correctamente
     if ($stmt_modulo->affected_rows > 0) {
-        // Confirmar y consolidar la transacción en la base de datos
         $conexion->commit();
         header('Location: /public/usuarios/configuracion/panel.php?exito=modulo_eliminado');
     } else {
@@ -64,22 +82,21 @@ try {
     $stmt_modulo->close();
     
 } catch (Exception $e) {
-    // Si algo falla, revertir todos los cambios realizados en la transacción
+    // Revertir la transacción en caso de error
     if (isset($conexion)) {
         $conexion->rollback();
     }
     
-    // Registrar el detalle del error internamente en los logs del servidor
+    // Registrar el error
     error_log('Error en eliminar-modulo.php: ' . $e->getMessage());
     
-    // Redirigir notificando el fallo
+    // Redirigir con mensaje de error
     header('Location: /public/usuarios/configuracion/panel.php?error=error_eliminar');
 } finally {
-    // Asegurar el cierre de la conexión a la base de datos
+    // Cerrar la conexión
     if (isset($conexion)) {
         $conexion->close();
     }
 }
 
-// Finalizar la ejecución del script
 exit();

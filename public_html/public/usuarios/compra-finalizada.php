@@ -11,11 +11,11 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
-// Verificar que haya productos en el carrito (código comentado)
-// if (empty($_SESSION['carrito'])) {
-//     header("Location: /Luminora/carrito");
-//     exit;
-// }
+// Redirigir si el carrito está vacío o no existe para evitar procesamiento erroneo
+if (empty($_SESSION['carrito'])) {
+    header("Location: /public/usuarios/configuracion/panel.php");
+    exit;
+}
 
 // Lectura de los datos del usuario y del carrito desde la sesión
 $carrito = $_SESSION['carrito'];
@@ -30,14 +30,13 @@ foreach ($carrito as $item) {
     $prod = $stmt->get_result()->fetch_assoc();
     $stmt->close();
     
-    // Cálculo del importe por producto base
-    $precio_item = $prod['precio'] * $item['cantidad'];
-    
-    // Suma el precio del servicio si aplica
-    if ($item['incluir_servicio']) {
-        $precio_item += $prod['precio_servicio'];
+    if ($prod) {
+        $precio_item = $prod['precio'] * $item['cantidad'];
+        if (!empty($item['incluir_servicio'])) {
+            $precio_item += $prod['precio_servicio'];
+        }
+        $subtotal += $precio_item;
     }
-    $subtotal += $precio_item;
 }
 
 // Definición de costo fijo de envío e impuestos (21%) para obtener el total general
@@ -50,33 +49,65 @@ $conexion->begin_transaction();
 
 try {
     // 1. Insertar el registro de la orden general en la tabla 'venta'
-    $stmt = $conexion->prepare("INSERT INTO venta (id_usuario, total) VALUES (?, ?)");
+    $stmt = $conexion->prepare("INSERT INTO venta (fecha_hora, id_usuario, total) VALUES (NOW(), ?, ?)");
     $stmt->bind_param("id", $id_usuario, $total);
     $stmt->execute();
-    $id_pedido = $conexion->insert_id; // Se obtiene el ID generado para la nueva venta
+    $id_venta = $conexion->insert_id; // ID generado para la nueva venta
     $stmt->close();
     
-    // 2. Preparar inserción de cada producto en la tabla 'detalle_venta'
-    $stmt = $conexion->prepare("INSERT INTO detalle_venta (id_venta, id_producto, cantidad, incluir_servicio, precio_unitario) VALUES (?, ?, ?, ?, ?)");
+    // 2. Preparar inserción de cada producto en la tabla 'detalle_venta' adaptada a la BD exacta
+    $stmt_detalle = $conexion->prepare(
+        "INSERT INTO detalle_venta (id_venta, id_producto, cantidad, precio_unitario, incluir_servicio, precio_servicio, subtotal, comprobante, verificado) 
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    );
     
+    // Preparar actualización de stock
+    $stmt_stock = $conexion->prepare("UPDATE productos SET stock = stock - ? WHERE id_producto = ?");
+
     foreach ($carrito as $item) {
-        // Consultar nuevamente el precio unitario del producto para registrarlo individualmente
+        // Consultar los datos exactos del producto
         $stmt_precio = $conexion->prepare("SELECT precio, precio_servicio FROM productos WHERE id_producto = ?");
         $stmt_precio->bind_param("i", $item['id_producto']);
         $stmt_precio->execute();
         $producto = $stmt_precio->get_result()->fetch_assoc();
         $stmt_precio->close();
         
-        $precio_unitario = $producto['precio'];
-        if ($item['incluir_servicio']) {
-            $precio_unitario += $producto['precio_servicio'];
-        }
+        if (!$producto) continue;
+
+        $precio_unitario = (float)$producto['precio'];
+        $incluir_servicio = !empty($item['incluir_servicio']) ? 1 : 0;
+        $precio_servicio = $incluir_servicio ? (float)$producto['precio_servicio'] : 0.00;
         
-        // Guardar la línea de detalle
-        $stmt->bind_param("iiiid", $id_pedido, $item['id_producto'], $item['cantidad'], $item['incluir_servicio'], $precio_unitario);
-        $stmt->execute();
+        // Subtotal individual por detalle
+        $subtotal_detalle = ($precio_unitario * $item['cantidad']) + $precio_servicio;
+        
+        // Valores por defecto para comprobante y verificado según la BD
+        $comprobante = ''; // MEDIUMBLOB vacío por defecto
+        $verificado = 0;  // Tinyint (No verificado por defecto)
+
+        // Binding con tipos de datos exactos: i (int), d (double/decimal), s (string/blob)
+        // Estructura: id_venta(i), id_producto(i), cantidad(i), precio_unitario(d), incluir_servicio(i), precio_servicio(d), subtotal(d), comprobante(s), verificado(i)
+        $stmt_detalle->bind_param(
+            "iiididdsi", 
+            $id_venta, 
+            $item['id_producto'], 
+            $item['cantidad'], 
+            $precio_unitario, 
+            $incluir_servicio, 
+            $precio_servicio, 
+            $subtotal_detalle, 
+            $comprobante, 
+            $verificado
+        );
+        $stmt_detalle->execute();
+
+        // Actualizar stock disponible
+        $stmt_stock->bind_param("ii", $item['cantidad'], $item['id_producto']);
+        $stmt_stock->execute();
     }
-    $stmt->close();
+    
+    $stmt_detalle->close();
+    $stmt_stock->close();
     
     // Confirmar y aplicar todos los cambios de la transacción
     $conexion->commit();
@@ -86,8 +117,11 @@ try {
     
 } catch (Exception $e) {
     // Si ocurre algún fallo, revertir todos los registros creados para evitar datos corruptos
-    $conexion->rollback();
-    die("Error al procesar el pedido: " . $e->getMessage());
+    if (isset($conexion)) {
+        $conexion->rollback();
+    }
+    error_log("Error al procesar la compra: " . $e->getMessage());
+    die("Error al procesar el pedido. Por favor, intenta de nuevo o ponte en contacto con soporte.");
 }
 ?>
 
@@ -110,7 +144,7 @@ try {
             <a href="/index.php" class="btn btn-primario">
                 <p class="color-blanco pequenio">Volver al inicio</p>
             </a>
-            <a href="/public/usuarios/panel-control.php" class="btn btn-secundario">
+            <a href="/public/usuarios/configuracion/panel.php" class="btn btn-secundario">
                 <p class="pequenio">Ver mi panel</p>
             </a>
         </div>
