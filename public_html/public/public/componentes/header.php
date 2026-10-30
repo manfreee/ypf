@@ -12,7 +12,7 @@
 
 <body>
     <!-- incluye la barra de navegacion -->
-    <?php /*include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/navegador.php'; ?>*/
+    <?php // include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/navegador.php'; ?>
     include ('navegador.php'); ?>
 </body>
 

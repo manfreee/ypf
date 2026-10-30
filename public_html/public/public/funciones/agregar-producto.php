@@ -1,6 +1,13 @@
 <?php
 // Gestiona la accion de agregar al carrito.
 $mensaje = '';
+
+// Inicia la sesión
+session_start();
+
+// Carga la conexión a la base de datos
+require_once$_SERVER['DOCUMENT_ROOT'] . '/conexion.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnAccion'])) {
     if (!isset($_SESSION['usuario_id'])) {
         header("Location: ../usuarios/iniciar-sesion.php");

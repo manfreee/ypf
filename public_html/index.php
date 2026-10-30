@@ -1,6 +1,7 @@
 <?php 
 // Incluir el encabezado global de la aplicación
-include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php'; 
+// include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php'; 
+include __DIR__ . '/public/public/componentes/header.php';
 ?>
 <link rel="stylesheet" href="/css/index.css">
 
