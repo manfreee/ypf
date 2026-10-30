@@ -1,11 +1,10 @@
 <?php
 session_start();
 
-// Los usuarios que ya tienen una sesión activa no necesitan iniciar sesión otra vez.
 if (isset($_SESSION['id_usuario'])) {
-
     if ($_SESSION['id_rol'] == 1) {
-        header("Location: admin/panel-admin.php"); 
+        //header("Location: admin/panel-admin.php");
+        header("Location: /index.php"); 
     } else {
         header("Location: /index.php");
     }
@@ -22,41 +21,39 @@ if (isset($_SESSION['mensaje_exito'])) {
 
 if (isset($_POST['iniciar-sesion'])) {
 
-    $email = mysqli_real_escape_string($conexion, $_POST['email']);
-    $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
+    $email = trim($_POST['email'] ?? '');
+    $contrasena = trim($_POST['contrasena'] ?? '');
 
     if (empty($email) || empty($contrasena)) {
         $mensaje_error = "Error: Ambos campos son obligatorios.";
     } else {
-        // Selecciona todos los campos necesarios
-        $query = "SELECT id_usuario, nombre, apellido, email, contrasena, id_rol FROM usuarios WHERE email = '$email'";
-        $resultado = mysqli_query($conexion, $query);
-        if (mysqli_num_rows($resultado) == 1) {
-            $usuario = mysqli_fetch_assoc($resultado);
+        // Uso de Sentencias Preparadas para mayor seguridad y compatibilidad
+        $stmt = mysqli_prepare($conexion, "SELECT id_usuario, nombre, apellido, email, contrasena, id_rol FROM usuarios WHERE email = ?");
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
 
+        if ($resultado && mysqli_num_rows($resultado) === 1) {
+            $usuario = mysqli_fetch_assoc($resultado);
             $contrasena_bd = $usuario['contrasena'];
 
-            // doble verif hash y texto sin hash
             $password_correcta = false;
 
-            // 1. Si la contraseña está hasheada (usa $2y$ al inicio)
             if (password_verify($contrasena, $contrasena_bd)) {
                 $password_correcta = true;
-            } 
-            // 2. Si NO está hasheada lo compara directo ( se podria solucionar hashando todas las contraseñas viejardas)
-            else if ($contrasena === $contrasena_bd) {
+            } else if ($contrasena === $contrasena_bd) {
                 $password_correcta = true;
             }
             if ($password_correcta) {
-                // Conserva en la sesión la identidad y el rol del usuario autenticado.
                 $_SESSION['id_usuario'] = $usuario['id_usuario'];
                 $_SESSION['nombre'] = $usuario['nombre'];
                 $_SESSION['apellido'] = $usuario['apellido'];
                 $_SESSION['email'] = $usuario['email'];
                 $_SESSION['id_rol'] = $usuario['id_rol'];
 
+                // Redirección corregida según el rol
                 if ($usuario['id_rol'] == 1) {
-                    header("Location: /index.php");
+                    header("Location: admin/panel-admin.php");
                 } else {
                     header("Location: /index.php");
                 }
@@ -67,6 +64,7 @@ if (isset($_POST['iniciar-sesion'])) {
         } else {
             $mensaje_error = "Error: El correo electrónico o la contraseña son incorrectos.";
         }
+        mysqli_stmt_close($stmt);
     }
 }
 ?>
@@ -99,13 +97,10 @@ if (isset($_POST['iniciar-sesion'])) {
                 </div>
             </div>
 
-
             <form class="borde-redondeado shadow formulario form-iniciar-sesion" method="POST" action="iniciar-sesion.php">
-
                 <h4 class="titulo-form color-primario nulshock">Iniciar sesión</h4>
 
                 <div class="form-cuerpo">
-                    <!-- Contenedor para mostrar mensaje de éxito -->
                     <?php if (!empty($mensaje_exito)): ?>
                         <div class="contenedor-texto pequenio media-negrita texto-centrado color-exito">
                             <p class="muy-pequenio color-exito"><?php echo htmlspecialchars($mensaje_exito); ?></p>
@@ -131,7 +126,6 @@ if (isset($_POST['iniciar-sesion'])) {
                     </div>
                 </div>
 
-                <!-- Contenedor para mostrar mensajes de error -->
                 <div class="contenedor-texto">
                     <?php if (!empty($mensaje_error)): ?>
                         <p class="muy-pequenio negrita-swiss color-error"><?php echo htmlspecialchars($mensaje_error); ?></p>

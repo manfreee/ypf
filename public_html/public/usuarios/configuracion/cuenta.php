@@ -3,22 +3,41 @@
 // Incluye el archivo de conexión a la base de datos de manera única
 include_once($_SERVER['DOCUMENT_ROOT'] . '/conexion.php');
 
-// Inicia o recupera la sesión activa
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Obtiene el identificador del usuario guardado en la variable de sesión
-$usuario_id = $_SESSION['id_usuario'];
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: /iniciar-sesion.php');
+    exit();
+}
 
-// Consulta SQL para obtener los datos personales e información geográfica del usuario
-$query = "SELECT nombre, apellido, email, localidad, provincia, pais 
-          FROM usuarios 
-          WHERE id_usuario = '$usuario_id' LIMIT 1";
+$usuario_id = (int)$_SESSION['id_usuario'];
 
-// Ejecuta la consulta en la base de datos
-$resultado = mysqli_query($conexion, $query);
+// Consulta preparada para mayor seguridad
+$stmt = $conexion->prepare("
+    SELECT nombre, apellido, email, localidad, provincia, pais 
+    FROM usuarios 
+    WHERE id_usuario = ? 
+    LIMIT 1
+");
+$stmt->bind_param("i", $usuario_id);
+$stmt->execute();
+$resultado = $stmt->get_result();
+$usuario = $resultado->fetch_assoc();
+$stmt->close();
 
-// Extrae el registro obtenido como un arreglo asociativo ($campo => $valor)
-$usuario = mysqli_fetch_assoc($resultado);
+if (!$usuario) {
+    $usuario = [
+        'nombre' => '',
+        'apellido' => '',
+        'email' => '',
+        'localidad' => '',
+        'provincia' => '',
+        'pais' => ''
+    ];
+}
 ?>
 
 <!-- TÍTULO Y BOTÓN EDITAR -->
@@ -43,7 +62,7 @@ $usuario = mysqli_fetch_assoc($resultado);
             <!-- Entrada de lectura con escape de caracteres especiales para evitar vulnerabilidades XSS -->
             <input required class="form-input" type="text"
                    name="<?= $campo ?>"
-                   value="<?= htmlspecialchars($valor) ?>" readonly />
+                   value="<?= htmlspecialchars($valor ?? '') ?>" readonly />
         </div>
     <?php endforeach; ?>
 </div>
@@ -72,7 +91,7 @@ $usuario = mysqli_fetch_assoc($resultado);
                     <p class="pequenio"><b class="color-primario negrita"><?= ucfirst($campo) ?></b></p>
                     <input required class="form-input" type="text"
                            name="<?= $campo ?>"
-                           value="<?= htmlspecialchars($valor) ?>" />
+                           value="<?= htmlspecialchars($valor ?? '') ?>" />
                 </div>
             <?php endforeach; ?>
 

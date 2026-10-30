@@ -14,7 +14,7 @@ if (!isset($_SESSION['id_usuario'])) {
     exit();
 }
 
-$usuario_id = $_SESSION['id_usuario'];
+$usuario_id = (int)$_SESSION['id_usuario'];
 
 /* --- RESOLUCIÓN DEL MÓDULO ACTIVO --- */
 
@@ -38,26 +38,30 @@ else {
     
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $id_modulo = $row['id_modulo'];
-        $_SESSION['id_modulo_actual'] = $id_modulo; // Lo guarda en la sesión activa
+        $id_modulo = (int)$row['id_modulo'];
+        $_SESSION['id_modulo_actual'] = $id_modulo; // Guardar en sesión
     } else {
         // Alerta al usuario si no posee ningún módulo configurado
         echo '<div class="alerta error">No tienes módulos configurados. <a href="/public/usuarios/configuracion/modulos.php">Agregar un módulo</a></div>';
+        $stmt->close();
         exit();
     }
     $stmt->close();
 }
 
-// Comprueba la propiedad del módulo por seguridad antes de permitir cualquier modificación
-if (!verificarPropiedadModulo($conexion, $id_modulo, $usuario_id)) {
-    echo '<div class="alerta error">No tienes permiso para acceder a este módulo o no existe.</div>';
-    exit();
+// Verificar si el módulo existe y pertenece al usuario
+if (function_exists('verificarPropiedadModulo')) {
+    if (!verificarPropiedadModulo($conexion, $id_modulo, $usuario_id)) {
+        echo '<div class="alerta error">No tienes permiso para acceder a este módulo o no existe.</div>';
+        exit();
+    }
 }
 
-// Obtiene los datos descriptivos del módulo actual (Número de serie y Nombre)
-$numero_serie = obtenerNumeroSerieModulo($conexion, $id_modulo, $usuario_id);
+// Obtener el número de serie y nombre del módulo actual
+$numero_serie = function_exists('obtenerNumeroSerieModulo') ? obtenerNumeroSerieModulo($conexion, $id_modulo, $usuario_id) : '';
 $nombre_modulo = '';
 
+// Obtener el nombre actual del módulo con Prepared Statement
 $stmt = $conexion->prepare("SELECT nombre FROM modulos WHERE id_modulo = ? AND id_usuario = ?");
 $stmt->bind_param("ii", $id_modulo, $usuario_id);
 $stmt->execute();
@@ -103,7 +107,7 @@ $stmt->close();
             <!-- Formulario de actualización que envía los datos al controlador externo -->
             <form id="formEditarModulo" class="form-cuerpo-modificar" method="POST" action="/public/usuarios/funciones/actualizar-modulo.php">
                 <input type="hidden" name="tipo" value="modulo">
-                <input type="hidden" name="id_modulo" value="<?php echo $id_modulo; ?>">
+                <input type="hidden" name="id_modulo" value="<?php echo (int)$id_modulo; ?>">
 
                 <div class="contenedor-inputs">
                     <div class="input-grupo">
@@ -136,7 +140,7 @@ function abrirModalModificar() {
     if (modal) {
         modal.style.display = 'flex';
         modal.classList.add('visible');
-        document.body.style.overflow = 'hidden'; // Bloquea el scroll de la página de fondo
+        document.body.style.overflow = 'hidden';
     }
 }
 
@@ -146,7 +150,7 @@ function cerrarModalModificar() {
     if (modal) {
         modal.style.display = 'none';
         modal.classList.remove('visible');
-        document.body.style.overflow = ''; // Restablece el scroll de la página
+        document.body.style.overflow = '';
     }
 }
 
@@ -155,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnEliminar = document.getElementById('btn-eliminar-modulo');
     const btnEditar = document.querySelector('.btn-editar-configuracion');
     
-    // Vincula el click del botón de edición con la apertura del modal
     if (btnEditar) {
         btnEditar.addEventListener('click', function(e) {
             e.preventDefault();
@@ -163,7 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Permite cerrar el modal haciendo click en el área oscura externa
     const modal = document.getElementById('modalEditar');
     if (modal) {
         modal.addEventListener('click', function(e) {
@@ -173,12 +175,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Dispara el prompt de confirmación antes de redirigir a la eliminación
     if (btnEliminar) {
         btnEliminar.addEventListener('click', function(e) {
             e.stopPropagation();
             if (confirm('¿Estás seguro de que deseas eliminar este módulo? Esta acción no se puede deshacer.')) {
-                window.location.href = '/public/usuarios/funciones/eliminar-modulo.php?id_modulo=<?php echo $id_modulo; ?>';
+                window.location.href = '/public/usuarios/funciones/eliminar-modulo.php?id_modulo=<?php echo (int)$id_modulo; ?>';
             }
         });
     }

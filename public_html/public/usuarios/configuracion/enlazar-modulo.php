@@ -6,33 +6,38 @@ y registrar los diferentes modulos de configuracion que tendra el usuario
 2 vocales 3 numeros y una letra consonante
 */
 
-// Incluye la conexión a la base de datos
-include "../../PHP/conexion.php";
+include_once($_SERVER['DOCUMENT_ROOT'] . '/conexion.php');
 
-// Inicia o recupera la sesión del usuario
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Obtiene el ID del usuario en sesión
-$id_usuario = $_SESSION['id_usuario'];
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: /iniciar-sesion.php');
+    exit();
+}
+
+$id_usuario = (int)$_SESSION['id_usuario'];
 
 /* --- AGREGAR MÓDULO --- */
 // Comprueba si el usuario envió el formulario para agregar módulo
 if (isset($_POST['agregar_modulo'])) {
-    $modulo = $_POST['modulo'];
-    $numero_serie = $_POST['numero_serie'];
+    $modulo = trim($_POST['modulo'] ?? '');
+    $numero_serie = trim($_POST['numero_serie'] ?? '');
+    $estado_defecto = 'activo'; // Campo 'estado' es NOT NULL en la tabla modulos
 
     // Validar el formato del código usando expresión regular: 2 vocales, 3 números y 1 consonante
     if (preg_match('/^[AEIOUaeiou]{2}[0-9]{3}[BCDFGHJKLMNÑPQRSTVWXYZbcdfghjklmnñpqrstvwxyz]{1}$/', $numero_serie)) {
         
-        // Prepara la consulta para registrar el módulo vinculado al usuario
-        $stmt = $conexion->prepare("INSERT INTO modulos (nombre, numero_serie, id_usuario) VALUES (?, ?, ?)");
-        $stmt->bind_param("ssi", $modulo, $numero_serie, $id_usuario);
+        $stmt = $conexion->prepare("INSERT INTO modulos (nombre, numero_serie, id_usuario, estado) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssis", $modulo, $numero_serie, $id_usuario, $estado_defecto);
 
         // Ejecuta la inserción y retroalimenta al usuario
         if ($stmt->execute()) {
             echo "<p class='text-success'>Módulo agregado exitosamente.</p>";
         } else {
-            echo "<p class='text-danger'>Error al agregar el módulo: " . $stmt->error . "</p>";
+            echo "<p class='text-danger'>Error al agregar el módulo: " . htmlspecialchars($stmt->error) . "</p>";
         }
 
         // Cierra la sentencia preparada
@@ -45,14 +50,25 @@ if (isset($_POST['agregar_modulo'])) {
 /* --- DESVINCULAR MÓDULO --- */
 // Comprueba si el usuario solicitó eliminar un módulo
 if (isset($_POST['desvincular'])) {
-    $modulo_id = $_POST['modulo_id'];
+    $modulo_id = (int)$_POST['modulo_id'];
 
-    // Prepara la eliminación asegurando que solo se borre si pertenece al usuario logueado
-    $delete = $conexion->prepare("DELETE FROM modulos WHERE id_modulo = ? AND id_usuario = ?");
-    $delete->bind_param("ii", $modulo_id, $id_usuario);
-    $delete->execute();
-
-    echo "<p class='text-success'>Módulo desvinculado correctamente.</p>";
+    try {
+        // eliminar solo si pertenece al usuario logueado
+        $delete = $conexion->prepare("DELETE FROM modulos WHERE id_modulo = ? AND id_usuario = ?");
+        $delete->bind_param("ii", $modulo_id, $id_usuario);
+        
+        if ($delete->execute()) {
+            if ($delete->affected_rows > 0) {
+                echo "<p class='text-success'>Módulo desvinculado correctamente.</p>";
+            } else {
+                echo "<p class='text-danger'>No se pudo desvincular el módulo o no te pertenece.</p>";
+            }
+        }
+        $delete->close();
+    } catch (mysqli_sql_exception $e) {
+        // Manejo por si existen registros vinculados en la tabla 'datos' o 'productos'
+        echo "<p class='text-danger'>No se puede eliminar el módulo porque tiene datos e historial asociados.</p>";
+    }
 }
 ?>
 
@@ -84,8 +100,7 @@ if (isset($_POST['desvincular'])) {
 <?php
 /* --- MOSTRAR MODULOS DEL USUARIO --- */
 
-// Prepara la consulta para listar los módulos asociados únicamente al usuario actual
-$stmt = $conexion->prepare("SELECT id_modulo, nombre, numero_serie FROM modulos WHERE id_usuario = ?");
+$stmt = $conexion->prepare("SELECT id_modulo, nombre, numero_serie, estado FROM modulos WHERE id_usuario = ?");
 $stmt->bind_param("i", $id_usuario);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -103,7 +118,7 @@ if ($result->num_rows === 0) {
 
         // Formulario individual para la desvinculación del módulo mediante botón
         echo "<form action='' method='post'>
-                <input type='hidden' name='modulo_id' value='" . $row['id_modulo'] . "'>
+                <input type='hidden' name='modulo_id' value='" . (int)$row['id_modulo'] . "'>
                 <button type='submit' name='desvincular' class='btn btn-danger'>
                     Desvincular Módulo
                 </button>
@@ -112,4 +127,5 @@ if ($result->num_rows === 0) {
         echo "</div>";
     }
 }
+$stmt->close();
 ?>

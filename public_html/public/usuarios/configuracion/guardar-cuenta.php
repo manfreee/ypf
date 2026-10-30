@@ -19,8 +19,7 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
-// Guarda el identificador del usuario extraído de la sesión
-$id_usuario = $_SESSION['id_usuario'];
+$id_usuario = (int)$_SESSION['id_usuario'];
 
 // Define el listado de campos obligatorios requeridos desde el formulario
 $campos = ['nombre', 'apellido', 'email', 'localidad', 'provincia', 'pais'];
@@ -50,27 +49,52 @@ if (!empty($errores)) {
     exit;
 }
 
-// Escapa caracteres especiales en las cadenas para mitigar riesgos de inyección SQL
-$nombre = mysqli_real_escape_string($conexion, $datos['nombre']);
-$apellido = mysqli_real_escape_string($conexion, $datos['apellido']);
-$email = mysqli_real_escape_string($conexion, $datos['email']);
-$localidad = mysqli_real_escape_string($conexion, $datos['localidad']);
-$provincia = mysqli_real_escape_string($conexion, $datos['provincia']);
-$pais = mysqli_real_escape_string($conexion, $datos['pais']);
+// Verificar que el correo no esté ocupado por OTRO usuario
+$stmt_check = $conexion->prepare("SELECT id_usuario FROM usuarios WHERE email = ? AND id_usuario != ?");
+$stmt_check->bind_param("si", $datos['email'], $id_usuario);
+$stmt_check->execute();
+$res_check = $stmt_check->get_result();
 
-// Prepara la consulta de actualización para modificar el perfil del usuario activo
-$query = "UPDATE usuarios SET 
-            nombre = '$nombre',
-            apellido = '$apellido',
-            email = '$email',
-            localidad = '$localidad',
-            provincia = '$provincia',
-            pais = '$pais'
-          WHERE id_usuario = '$id_usuario' 
-          LIMIT 1";
+if ($res_check && $res_check->num_rows > 0) {
+    echo json_encode([
+        'ok' => false,
+        'errores' => ['El correo electrónico ya se encuentra registrado por otro usuario.'],
+    ]);
+    $stmt_check->close();
+    exit;
+}
+$stmt_check->close();
 
-// Ejecuta la consulta SQL y devuelve la respuesta en formato JSON según el resultado
-if (mysqli_query($conexion, $query)) {
+// Sentencia preparada para actualizar los datos
+$stmt_update = $conexion->prepare("
+    UPDATE usuarios SET 
+        nombre = ?,
+        apellido = ?,
+        email = ?,
+        localidad = ?,
+        provincia = ?,
+        pais = ?
+    WHERE id_usuario = ? 
+    LIMIT 1
+");
+
+$stmt_update->bind_param(
+    "ssssssi",
+    $datos['nombre'],
+    $datos['apellido'],
+    $datos['email'],
+    $datos['localidad'],
+    $datos['provincia'],
+    $datos['pais'],
+    $id_usuario
+);
+
+if ($stmt_update->execute()) {
+    // Actualizar las variables de sesión activas
+    $_SESSION['nombre']   = $datos['nombre'];
+    $_SESSION['apellido'] = $datos['apellido'];
+    $_SESSION['email']    = $datos['email'];
+
     echo json_encode([
         'ok' => true,
         'errores' => [],
@@ -81,3 +105,5 @@ if (mysqli_query($conexion, $query)) {
         'errores' => ['Error al actualizar en la base de datos.'],
     ]);
 }
+
+$stmt_update->close();

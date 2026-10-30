@@ -23,8 +23,7 @@ $result = $stmt->get_result();
 
 $modulos = []; // Array estructurado donde guardaremos los módulos con sus métricas
 
-// Recorre cada módulo del usuario
-while ($modulo = $result->fetch_assoc()) {
+while ($modulo = $result->fetch_assoc()) { 
     $numero_serie = $modulo['numero_serie'];
 
     // Trae las últimas 3 lecturas de sensores registradas en la tabla 'datos' para este módulo
@@ -42,6 +41,7 @@ while ($modulo = $result->fetch_assoc()) {
     while ($dato = $result_datos->fetch_assoc()) {
         $datos_modulo[] = $dato; // Almacena cada registro de telemetría
     }
+    $stmt_datos->close();
 
     // Estructura y guarda el módulo junto a sus datos dinámicos
     $modulos[] = [
@@ -51,19 +51,20 @@ while ($modulo = $result->fetch_assoc()) {
         'datos' => $datos_modulo
     ];
 }
-
+$stmt->close();
 
 /* --- PROCESAMIENTO: AGREGAR UN MÓDULO NUEVO --- */
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
-    // Redirige al login si la sesión no estuviera activa
-    if (!$sesion_activa) {
-        header("Location: iniciar-sesion.php");
+    if (isset($sesion_activa) && !$sesion_activa) {
+        // Redirigir si no hay sesión activa
+        header("Location: /iniciar-sesion.php");
         exit;
     }
 
     $codigo = trim($_POST['codigo']); // Limpia espacios en blanco
     $nombre = "Modulo Solar " . $codigo;
+    $estado_defecto = 'activo';
 
     if (!empty($codigo)) {
 
@@ -82,24 +83,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
         } else {
             $stmt_check->close();
 
-            // 2. Inserta el nuevo módulo vinculado al id_usuario actual
-            $sql_insert = "INSERT INTO modulos (numero_serie, nombre, id_usuario)
-                           VALUES (?, ?, ?)";
+            // Insertar el nuevo módulo incluyendo la columna 'estado'
+            $sql_insert = "INSERT INTO modulos (numero_serie, nombre, id_usuario, estado)
+                           VALUES (?, ?, ?, ?)";
             $stmt = $conexion->prepare($sql_insert);
-            $stmt->bind_param("isi", $codigo, $nombre, $id_usuario);
+            $stmt->bind_param("ssis", $codigo, $nombre, $id_usuario, $estado_defecto);
 
             if ($stmt->execute()) {
                 $id_modulo = $conexion->insert_id;
                 $stmt->close();
-                
-                // Ejecuta los parámetros o valores predeterminados para el módulo recién creado
-                configuracionInicialModulo($codigo, $conexion);
-                
-                if ($conexion) {
-                    $conexion->close();
+
+                if (function_exists('configuracionInicialModulo')) {
+                    configuracionInicialModulo($codigo, $conexion);
                 }
-                
-                // 3. Redirige al panel de control específico del nuevo módulo
+
+                // Redirigir al panel del modulo recién creado
                 header("Location: /public/usuarios/panel-control.php?id_modulo=" . urlencode($id_modulo));
                 exit;
 
@@ -109,7 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
                 $stmt->close();
             }
         }
-        $conexion->close();
 
     } else {
         $mensaje = "El codigo no puede estar vacío.";
@@ -125,12 +122,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
 
 <!-- Grilla o lista de módulos en pantalla -->
 <div class="contenedor-modulos">
-    <?php if (!empty($modulos)): ?>
-        <?php foreach ($modulos as $modulo) { ?>
-            <!-- Tarjeta que redirige al panel individual al hacer click -->
-            <div class="modulo" data-id="<?= $modulo['id_modulo'] ?>" onclick="window.location.href='/public/usuarios/panel-control.php?id_modulo=<?= $modulo['id_modulo'] ?>'">
-                <div class="cont-superior">
-                    <h6 class="medium texto-truncado"><?= htmlspecialchars($modulo['nombre']) ?></h6>
+ <?php if (!empty($modulos)): ?>
+<?php foreach ($modulos as $modulo) { ?>
+        <div class="modulo" data-id="<?= (int)$modulo['id_modulo'] ?>" onclick="window.location.href='/public/usuarios/panel-control.php?id_modulo=<?= (int)$modulo['id_modulo'] ?>'">
+            <div class="cont-superior">
+                <h6 class="medium texto-truncado"><?= htmlspecialchars($modulo['nombre']) ?></h6>
+            </div>
+            <div class="cont-datos-sensores">
+                <div class="item">
+                    <iconify-icon icon="mdi:lightning-bolt" class="color-gris icon-h6"></iconify-icon>
+                    <p class="pequenio color-gris">
+                        <?= isset($modulo['datos'][0]['tension']) ? round($modulo['datos'][0]['tension'], 2) . 'V' : '--:--' ?>
+                    </p>
                 </div>
                 
                 <!-- Presentación de las últimas métricas de telemetría (Tensión, Corriente, Potencia) -->
@@ -176,8 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
             </div>
         </div>
 
-        <!-- Contenedor para la visualización de mensajes de error -->
-        <div class="contenedor-texto pequenio media-negrita texto-truncado doble texto-centrado color-error" style="display: none;">
+        <div class="contenedor-texto pequenio media-negrita texto-truncado doble texto-centrado color-error" style="<?php echo !empty($mensaje) ? '' : 'display: none;'; ?>">
             <?php if (!empty($mensaje)): ?>
                 <?= htmlspecialchars($mensaje) ?>
             <?php endif; ?>
