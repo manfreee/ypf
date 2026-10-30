@@ -1,13 +1,41 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . '/conexion.php');
-session_start();
-$usuario_id = $_SESSION['id_usuario'];
 
-$query = "SELECT nombre, apellido, email, localidad, provincia, pais 
-          FROM usuarios 
-          WHERE id_usuario = '$usuario_id' LIMIT 1";
-$resultado = mysqli_query($conexion, $query);
-$usuario = mysqli_fetch_assoc($resultado);
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: /iniciar-sesion.php');
+    exit();
+}
+
+$usuario_id = (int)$_SESSION['id_usuario'];
+
+// Consulta preparada para mayor seguridad
+$stmt = $conexion->prepare("
+    SELECT nombre, apellido, email, localidad, provincia, pais 
+    FROM usuarios 
+    WHERE id_usuario = ? 
+    LIMIT 1
+");
+$stmt->bind_param("i", $usuario_id);
+$stmt->execute();
+$resultado = $stmt->get_result();
+$usuario = $resultado->fetch_assoc();
+$stmt->close();
+
+if (!$usuario) {
+    $usuario = [
+        'nombre' => '',
+        'apellido' => '',
+        'email' => '',
+        'localidad' => '',
+        'provincia' => '',
+        'pais' => ''
+    ];
+}
 ?>
 
 <!-- TÍTULO Y BOTÓN EDITAR -->
@@ -27,7 +55,7 @@ $usuario = mysqli_fetch_assoc($resultado);
             <p class="pequenio"><b class="color-primario negrita"><?= ucfirst($campo) ?></b></p>
             <input required class="form-input" type="text"
                    name="<?= $campo ?>"
-                   value="<?= htmlspecialchars($valor) ?>" readonly />
+                   value="<?= htmlspecialchars($valor ?? '') ?>" readonly />
         </div>
     <?php endforeach; ?>
 </div>
@@ -52,7 +80,7 @@ $usuario = mysqli_fetch_assoc($resultado);
                     <p class="pequenio"><b class="color-primario negrita"><?= ucfirst($campo) ?></b></p>
                     <input required class="form-input" type="text"
                            name="<?= $campo ?>"
-                           value="<?= htmlspecialchars($valor) ?>" />
+                           value="<?= htmlspecialchars($valor ?? '') ?>" />
                 </div>
             <?php endforeach; ?>
 

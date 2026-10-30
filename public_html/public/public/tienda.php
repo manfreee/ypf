@@ -3,8 +3,8 @@ session_start();
 include_once($_SERVER['DOCUMENT_ROOT'] . '/conexion.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php');
 
-
-$id_producto = 1;
+// Recibe el ID por GET (ej: tienda.php?id=2), si no viene nada usa el 1 por defecto
+$id_producto = isset($_GET['id']) ? (int)$_GET['id'] : (isset($_GET['id_producto']) ? (int)$_GET['id_producto'] : 1);
 
 // Consulta del producto
 $stmt = $conexion->prepare("
@@ -17,19 +17,20 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 $producto = $resultado->fetch_assoc();
 
+if (!$producto) {
+    echo "<div class='cont'><p>El producto solicitado no está disponible.</p></div>";
+    include_once($_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php');
+    exit();
+}
 
 $imagen = "/css/recursos/img/productos/" . $producto['imagen'];
-$stmt->close()
-    ?>
-
-
-
+$stmt->close();
+?>
 <link rel="stylesheet" href="/css/tienda.css">
 <!-- <header class="tienda-header">
         <h1>Nuestros Productos</h1>
         <?php
-
-        $items_en_carrito = isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0;
+            $items_en_carrito = isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0;
         ?>
         <a href="carrito.php" class="btn-carrito">Ver Carrito (<?php echo $items_en_carrito; ?>)</a>
     </header> -->

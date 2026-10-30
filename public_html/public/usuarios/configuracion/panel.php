@@ -12,7 +12,7 @@ if (!isset($_SESSION['id_usuario'])) {
     exit();
 }
 
-$usuario_id = $_SESSION['id_usuario'];
+$usuario_id = (int)$_SESSION['id_usuario'];
 
 // Verificar si se proporcionó un ID de módulo
 $id_modulo = null;
@@ -36,26 +36,29 @@ else {
     
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $id_modulo = $row['id_modulo'];
+        $id_modulo = (int)$row['id_modulo'];
         $_SESSION['id_modulo_actual'] = $id_modulo; // Guardar en sesión
     } else {
         echo '<div class="alerta error">No tienes módulos configurados. <a href="/public/usuarios/configuracion/modulos.php">Agregar un módulo</a></div>';
+        $stmt->close();
         exit();
     }
     $stmt->close();
 }
 
 // Verificar si el módulo existe y pertenece al usuario
-if (!verificarPropiedadModulo($conexion, $id_modulo, $usuario_id)) {
-    echo '<div class="alerta error">No tienes permiso para acceder a este módulo o no existe.</div>';
-    exit();
+if (function_exists('verificarPropiedadModulo')) {
+    if (!verificarPropiedadModulo($conexion, $id_modulo, $usuario_id)) {
+        echo '<div class="alerta error">No tienes permiso para acceder a este módulo o no existe.</div>';
+        exit();
+    }
 }
 
 // Obtener el número de serie y nombre del módulo actual
-$numero_serie = obtenerNumeroSerieModulo($conexion, $id_modulo, $usuario_id);
+$numero_serie = function_exists('obtenerNumeroSerieModulo') ? obtenerNumeroSerieModulo($conexion, $id_modulo, $usuario_id) : '';
 $nombre_modulo = '';
 
-// Obtener el nombre actual del módulo
+// Obtener el nombre actual del módulo con Prepared Statement
 $stmt = $conexion->prepare("SELECT nombre FROM modulos WHERE id_modulo = ? AND id_usuario = ?");
 $stmt->bind_param("ii", $id_modulo, $usuario_id);
 $stmt->execute();
@@ -98,7 +101,7 @@ $stmt->close();
         <div class="modal-cuerpo">
             <form id="formEditarModulo" class="form-cuerpo-modificar" method="POST" action="/public/usuarios/funciones/actualizar-modulo.php">
                 <input type="hidden" name="tipo" value="modulo">
-                <input type="hidden" name="id_modulo" value="<?php echo $id_modulo; ?>">
+                <input type="hidden" name="id_modulo" value="<?php echo (int)$id_modulo; ?>">
 
                 <div class="contenedor-inputs">
                     <div class="input-grupo">
@@ -131,7 +134,7 @@ function abrirModalModificar() {
     if (modal) {
         modal.style.display = 'flex';
         modal.classList.add('visible');
-        document.body.style.overflow = 'hidden'; // Prevenir scroll del fondo
+        document.body.style.overflow = 'hidden';
     }
 }
 
@@ -141,7 +144,7 @@ function cerrarModalModificar() {
     if (modal) {
         modal.style.display = 'none';
         modal.classList.remove('visible');
-        document.body.style.overflow = ''; // Restaurar scroll
+        document.body.style.overflow = '';
     }
 }
 
@@ -150,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnEliminar = document.getElementById('btn-eliminar-modulo');
     const btnEditar = document.querySelector('.btn-editar-configuracion');
     
-    // Configurar el botón de editar
     if (btnEditar) {
         btnEditar.addEventListener('click', function(e) {
             e.preventDefault();
@@ -158,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Cerrar modal al hacer clic fuera del contenido
     const modal = document.getElementById('modalEditar');
     if (modal) {
         modal.addEventListener('click', function(e) {
@@ -168,12 +169,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Confirmación para eliminar módulo
     if (btnEliminar) {
         btnEliminar.addEventListener('click', function(e) {
             e.stopPropagation();
             if (confirm('¿Estás seguro de que deseas eliminar este módulo? Esta acción no se puede deshacer.')) {
-                window.location.href = '/public/usuarios/funciones/eliminar-modulo.php?id_modulo=<?php echo $id_modulo; ?>';
+                window.location.href = '/public/usuarios/funciones/eliminar-modulo.php?id_modulo=<?php echo (int)$id_modulo; ?>';
             }
         });
     }

@@ -17,7 +17,7 @@ $result = $stmt->get_result();
 
 $modulos = []; // Array donde guardaremos los módulos con sus datos
 
-while ($modulo = $result->fetch_assoc()) {  // <-- corregido aquí
+while ($modulo = $result->fetch_assoc()) { 
     $numero_serie = $modulo['numero_serie'];
 
     // Traer los últimos 3 registros de la tabla 'datos' para este módulo
@@ -35,6 +35,7 @@ while ($modulo = $result->fetch_assoc()) {  // <-- corregido aquí
     while ($dato = $result_datos->fetch_assoc()) {
         $datos_modulo[] = $dato; // Guardamos cada dato
     }
+    $stmt_datos->close();
 
     // Guardamos todo en el arreglo principal
     $modulos[] = [
@@ -44,21 +45,22 @@ while ($modulo = $result->fetch_assoc()) {  // <-- corregido aquí
         'datos' => $datos_modulo
     ];
 }
-
+$stmt->close();
 
 // ========================
 // AGREGAR UN MODULO NUEVO
 // ========================
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
-    if (!$sesion_activa) {
+    if (isset($sesion_activa) && !$sesion_activa) {
         // Redirigir si no hay sesión activa
-        header("Location: iniciar-sesion.php");
+        header("Location: /iniciar-sesion.php");
         exit;
     }
 
     $codigo = trim($_POST['codigo']); // Limpia espacios
     $nombre = "Modulo Solar " . $codigo;
+    $estado_defecto = 'activo';
 
     if (!empty($codigo)) {
 
@@ -77,20 +79,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
         } else {
             $stmt_check->close();
 
-            // 2️nsertar el nuevo módulo
-            $sql_insert = "INSERT INTO modulos (numero_serie, nombre, id_usuario)
-                           VALUES (?, ?, ?)";
+            // Insertar el nuevo módulo incluyendo la columna 'estado'
+            $sql_insert = "INSERT INTO modulos (numero_serie, nombre, id_usuario, estado)
+                           VALUES (?, ?, ?, ?)";
             $stmt = $conexion->prepare($sql_insert);
-            $stmt->bind_param("isi", $codigo, $nombre, $id_usuario);
+            $stmt->bind_param("ssis", $codigo, $nombre, $id_usuario, $estado_defecto);
 
             if ($stmt->execute()) {
                 $id_modulo = $conexion->insert_id;
                 $stmt->close();
-                configuracionInicialModulo($codigo, $conexion);
-                if ($conexion) {
-                    $conexion->close();
+
+                if (function_exists('configuracionInicialModulo')) {
+                    configuracionInicialModulo($codigo, $conexion);
                 }
-                // 3️Redirigir al panel del modulo recién creado
+
+                // Redirigir al panel del modulo recién creado
                 header("Location: /public/usuarios/panel-control.php?id_modulo=" . urlencode($id_modulo));
                 exit;
 
@@ -100,16 +103,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
                 $stmt->close();
             }
         }
-        $conexion->close();
 
     } else {
         $mensaje = "El codigo no puede estar vacío.";
     }
 }
-
-
-
-
 ?>
 
 <button class="btn-primario btn-editar-configuracion btn-mostrar-flotante">
@@ -120,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
 <div class="contenedor-modulos">
  <?php if (!empty($modulos)): ?>
 <?php foreach ($modulos as $modulo) { ?>
-        <div class="modulo" data-id="<?= $modulo['id_modulo'] ?>" onclick="window.location.href='/public/usuarios/panel-control.php?id_modulo=<?= $modulo['id_modulo'] ?>'">
+        <div class="modulo" data-id="<?= (int)$modulo['id_modulo'] ?>" onclick="window.location.href='/public/usuarios/panel-control.php?id_modulo=<?= (int)$modulo['id_modulo'] ?>'">
             <div class="cont-superior">
                 <h6 class="medium texto-truncado"><?= htmlspecialchars($modulo['nombre']) ?></h6>
             </div>
@@ -165,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar-modulo'])) {
             </div>
         </div>
 
-        <div class="contenedor-texto pequenio media-negrita texto-truncado doble texto-centrado color-error" style="display: none;">
+        <div class="contenedor-texto pequenio media-negrita texto-truncado doble texto-centrado color-error" style="<?php echo !empty($mensaje) ? '' : 'display: none;'; ?>">
             <?php if (!empty($mensaje)): ?>
                 <?= htmlspecialchars($mensaje) ?>
             <?php endif; ?>

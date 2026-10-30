@@ -7,37 +7,58 @@ $mensaje = "";
 
 if (isset($_POST['registrarse'])) {
 
-    $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
-    $apellido = mysqli_real_escape_string($conexion, $_POST['apellido']);
-    $pais = mysqli_real_escape_string($conexion, $_POST['pais']);
-    $provincia = mysqli_real_escape_string($conexion, $_POST['provincia']);
-    $localidad = mysqli_real_escape_string($conexion, $_POST['localidad']);
-    $email = mysqli_real_escape_string($conexion, $_POST['email']);
-    $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
+    $nombre = trim($_POST['nombre'] ?? '');
+    $apellido = trim($_POST['apellido'] ?? '');
+    $pais = trim($_POST['pais'] ?? '');
+    $provincia = trim($_POST['provincia'] ?? '');
+    $localidad = trim($_POST['localidad'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $contrasena = trim($_POST['contrasena'] ?? '');
 
     if (empty($nombre) || empty($apellido) || empty($email) || empty($contrasena)) {
         $mensaje = "Error: Todos los campos marcados son obligatorios.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $mensaje = "Error: El formato del correo electrónico no es válido.";
     } else {
-        $query_check_email = "SELECT id_usuario FROM usuarios WHERE email = '$email'";
-        $result_email = mysqli_query($conexion, $query_check_email);
+        // Consulta preparada para verificar la existencia del email
+        $stmt_email = mysqli_prepare($conexion, "SELECT id_usuario FROM usuarios WHERE email = ?");
+        mysqli_stmt_bind_param($stmt_email, "s", $email);
+        mysqli_stmt_execute($stmt_email);
+        $result_email = mysqli_stmt_get_result($stmt_email);
 
-        if (mysqli_num_rows($result_email) > 0) {
+        if ($result_email && mysqli_num_rows($result_email) > 0) {
             $mensaje = "Error: El correo electrónico ya está en uso. Por favor, elige otro.";
+            mysqli_stmt_close($stmt_email);
         } else {
+            mysqli_stmt_close($stmt_email);
             $contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
             mysqli_begin_transaction($conexion);
 
             try {
-                $query_insert_user = "INSERT INTO usuarios (nombre, apellido, email, contrasena, localidad, provincia, pais, id_rol) VALUES ('$nombre', '$apellido', '$email', '$contrasena_hash', '$localidad', '$provincia', '$pais', 2)";
-                $result_insert_user = mysqli_query($conexion, $query_insert_user);
+                // Consulta preparada para la inserción
+                $stmt_insert = mysqli_prepare(
+                    $conexion, 
+                    "INSERT INTO usuarios (nombre, apellido, email, contrasena, localidad, provincia, pais, id_rol) VALUES (?, ?, ?, ?, ?, ?, ?, 2)"
+                );
+                
+                mysqli_stmt_bind_param(
+                    $stmt_insert, 
+                    "sssssss", 
+                    $nombre, 
+                    $apellido, 
+                    $email, 
+                    $contrasena_hash, 
+                    $localidad, 
+                    $provincia, 
+                    $pais
+                );
 
-                if (!$result_insert_user) {
+                if (!mysqli_stmt_execute($stmt_insert)) {
                     throw new Exception("Error al crear el usuario.");
                 }
 
+                mysqli_stmt_close($stmt_insert);
                 mysqli_commit($conexion);
 
                 $_SESSION['mensaje_exito'] = "¡Registro completado con éxito! Ahora puedes iniciar sesión.";
@@ -46,7 +67,6 @@ if (isset($_POST['registrarse'])) {
 
             } catch (Exception $e) {
                 mysqli_rollback($conexion);
-                var_dump($query_insert_user);
                 $mensaje = "Error en el registro: No se pudieron completar todas las operaciones. Inténtelo de nuevo.";
             }
         }
@@ -85,7 +105,6 @@ if (isset($_POST['registrarse'])) {
                         <div class="input-grupo">
                             <div class="contenedor-input">
                                 <iconify-icon icon="solar:user-bold" class="input-icon color-primario icon-h6"></iconify-icon>
-                                <!-- Mantiene el valor si hay un error -->
                                 <input required placeholder="Nombre" name="nombre" class="form-input" type="text" autocomplete="off" value="<?= htmlspecialchars($_POST['nombre'] ?? '') ?>" />
                             </div>
                         </div>
@@ -139,10 +158,9 @@ if (isset($_POST['registrarse'])) {
                     </div>
                 </div>
 
-                <!-- Contenedor para mostrar mensajes de error -->
                 <div class="contenedor-texto">
                     <?php if (!empty($mensaje)): ?>
-                        <p class="muy-pequenio negrita-swiss color-error"><?php echo $mensaje; ?></p>
+                        <p class="muy-pequenio negrita-swiss color-error"><?php echo htmlspecialchars($mensaje); ?></p>
                     <?php endif; ?>
                 </div>
 
@@ -159,6 +177,7 @@ if (isset($_POST['registrarse'])) {
 
         </div>
     </main>
+    <script src="/js/visualizarContrasenia.js"></script>
 </body>
 
 </html>

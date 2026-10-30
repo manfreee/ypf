@@ -6,7 +6,7 @@ if (!isset($_SESSION['id_usuario'])) {
     die("Error: Usuario no autenticado");
 }
 
-$id_usuario = $_SESSION['id_usuario'];
+$id_usuario = (int)$_SESSION['id_usuario'];
 
 $sql_pedidos = "
     SELECT 
@@ -33,11 +33,26 @@ $stmt->close();
 
 <div class="contenedor-modulos" style="max-height: 450px; overflow-y: auto;">
     <?php if (!empty($pedidos)): ?>
+        <?php 
+        $sql_detalle = "
+            SELECT 
+                dv.cantidad,
+                dv.incluir_servicio,
+                dv.precio_unitario,
+                p.nombre,
+                dv.precio_servicio
+            FROM detalle_venta dv
+            INNER JOIN productos p ON dv.id_producto = p.id_producto
+            WHERE dv.id_venta = ?
+        ";
+        $stmt_detalle = $conexion->prepare($sql_detalle);
+        ?>
+
         <?php foreach ($pedidos as $pedido): ?>
             <div class="modulo pedido-especifico">
                 <div class="cont-superior header-pedido">
                     <h6 class="medium texto-truncado color-blanco">
-                        Pedido #<?= $pedido['id_pedido'] ?>
+                        Pedido #<?= (int)$pedido['id_pedido'] ?>
                     </h6>
                 </div>
 
@@ -71,24 +86,11 @@ $stmt->close();
                         <p class="pequenio">Servicio</p>
                     </div>
                     <?php
-                    $sql_detalle = "
-                        SELECT 
-                            dv.cantidad,
-                            dv.incluir_servicio,
-                            dv.precio_unitario,
-                            p.nombre,
-                            dv.precio_servicio
-                        FROM detalle_venta dv
-                        INNER JOIN productos p ON dv.id_producto = p.id_producto
-                        WHERE dv.id_venta = ?
-                    ";
-
-                    $stmt_detalle = $conexion->prepare($sql_detalle);
-                    $stmt_detalle->bind_param("i", $pedido['id_pedido']);
+                    $id_pedido_actual = (int)$pedido['id_pedido'];
+                    $stmt_detalle->bind_param("i", $id_pedido_actual);
                     $stmt_detalle->execute();
                     $resultado_detalle = $stmt_detalle->get_result();
                     $detalles = $resultado_detalle->fetch_all(MYSQLI_ASSOC);
-                    $stmt_detalle->close();
                     ?>
 
                     <ul class="producto-detalle">
@@ -103,7 +105,7 @@ $stmt->close();
                         ?>
                             <li>
                                 <p class="pequenio media-negrita"><?= htmlspecialchars($detalle['nombre']) ?></p>
-                                <p class="pequenio"><?= $detalle['cantidad'] ?></p>
+                                <p class="pequenio"><?= (int)$detalle['cantidad'] ?></p>
                                 <p class="pequenio">$<?= number_format($detalle['precio_unitario'], 2, ',', '.') ?></p>
                                 <p class="pequenio">
                                     <?php if ($detalle['incluir_servicio']): ?>
@@ -126,6 +128,7 @@ $stmt->close();
                 </div>
             </div>
         <?php endforeach; ?>
+        <?php $stmt_detalle->close(); ?>
     <?php else: ?>
         <div class="contenedor-sin-productos">
             <iconify-icon icon="mage:robot-sad-fill" class="color-gris icon-h3"></iconify-icon>

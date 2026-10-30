@@ -1,17 +1,17 @@
 <?php
-require_once __DIR__ . '/../conexion.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/conexion.php';
 
 // Verificar si el usuario está autenticado
 session_start();
-if (!isset($_SESSION['usuario'])) {
-    header('Location: /public/public/iniciar-sesion.php');
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: /iniciar-sesion.php');
     exit();
 }
 
 // Obtener el ID del módulo del usuario
-$id_usuario = $_SESSION['usuario']['id_usuario'];
+$id_usuario = $_SESSION['id_usuario'];
 $query = "SELECT id_modulo FROM modulos WHERE id_usuario = ?";
-$stmt = $conn->prepare($query);
+$stmt = $conexion->prepare($query);
 $stmt->bind_param("i", $id_usuario);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -21,11 +21,12 @@ $id_modulo = $modulo ? $modulo['id_modulo'] : null;
 // Configuración de paginación
 $registros_por_pagina = 20;
 $pagina_actual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+if ($pagina_actual < 1) $pagina_actual = 1;
 $offset = ($pagina_actual - 1) * $registros_por_pagina;
 
 // Filtros
-$filtro_fecha_desde = isset($_GET['fecha_desde']) ? $_GET['fecha_desde'] : '';
-$filtro_fecha_hasta = isset($_GET['fecha_hasta']) ? $_GET['fecha_hasta'] : '';
+$filtro_fecha_desde = isset($_GET['fecha_desde']) ? trim($_GET['fecha_desde']) : '';
+$filtro_fecha_hasta = isset($_GET['fecha_hasta']) ? trim($_GET['fecha_hasta']) : '';
 
 // Construir la consulta con filtros
 $where_conditions = [];
@@ -36,15 +37,17 @@ if ($id_modulo) {
     $where_conditions[] = "id_modulo = ?";
     $params[] = $id_modulo;
     $types .= "i";
+} else {
+    $where_conditions[] = "1 = 0";
 }
 
-if ($filtro_fecha_desde) {
+if (!empty($filtro_fecha_desde)) {
     $where_conditions[] = "DATE(fecha_hora) >= ?";
     $params[] = $filtro_fecha_desde;
     $types .= "s";
 }
 
-if ($filtro_fecha_hasta) {
+if (!empty($filtro_fecha_hasta)) {
     $where_conditions[] = "DATE(fecha_hora) <= ?";
     $params[] = $filtro_fecha_hasta;
     $types .= "s";
@@ -54,7 +57,7 @@ $where_clause = !empty($where_conditions) ? 'WHERE ' . implode(' AND ', $where_c
 
 // Obtener el total de registros para la paginación
 $count_query = "SELECT COUNT(*) as total FROM datos $where_clause";
-$count_stmt = $conn->prepare($count_query);
+$count_stmt = $conexion->prepare($count_query);
 
 if (!empty($params)) {
     $count_stmt->bind_param($types, ...$params);
@@ -66,14 +69,15 @@ $total_paginas = ceil($total_registros / $registros_por_pagina);
 
 // Consulta para obtener los datos con paginación
 $query = "SELECT * FROM datos $where_clause ORDER BY fecha_hora DESC LIMIT ? OFFSET ?";
-$stmt = $conn->prepare($query);
+$stmt = $conexion->prepare($query);
 
 // Agregar los parámetros de paginación
-$types .= "ii";
-$params[] = $registros_por_pagina;
-$params[] = $offset;
+$params_datos = $params;
+$types_datos = $types . "ii";
+$params_datos[] = $registros_por_pagina;
+$params_datos[] = $offset;
 
-$stmt->bind_param($types, ...$params);
+$stmt->bind_param($types_datos, ...$params_datos);
 $stmt->execute();
 $resultados = $stmt->get_result();
 ?>
@@ -118,7 +122,7 @@ $resultados = $stmt->get_result();
     </style>
 </head>
 <body>
-    <?php include __DIR__ . '/../componentes/header.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php'; ?>
 
     <div class="container mt-4">
         <h2 class="mb-4">Resumen Histórico de Datos</h2>
