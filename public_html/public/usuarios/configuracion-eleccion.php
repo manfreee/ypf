@@ -1,8 +1,8 @@
 <?php
 /*Este código actúa como un enrutador dinámico de vistas dentro de la sección de configuración. Evalúa la variable recibida por parámetro URL ($_GET['opcion']), asignando por defecto la vista cuenta si no se especifica ninguna, y utiliza una estructura switch para incluir y renderizar la plantilla PHP correspondiente (cuenta, panel, modulos o mis-pedidos). En caso de recibir un valor no reconocido, muestra un mensaje de error simple.*/
 
-// Obtiene el valor del parámetro 'opcion' desde la URL ($_GET). Si no existe, asigna 'cuenta' por defecto.
-$opcion = $_GET['opcion'] ?? 'cuenta';
+// Obtiene y sanitiza el valor del parámetro 'opcion' desde la URL ($_GET)
+$opcion = filter_input(INPUT_GET, 'opcion', FILTER_DEFAULT) ?? 'cuenta';
 
 // Evalúa el valor de $opcion para incluir la vista/sección correspondiente
 switch ($opcion) {

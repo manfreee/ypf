@@ -5,72 +5,108 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header-usuario.php');
 
 // Inicia la sesión PHP en caso de que no haya sido iniciada previamente
-if(session_status() === PHP_SESSION_NONE){ session_start(); }
+if (session_status() === PHP_SESSION_NONE) { 
+    session_start(); 
+}
 
 // Carga de la conexión a la base de datos
 include_once($_SERVER['DOCUMENT_ROOT'] . '/conexion.php');
 
 // Obtención de parámetros mediante la sesión y solicitudes GET (con valores por defecto)
 $id_usuario = $_SESSION['id_usuario'] ?? null;
-$mostrar = $_GET['mostrar'] ?? 'ambos';
-$filtro = $_GET['filtro'] ?? 'todo';
-$id_modulo = intval($_GET['id_modulo'] ?? 0);
+$mostrar = $_GET['mostrar'] ?? '10s';
+$id_modulo = filter_input(INPUT_GET, 'id_modulo', FILTER_VALIDATE_INT) ?? 0;
 
 // DECLARACIÓN DE VARIABLES INICIALES
-$nombre=$apellido=$email=$localidad=$provincia=$pais='';
-$modulo_nombre=$numero_serie='';
-$tension=$corriente=$potencia=$energia=$angulo=$intensidad=null;
+$nombre = $apellido = $email = $localidad = $provincia = $pais = '';
+$modulo_nombre = $numero_serie = '';
+$tension = $corriente = $potencia = $energia = $angulo = $intensidad = null;
+$fecha_ultimo = null;
 $datos_detallados = [];
 $usuario_valido = false;
 $rol = null;
 
 // VALIDAR USUARIO: Comprueba en la BD si el usuario tiene rol autorizado (roles 1 o 2)
-if($id_usuario){
-    $res_rol = mysqli_query($conexion,"SELECT id_rol FROM usuarios WHERE id_usuario=$id_usuario LIMIT 1");
-    if($res_rol && mysqli_num_rows($res_rol)>0){
-        $rol = intval(mysqli_fetch_assoc($res_rol)['id_rol']);
-        if(in_array($rol,[1,2])) $usuario_valido = true;
+if ($id_usuario) {
+    $stmt_rol = $conexion->prepare("SELECT id_rol FROM usuarios WHERE id_usuario = ? LIMIT 1");
+    $stmt_rol->bind_param("i", $id_usuario);
+    $stmt_rol->execute();
+    $res_rol = $stmt_rol->get_result();
+    
+    if ($res_rol && $res_rol->num_rows > 0) {
+        $rol = intval($res_rol->fetch_assoc()['id_rol']);
+        if (in_array($rol, [1, 2])) {
+            $usuario_valido = true;
+        }
+    }
+    $stmt_rol->close();
+}
+
+// OBTENER MÓDULOS DEL USUARIO Y VALIDAR MÓDULO SELECCIONADO
+$modulos_usuario = [];
+if ($usuario_valido) {
+    $stmt_mods = $conexion->prepare("SELECT id_modulo, numero_serie, nombre FROM modulos WHERE id_usuario = ? ORDER BY id_modulo ASC");
+    $stmt_mods->bind_param("i", $id_usuario);
+    $stmt_mods->execute();
+    $res_mods = $stmt_mods->get_result();
+    
+    while ($fila = $res_mods->fetch_assoc()) {
+        $modulos_usuario[] = $fila;
+    }
+    $stmt_mods->close();
+
+    // Si no especificó id_modulo o el modulo especificado no le pertenece, asigna el primero
+    $modulos_ids = array_column($modulos_usuario, 'id_modulo');
+    if ((!$id_modulo || !in_array($id_modulo, $modulos_ids)) && !empty($modulos_usuario)) {
+        $id_modulo = intval($modulos_usuario[0]['id_modulo']);
+        $numero_serie = $modulos_usuario[0]['numero_serie'];
+        $modulo_nombre = $modulos_usuario[0]['nombre'];
     }
 }
 
-// PRIMER MÓDULO POR DEFAULT: Si el usuario es válido y no hay un módulo seleccionado, asigna el primero que posea
-if($usuario_valido){
-    $res_mods = mysqli_query($conexion,"SELECT id_modulo,numero_serie,nombre FROM modulos WHERE id_usuario=$id_usuario ORDER BY id_modulo ASC LIMIT 1");
-    if($res_mods && mysqli_num_rows($res_mods)>0){
-        $prim_mod = mysqli_fetch_assoc($res_mods);
-        if(!$id_modulo) $id_modulo = intval($prim_mod['id_modulo']);
-        $numero_serie = $prim_mod['numero_serie'];
-        $modulo_nombre = $prim_mod['nombre'];
+// ÚLTIMO REGISTRO: Obtiene la última medición registrada para el módulo activo
+if ($id_modulo > 0) {
+    $stmt_ultimo = $conexion->prepare("SELECT * FROM datos WHERE id_modulo = ? ORDER BY fecha_hora DESC LIMIT 1");
+    $stmt_ultimo->bind_param("i", $id_modulo);
+    $stmt_ultimo->execute();
+    $res_ultimo = $stmt_ultimo->get_result();
+    
+    if ($res_ultimo && $res_ultimo->num_rows > 0) {
+        $d = $res_ultimo->fetch_assoc();
+        $tension = $d['tension']; 
+        $corriente = $d['corriente']; 
+        $potencia = $d['potencia'];
+        $energia = $d['energia']; 
+        $angulo = $d['angulo']; 
+        $intensidad = $d['intensidad'];
+        $fecha_ultimo = $d['fecha_hora'];
     }
+    $stmt_ultimo->close();
+
+    // DATOS DETALLADOS: Obtiene los últimos 20 registros para construir la serie temporal del gráfico
+    $stmt_det = $conexion->prepare("SELECT fecha_hora, energia FROM datos WHERE id_modulo = ? ORDER BY fecha_hora DESC LIMIT 20");
+    $stmt_det->bind_param("i", $id_modulo);
+    $stmt_det->execute();
+    $res_det = $stmt_det->get_result();
+    
+    if ($res_det && $res_det->num_rows > 0) {
+        while ($fila = $res_det->fetch_assoc()) {
+            $datos_detallados[] = [
+                "fecha" => $fila['fecha_hora'],
+                "hora"  => date("H:i:s", strtotime($fila['fecha_hora'])),
+                "valor" => floatval($fila['energia']) * 1000 // Conversión de kWh a Watt-hora (Wh)
+            ];
+        }
+    }
+    $stmt_det->close();
 }
 
-// ÚLTIMO REGISTRO: Obtiene la última medición registrada para el módulo activo (tensión, corriente, potencia, etc.)
-$ultimo_reg = mysqli_query($conexion,"SELECT * FROM datos WHERE id_modulo=$id_modulo ORDER BY fecha_hora DESC LIMIT 1");
-if($ultimo_reg && mysqli_num_rows($ultimo_reg)>0){
-    $d = mysqli_fetch_assoc($ultimo_reg);
-    $tension=$d['tension']; $corriente=$d['corriente']; $potencia=$d['potencia'];
-    $energia=$d['energia']; $angulo=$d['angulo']; $intensidad=$d['intensidad'];
-    $fecha_ultimo=$d['fecha_hora'];
-}
-
-// DATOS DETALLADOS: Obtiene los últimos 20 registros para construir la serie temporal del gráfico
-$res_det = mysqli_query($conexion,"SELECT fecha_hora,energia FROM datos WHERE id_modulo=$id_modulo ORDER BY fecha_hora DESC LIMIT 20");
-if($res_det && mysqli_num_rows($res_det)>0){
-    while($fila=mysqli_fetch_assoc($res_det)){
-        $datos_detallados[]= [
-            "fecha"=>$fila['fecha_hora'],
-            "hora"=>date("H:i:s",strtotime($fila['fecha_hora'])),
-            "valor"=>floatval($fila['energia'])*1000 // Conversión a Watt-hora (Wh)
-        ];
-    }
-}
 // Invierte el orden de las mediciones para mostrarlas cronológicamente de izquierda a derecha
 $datos_detallados = array_reverse($datos_detallados);
 
 // VALOR ESTIMADO GENERADO: Calcula el monto monetario generado según la tarifa local de kWh
-$valor_wh = $energia*1000; // Wh
-$precio_kwh = 64; // Precio en ARS por kWh (Necochea aprox)
-$estimado = $valor_wh/1000*$precio_kwh;
+$precio_kwh = 64; // Precio en ARS por kWh
+$estimado = ($energia !== null) ? ($energia * $precio_kwh) : 0;
 ?>
 
 <!-- Hojas de estilo locales e internas del panel -->
@@ -87,24 +123,25 @@ $estimado = $valor_wh/1000*$precio_kwh;
 
 <main>
 
-<!-- Formulario de filtros para seleccionar el módulo a visualizar y la vista de registros -->
+<!-- Formulario de filtros para seleccionar el módulo a visualizar -->
 <form class="filtro-panel" method="get">
-    <input type="hidden" name="id_modulo" value="<?= $id_modulo ?>">
     <label>Módulo:</label>
     <select name="id_modulo" onchange="this.form.submit()">
-        <?php
-        // Renderiza en el desplegable todos los módulos asociados al usuario actual
-        $res_mods_all = mysqli_query($conexion,"SELECT * FROM modulos WHERE id_usuario=$id_usuario");
-        while($fila=mysqli_fetch_assoc($res_mods_all)){
-            $sel = ($id_modulo==$fila['id_modulo'])?'selected':'';
-            echo "<option value='{$fila['id_modulo']}' $sel>N° serie {$fila['numero_serie']}</option>";
-        }
-        ?>
+        <?php if (!empty($modulos_usuario)): ?>
+            <?php foreach ($modulos_usuario as $mod): ?>
+                <?php $sel = ($id_modulo == $mod['id_modulo']) ? 'selected' : ''; ?>
+                <option value="<?= $mod['id_modulo'] ?>" <?= $sel ?>>
+                    <?= htmlspecialchars($mod['nombre']) ?> (N° serie <?= htmlspecialchars($mod['numero_serie']) ?>)
+                </option>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <option value="0">Sin módulos registrados</option>
+        <?php endif; ?>
     </select>
 
     <label>Mostrar:</label>
     <select name="mostrar" onchange="this.form.submit()">
-        <option value="10s" <?= $mostrar=='10s'?'selected':'' ?>>Últimos 20 registros</option>
+        <option value="10s" <?= $mostrar == '10s' ? 'selected' : '' ?>>Últimos 20 registros</option>
     </select>
 </form>
 
@@ -112,10 +149,10 @@ $estimado = $valor_wh/1000*$precio_kwh;
 <div class="tarjeta-ultimo">
     <h3>Último registro</h3>
     <p><strong>Fecha:</strong> <?= $fecha_ultimo ?? "—" ?></p>
-    <p><strong>Tensión:</strong> <?= $tension ?> V</p>
-    <p><strong>Corriente:</strong> <?= $corriente ?> A</p>
-    <p><strong>Potencia:</strong> <?= $potencia ?> W</p>
-     <p><strong>Energía:</strong> <?= $energia ?> Wats </p>
+    <p><strong>Tensión:</strong> <?= $tension !== null ? $tension . " V" : "—" ?></p>
+    <p><strong>Corriente:</strong> <?= $corriente !== null ? $corriente . " A" : "—" ?></p>
+    <p><strong>Potencia:</strong> <?= $potencia !== null ? $potencia . " W" : "—" ?></p>
+    <p><strong>Energía:</strong> <?= $energia !== null ? $energia . " kWh" : "—" ?></p>
 </div>
 
 <!-- Contenedor del gráfico de área/líneas de la fluctuación de energía -->
@@ -131,16 +168,16 @@ $estimado = $valor_wh/1000*$precio_kwh;
 <!-- Tarjeta con el importe monetario estimado de la energía producida -->
 <div class="tarjeta-ultimo">
     <h3>Valor estimado generado</h3>
-    <p><strong>$ ARS:</strong> <?= number_format($estimado,2,",",".") ?></p>
+    <p><strong>$ ARS:</strong> $<?= number_format($estimado, 2, ",", ".") ?></p>
 </div>
 
 <!-- Transferencia de variables PHP hacia variables globales en JavaScript -->
 <script>
-window.id_modulo = <?= $id_modulo ?>;
+window.id_modulo = <?= json_encode($id_modulo) ?>;
 window.datosDetallado = <?= json_encode($datos_detallados) ?>;
 </script>
 
-<!-- Librería externa de librerías para gráficos ApexCharts y script de inicialización -->
+<!-- Librería externa para gráficos ApexCharts y script de inicialización -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="/js/configuracionChart.js"></script>
 

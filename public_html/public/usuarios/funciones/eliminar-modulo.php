@@ -37,14 +37,35 @@ try {
     // Iniciar transacción para asegurar la integridad de los datos
     $conexion->begin_transaction();
 
-    // 1. Primero, eliminar los sensores asociados al módulo (si existen)
-    $query_delete_sensores = "DELETE FROM sensores WHERE id_modulo = ?";
-    $stmt_sensores = $conexion->prepare($query_delete_sensores);
-    $stmt_sensores->bind_param("i", $id_modulo);
-    $stmt_sensores->execute();
-    $stmt_sensores->close();
+    // 1. Eliminar datos asociados al módulo en la tabla datos
+    $query_delete_datos = "DELETE FROM datos WHERE id_modulo = ?";
+    $stmt_datos = $conexion->prepare($query_delete_datos);
+    $stmt_datos->bind_param("i", $id_modulo);
+    $stmt_datos->execute();
+    $stmt_datos->close();
 
-    // 2. Luego, eliminar el módulo
+    // 2. Eliminar promedios diarios asociados
+    $query_delete_promd = "DELETE FROM promedio_diario WHERE id_modulo = ?";
+    $stmt_promd = $conexion->prepare($query_delete_promd);
+    $stmt_promd->bind_param("i", $id_modulo);
+    $stmt_promd->execute();
+    $stmt_promd->close();
+
+    // 3. Eliminar promedios semanales asociados
+    $query_delete_proms = "DELETE FROM promedio_semanal WHERE id_modulo = ?";
+    $stmt_proms = $conexion->prepare($query_delete_proms);
+    $stmt_proms->bind_param("i", $id_modulo);
+    $stmt_proms->execute();
+    $stmt_proms->close();
+
+    // 4. Desvincular productos asociados (o eliminar si es el comportamiento deseado)
+    $query_update_productos = "DELETE FROM productos WHERE id_modulo = ?";
+    $stmt_productos = $conexion->prepare($query_update_productos);
+    $stmt_productos->bind_param("i", $id_modulo);
+    $stmt_productos->execute();
+    $stmt_productos->close();
+
+    // 5. Finalmente, eliminar el módulo
     $query_delete_modulo = "DELETE FROM modulos WHERE id_modulo = ? AND id_usuario = ?";
     $stmt_modulo = $conexion->prepare($query_delete_modulo);
     $stmt_modulo->bind_param("ii", $id_modulo, $usuario_id);

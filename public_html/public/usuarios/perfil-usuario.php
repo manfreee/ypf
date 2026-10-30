@@ -1,6 +1,17 @@
 <?php
 /*Este código define la maquetación base del panel de usuario público. Carga el encabezado de la página, los estilos visuales de configuración y autenticación, y monta un menú lateral de navegación con pestañas (Configuración de la cuenta, Mis Módulos, Mis pedidos y una opción directa para Cerrar sesión). Al igual que el panel administrativo visto anteriormente, deja el contenedor .seccion-configuracion-especifica vacío para que los scripts de JavaScript inyecten dinámicamente el contenido de cada sección según la pestaña seleccionada, finalizando con la carga del pie de página global.*/
 
+// Iniciar sesión si no está iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Verificar autenticación
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: /public/public/iniciar-sesion.php');
+    exit();
+}
+
 // Incluye el encabezado global de la aplicación web
 include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php';
 ?>
@@ -42,16 +53,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/header.php';
 
     </div>
 </main>
-</div>
 
 <!-- Scripts de JavaScript encargados de gestionar los eventos de interacción, modales y llamadas AJAX -->
 <script src="/js/configuracion.js"></script>
 <script src="/js/mostrarModificar.js"></script>
 <script src="/js/mostrar-flotante.js"></script>
 <script src="/js/modificar.js"></script>
-<!-- <script src="/Luminora/assets/js/configuracion.js"></script>
-<script src="/Luminora/assets/js/select.js"></script>
-<script src="/Luminora/assets/js/ridirigir-panel.js"></script> -->
 
 <!-- Carga del componente de pie de página global -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/public/public/componentes/footer.php'; ?>
