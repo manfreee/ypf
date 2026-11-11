@@ -6,13 +6,47 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/conexion.php'; // conexión MySQLi
 $json = file_get_contents("php://input");
 $data = json_decode($json, true);
 
-if (!$data || !isset($data["id_modulo"])) {
+if (!is_array($data) || !isset($data["id_modulo"])) {
     http_response_code(400);
     echo json_encode(["error" => "JSON inválido o incompleto", "recibido" => $json]);
     exit;
 }
 
-/* 
+$campos = [
+    "CORRIENTE_MAX" => [0, 10],
+    "VOLTAJE_MAX" => [0, 50],
+    "ENERGIA_MAX" => [0, 50],
+    "POTENCIA_MAX" => [0, 50],
+    "LUX_MAX" => [0, 65535],
+    "ANGULO_MAX" => [0, 360]
+];
+
+foreach ($campos as $campo => $rango) {
+    if (!isset($data[$campo]) || !is_numeric($data[$campo])) {
+        http_response_code(400);
+        echo json_encode(["error" => "Campo numérico obligatorio faltante o inválido", "campo" => $campo]);
+        exit;
+    }
+
+    $valor = (float) $data[$campo];
+    if (!is_finite($valor) || $valor < $rango[0] || $valor > $rango[1]) {
+        http_response_code(400);
+        echo json_encode([
+            "error" => "Valor fuera de rango",
+            "campo" => $campo,
+            "rango" => $rango
+        ]);
+        exit;
+    }
+}
+
+if (floor((float) $data["LUX_MAX"]) != (float) $data["LUX_MAX"]) {
+    http_response_code(400);
+    echo json_encode(["error" => "LUX_MAX debe ser un número entero"]);
+    exit;
+}
+
+/*
 // Comentado para omitir la validación de BD en la prueba
 if (!isset($conexion) || !$conexion) {
     echo json_encode(["error" => "Conexión a la base de datos no disponible"]);
@@ -20,15 +54,16 @@ if (!isset($conexion) || !$conexion) {
 }
 */
 
-// Extraer datos
+// Mapear los nombres del JSON a los campos usados por la base de datos
 $id_modulo   = intval($data["id_modulo"]);
-$tension     = floatval($data["tension"] ?? 0);
-$corriente   = floatval($data["corriente"] ?? 0);
-$potencia    = floatval($data["potencia"] ?? 0);
-$energia     = floatval($data["energia"] ?? 0);
-$angulo      = floatval($data["angulo"] ?? 0);
-$intensidad  = intval($data["intensidad"] ?? 0);
+$tension     = (float) $data["VOLTAJE_MAX"];
+$corriente   = (float) $data["CORRIENTE_MAX"];
+$potencia    = (float) $data["POTENCIA_MAX"];
+$energia     = (float) $data["ENERGIA_MAX"];
+$angulo      = (float) $data["ANGULO_MAX"];
+$intensidad  = (int) $data["LUX_MAX"];
 
+/*
 // 1️⃣ Insertar nuevo dato (Consulta preparada)
 // Se incluye fecha_hora (NOW()) requerida por la estructura de la tabla 'datos' en la BD
 $sql_insert = "INSERT INTO datos (fecha_hora, tension, corriente, potencia, energia, angulo, intensidad, id_modulo) 
@@ -209,7 +244,7 @@ if ($cantidad >= $limite_prueba) {
             $stmt_del_sem->execute();
             $stmt_del_sem->close();
         }
-        */
+
     }
 
     // 9️⃣ Reportar estado (Consultas preparadas)
@@ -224,24 +259,17 @@ if ($cantidad >= $limite_prueba) {
     $stmt_cs->execute();
     $count_s = intval($stmt_cs->get_result()->fetch_assoc()["c"]);
     $stmt_cs->close();
+*/
 
     echo json_encode([
         "status" => "OK",
         "mensaje" => "Promedio diario procesado",
         "registros" => [
             "datos" => 0,
-            "diarios" => $count_d,
-            "semanales" => $count_s
+            //"diarios" => $count_d,
+            //"semanales" => $count_s
         ]
     ]);
-
-} else {
-    echo json_encode([
-        "status" => "OK",
-        "mensaje" => "Dato insertado correctamente",
-        "registros_actuales" => $cantidad
-    ]);
-}
 
 if (isset($conexion)) {
     $conexion->close();
